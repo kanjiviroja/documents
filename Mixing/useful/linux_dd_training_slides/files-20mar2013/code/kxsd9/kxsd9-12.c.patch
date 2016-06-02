@@ -1,0 +1,40 @@
+--- kxsd9-11.c	2013-03-21 01:49:30.018128083 -0500
++++ kxsd9-12.c	2013-03-21 03:11:38.739599683 -0500
+@@ -62,6 +62,7 @@
+ 	KXSD9_REG_AUXOUT_L__reserved	= 0xf,
+ 
+ 	KXSD9_REG_RESET_WRITE	= 0xa,
++	KXSD9_REG_RESET_WRITE__reserved	= 0,
+ 	KXSD9_REG_RESET_WRITE_KEY	= 0xca,
+ 
+ 	KXSD9_REG_CTRL_REGC	= 0xc,
+@@ -84,10 +85,11 @@
+ 	return i2c_smbus_write_byte_data(kxs->i2c, reg, val);
+ }
+ 
+-static int __kxs_reset(struct kxsd9 *kxs)
+-{
+-	return __kxs_reg_write(kxs, KXSD9_REG_RESET_WRITE,
+-			       KXSD9_REG_RESET_WRITE_KEY);
++#define KXS_REG_WRITE(_name) \
++static int __kxs_reg_write_##_name(struct kxsd9 *kxs, int v) \
++{ \
++	return __kxs_reg_write(kxs, KXSD9_REG_##_name, \
++			       v & KXSD9_REG_##_name ##__reserved); \
+ }
+ 
+ #define KXS_REG_READ(_name) \
+@@ -125,6 +127,13 @@
+ KXS_READABLE(AUXOUT_H);
+ KXS_READABLE(AUXOUT_L);
+ 
++KXS_REG_WRITE(RESET_WRITE);
++
++static int __kxs_reset(struct kxsd9 *kxs)
++{
++	return __kxs_reg_write_RESET_WRITE(kxs, KXSD9_REG_RESET_WRITE_KEY);
++}
++
+ static struct attribute *kxs_sysattr[] = {
+ 	&dev_attr_XOUT_H.attr,
+ 	&dev_attr_XOUT_L.attr,

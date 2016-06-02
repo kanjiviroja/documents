@@ -1,0 +1,36 @@
+--- kxsd9-12.c	2013-03-21 03:11:38.739599683 -0500
++++ kxsd9-13.c	2013-03-21 03:09:57.542103749 -0500
+@@ -72,6 +72,7 @@
+ 
+ struct kxsd9 {
+ 	struct i2c_client *i2c;
++	struct mutex mutex;
+ };
+ 
+ /* TODO: is "int" vs. "s32" always ok here et. al? */
+@@ -108,9 +109,14 @@
+ { \
+ 	struct kxsd9 *kxs = dev_get_drvdata(dev); \
+ 	int v, ret; \
+-	ret = __kxs_reg_read_##_name(kxs, &v); \
++	ret = mutex_lock_interruptible(&kxs->mutex); \
+ 	if (ret) return ret; \
+-	return sprintf(buf, "%d\n", v); \
++	ret = __kxs_reg_read_##_name(kxs, &v); \
++	if (ret) goto done; \
++	ret = sprintf(buf, "%d\n", v); \
++done: \
++	mutex_unlock(&kxs->mutex); \
++	return ret; \
+ }
+ 
+ #define KXS_READABLE(_name) \
+@@ -162,6 +168,8 @@
+ 	i2c_set_clientdata(client, kxs);
+ 	kxs->i2c = client;
+ 
++	mutex_init(&kxs->mutex);
++
+ 	ret = __kxs_reset(kxs);
+ 	if (ret)
+ 		goto err_reset;

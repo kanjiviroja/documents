@@ -1,0 +1,51 @@
+--- kxsd9-10.c	2013-03-21 01:41:23.350105562 -0500
++++ kxsd9-11.c	2013-03-21 01:49:30.018128083 -0500
+@@ -45,16 +45,21 @@
+ 
+ enum {
+ 	KXSD9_REG_XOUT_H	= 0x0,
+-	KXSD9_REG_XOUT_H__reserved	= 0x0,
++	KXSD9_REG_XOUT_H__reserved	= 0,
+ 	KXSD9_REG_XOUT_L	= 0x1,
++	KXSD9_REG_XOUT_L__reserved	= 0xf,
+ 	KXSD9_REG_YOUT_H	= 0x2,
+-	KXSD9_REG_YOUT_H__reserved	= 0x0,
++	KXSD9_REG_YOUT_H__reserved	= 0,
+ 	KXSD9_REG_YOUT_L	= 0x3,
++	KXSD9_REG_YOUT_L__reserved	= 0xf,
+ 	KXSD9_REG_ZOUT_H	= 0x4,
+-	KXSD9_REG_ZOUT_H__reserved	= 0x0,
++	KXSD9_REG_ZOUT_H__reserved	= 0,
+ 	KXSD9_REG_ZOUT_L	= 0x5,
++	KXSD9_REG_ZOUT_L__reserved	= 0xf,
+ 	KXSD9_REG_AUXOUT_H	= 0x6,
++	KXSD9_REG_AUXOUT_H__reserved	= 0,
+ 	KXSD9_REG_AUXOUT_L	= 0x7,
++	KXSD9_REG_AUXOUT_L__reserved	= 0xf,
+ 
+ 	KXSD9_REG_RESET_WRITE	= 0xa,
+ 	KXSD9_REG_RESET_WRITE_KEY	= 0xca,
+@@ -112,13 +117,23 @@
+ static DEVICE_ATTR(_name, S_IRUGO, kxsd9_show_##_name, NULL);
+ 
+ KXS_READABLE(XOUT_H);
++KXS_READABLE(XOUT_L);
+ KXS_READABLE(YOUT_H);
++KXS_READABLE(YOUT_L);
+ KXS_READABLE(ZOUT_H);
++KXS_READABLE(ZOUT_L);
++KXS_READABLE(AUXOUT_H);
++KXS_READABLE(AUXOUT_L);
+ 
+ static struct attribute *kxs_sysattr[] = {
+ 	&dev_attr_XOUT_H.attr,
++	&dev_attr_XOUT_L.attr,
+ 	&dev_attr_YOUT_H.attr,
++	&dev_attr_YOUT_L.attr,
+ 	&dev_attr_ZOUT_H.attr,
++	&dev_attr_ZOUT_L.attr,
++	&dev_attr_AUXOUT_H.attr,
++	&dev_attr_AUXOUT_L.attr,
+ 	NULL,
+ };
+ static struct attribute_group kxs_sysattrg = {

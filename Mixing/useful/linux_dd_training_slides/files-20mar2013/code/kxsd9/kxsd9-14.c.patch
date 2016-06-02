@@ -1,0 +1,124 @@
+--- kxsd9-13.c	2013-03-21 03:09:57.542103749 -0500
++++ kxsd9-14.c	2013-03-21 05:56:22.998134001 -0500
+@@ -42,6 +42,8 @@
+ #include <linux/i2c.h>
+ #include <linux/delay.h>
+ #include <linux/mutex.h>
++#include <linux/pm.h>
++#include <linux/pm_runtime.h>
+ 
+ enum {
+ 	KXSD9_REG_XOUT_H	= 0x0,
+@@ -140,6 +142,34 @@
+ 	return __kxs_reg_write_RESET_WRITE(kxs, KXSD9_REG_RESET_WRITE_KEY);
+ }
+ 
++static int kxs_runtime_suspend(struct device *dev)
++{
++	struct kxsd9 *kxs = dev_get_drvdata(dev);
++	int ret;
++
++	dev_err(dev, "%s\n", __func__);
++	ret = mutex_lock_interruptible(&kxs->mutex);
++	if (ret)
++		return ret;
++	mutex_unlock(&kxs->mutex);
++
++	return 0;
++}
++
++static int kxs_runtime_resume(struct device *dev)
++{
++	struct kxsd9 *kxs = dev_get_drvdata(dev);
++	int ret;
++
++	dev_err(dev, "%s\n", __func__);
++	ret = mutex_lock_interruptible(&kxs->mutex);
++	if (ret)
++		return ret;
++	mutex_unlock(&kxs->mutex);
++
++	return 0;
++}
++
+ static struct attribute *kxs_sysattr[] = {
+ 	&dev_attr_XOUT_H.attr,
+ 	&dev_attr_XOUT_L.attr,
+@@ -155,7 +185,7 @@
+ 	.attrs = kxs_sysattr,
+ };
+ 
+-static int kxs_probe(struct i2c_client *client,
++static int kxs_probe(struct i2c_client *dev,
+ 		     const struct i2c_device_id *id)
+ {
+ 	struct kxsd9 *kxs;
+@@ -165,32 +195,45 @@
+ 	if (!kxs)
+ 		return -ENOMEM;
+ 
+-	i2c_set_clientdata(client, kxs);
+-	kxs->i2c = client;
++	i2c_set_clientdata(dev, kxs);
++	kxs->i2c = dev;
+ 
+ 	mutex_init(&kxs->mutex);
+ 
++	pm_runtime_set_suspended(&dev->dev);
++	pm_runtime_set_autosuspend_delay(&dev->dev, 5000);
++	pm_runtime_use_autosuspend(&dev->dev);
++	pm_runtime_enable(&dev->dev);
++
++	ret = pm_runtime_resume(&dev->dev);
++	if (ret)
++		goto err_pm_runtime_resume;
++
+ 	ret = __kxs_reset(kxs);
+ 	if (ret)
+ 		goto err_reset;
+ 
+-	ret = sysfs_create_group(&client->dev.kobj, &kxs_sysattrg);
++	ret = sysfs_create_group(&dev->dev.kobj, &kxs_sysattrg);
+ 	if (ret)
+ 		goto err_sysfs_create_group;
+ 
+ 	return 0;
+ 
++	sysfs_remove_group(&dev->dev.kobj, &kxs_sysattrg);
+ err_sysfs_create_group:
+ err_reset:
++err_pm_runtime_resume:
++	pm_runtime_disable(&dev->dev);
+ 	kfree(kxs);
+ 	return ret;
+ }
+ 
+-static int kxs_remove(struct i2c_client *client)
++static int kxs_remove(struct i2c_client *dev)
+ {
+-	struct kxsd9 *kxs = i2c_get_clientdata(client);
++	struct kxsd9 *kxs = i2c_get_clientdata(dev);
+ 
+-	sysfs_remove_group(&client->dev.kobj, &kxs_sysattrg);
++	pm_runtime_disable(&dev->dev);
++	sysfs_remove_group(&dev->dev.kobj, &kxs_sysattrg);
+ 	i2c_set_clientdata(kxs->i2c, NULL);
+ 	kfree(kxs);
+ 	return 0;
+@@ -201,10 +244,16 @@
+ 	{}
+ };
+ 
++static struct dev_pm_ops kxs_pm_ops = {
++	.runtime_suspend = kxs_runtime_suspend,
++	.runtime_resume = kxs_runtime_resume,
++};
++
+ static struct i2c_driver kxs_driver = {
+ 	.driver = {
+ 		.name  = "kxsd9",
+ 		.owner = THIS_MODULE,
++		.pm    = &kxs_pm_ops,
+ 	},
+ 	.probe         = kxs_probe,
+ 	.remove        = kxs_remove,

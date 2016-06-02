@@ -1,0 +1,48 @@
+--- kxsd9-3.c	2013-03-20 05:32:58.570625518 -0500
++++ kxsd9-4.c	2013-03-20 05:45:49.930468230 -0500
+@@ -65,13 +65,11 @@
+ 	struct i2c_client *i2c;
+ };
+ 
+-#if 0
+ /* TODO: is "int" vs. "s32" always ok here et. al? */
+ static int __kxs_reg_read(struct kxsd9 *kxs, int reg)
+ {
+ 	return i2c_smbus_read_byte_data(kxs->i2c, reg);
+ }
+-#endif
+ 
+ static int __kxs_reg_write(struct kxsd9 *kxs, int reg, int val)
+ {
+@@ -84,8 +82,7 @@
+ 			       KXSD9_REG_RESET_WRITE_KEY);
+ }
+ 
+-#if 0
+-static int __kxs_reg_xout_h(struct kxsd9 *kxs, int *xout_h)
++static int __kxs_reg_read_XOUT_H(struct kxsd9 *kxs, int *xout_h)
+ {
+ 	int ret;
+ 
+@@ -95,13 +92,19 @@
+ 	*xout_h = ret;
+ 	return 0;
+ }
+-#endif
+ 
+ static ssize_t kxsd9_show_XOUT_H(struct device *dev, 
+ 				 struct device_attribute *attr,
+ 				 char *buf)
+ {
+-	return 0;
++	struct kxsd9 *kxs = dev_get_drvdata(dev);
++	int xout_h;
++	int ret;
++
++	ret = __kxs_reg_read_XOUT_H(kxs, &xout_h);
++	if (ret)
++		return ret;
++	return sprintf(buf, "%d\n", xout_h);
+ }
+ 
+ const DEVICE_ATTR(XOUT_H, S_IRUGO, kxsd9_show_XOUT_H, NULL);

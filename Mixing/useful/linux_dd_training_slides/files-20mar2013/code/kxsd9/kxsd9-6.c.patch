@@ -1,0 +1,11 @@
+--- kxsd9-5.c	2013-03-20 06:03:12.938576004 -0500
++++ kxsd9-6.c	2013-03-20 06:04:58.343826187 -0500
+@@ -97,7 +97,7 @@
+ {
+ 	int ret;
+ 
+-	ret = __kxs_reg_read(kxs, KXSD9_REG_XOUT_H);
++	ret = __kxs_reg_read(kxs, KXSD9_REG_YOUT_H);
+ 	if (ret < 0)
+ 		return ret;
+ 	*yout_h = ret;

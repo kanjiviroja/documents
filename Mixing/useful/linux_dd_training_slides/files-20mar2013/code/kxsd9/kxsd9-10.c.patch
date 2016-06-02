@@ -1,0 +1,60 @@
+--- kxsd9-9.c	2013-03-21 01:21:37.526349517 -0500
++++ kxsd9-10.c	2013-03-21 01:41:23.350105562 -0500
+@@ -109,12 +109,22 @@
+ #define KXS_READABLE(_name) \
+ KXS_REG_READ(_name); \
+ KXS_REG_SHOW(_name); \
+-static const DEVICE_ATTR(_name, S_IRUGO, kxsd9_show_##_name, NULL);
++static DEVICE_ATTR(_name, S_IRUGO, kxsd9_show_##_name, NULL);
+ 
+ KXS_READABLE(XOUT_H);
+ KXS_READABLE(YOUT_H);
+ KXS_READABLE(ZOUT_H);
+ 
++static struct attribute *kxs_sysattr[] = {
++	&dev_attr_XOUT_H.attr,
++	&dev_attr_YOUT_H.attr,
++	&dev_attr_ZOUT_H.attr,
++	NULL,
++};
++static struct attribute_group kxs_sysattrg = {
++	.attrs = kxs_sysattr,
++};
++
+ static int kxs_probe(struct i2c_client *client,
+ 		     const struct i2c_device_id *id)
+ {
+@@ -132,19 +142,13 @@
+ 	if (ret)
+ 		goto err_reset;
+ 
+-	ret = device_create_file(&client->dev, &dev_attr_XOUT_H);
+-	if (ret)
+-		goto err_device_create_file;
+-	ret = device_create_file(&client->dev, &dev_attr_YOUT_H);
+-	if (ret)
+-		goto err_device_create_file;
+-	ret = device_create_file(&client->dev, &dev_attr_ZOUT_H);
++	ret = sysfs_create_group(&client->dev.kobj, &kxs_sysattrg);
+ 	if (ret)
+-		goto err_device_create_file;
++		goto err_sysfs_create_group;
+ 
+ 	return 0;
+ 
+-err_device_create_file:
++err_sysfs_create_group:
+ err_reset:
+ 	kfree(kxs);
+ 	return ret;
+@@ -154,9 +158,7 @@
+ {
+ 	struct kxsd9 *kxs = i2c_get_clientdata(client);
+ 
+-	device_remove_file(&client->dev, &dev_attr_ZOUT_H);
+-	device_remove_file(&client->dev, &dev_attr_YOUT_H);
+-	device_remove_file(&client->dev, &dev_attr_XOUT_H);
++	sysfs_remove_group(&client->dev.kobj, &kxs_sysattrg);
+ 	i2c_set_clientdata(kxs->i2c, NULL);
+ 	kfree(kxs);
+ 	return 0;

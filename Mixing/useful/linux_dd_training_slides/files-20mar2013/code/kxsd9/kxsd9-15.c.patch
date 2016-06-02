@@ -1,0 +1,20 @@
+--- kxsd9-14.c	2013-03-21 05:56:22.998134001 -0500
++++ kxsd9-15.c	2013-03-21 05:55:52.126131239 -0500
+@@ -111,6 +111,8 @@
+ { \
+ 	struct kxsd9 *kxs = dev_get_drvdata(dev); \
+ 	int v, ret; \
++	ret = pm_runtime_get_sync(dev); \
++	if (ret) return ret; \
+ 	ret = mutex_lock_interruptible(&kxs->mutex); \
+ 	if (ret) return ret; \
+ 	ret = __kxs_reg_read_##_name(kxs, &v); \
+@@ -118,6 +120,8 @@
+ 	ret = sprintf(buf, "%d\n", v); \
+ done: \
+ 	mutex_unlock(&kxs->mutex); \
++	pm_runtime_mark_last_busy(dev); \
++	pm_runtime_put_autosuspend(dev); \
+ 	return ret; \
+ }
+ 

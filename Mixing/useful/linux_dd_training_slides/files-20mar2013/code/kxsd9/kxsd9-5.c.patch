@@ -1,0 +1,93 @@
+--- kxsd9-4.c	2013-03-20 05:45:49.930468230 -0500
++++ kxsd9-5.c	2013-03-20 06:03:12.938576004 -0500
+@@ -93,6 +93,28 @@
+ 	return 0;
+ }
+ 
++static int __kxs_reg_read_YOUT_H(struct kxsd9 *kxs, int *yout_h)
++{
++	int ret;
++
++	ret = __kxs_reg_read(kxs, KXSD9_REG_XOUT_H);
++	if (ret < 0)
++		return ret;
++	*yout_h = ret;
++	return 0;
++}
++
++static int __kxs_reg_read_ZOUT_H(struct kxsd9 *kxs, int *zout_h)
++{
++	int ret;
++
++	ret = __kxs_reg_read(kxs, KXSD9_REG_ZOUT_H);
++	if (ret < 0)
++		return ret;
++	*zout_h = ret;
++	return 0;
++}
++
+ static ssize_t kxsd9_show_XOUT_H(struct device *dev, 
+ 				 struct device_attribute *attr,
+ 				 char *buf)
+@@ -106,9 +128,38 @@
+ 		return ret;
+ 	return sprintf(buf, "%d\n", xout_h);
+ }
+-
+ const DEVICE_ATTR(XOUT_H, S_IRUGO, kxsd9_show_XOUT_H, NULL);
+ 
++static ssize_t kxsd9_show_YOUT_H(struct device *dev, 
++				 struct device_attribute *attr,
++				 char *buf)
++{
++	struct kxsd9 *kxs = dev_get_drvdata(dev);
++	int yout_h;
++	int ret;
++
++	ret = __kxs_reg_read_YOUT_H(kxs, &yout_h);
++	if (ret)
++		return ret;
++	return sprintf(buf, "%d\n", yout_h);
++}
++const DEVICE_ATTR(YOUT_H, S_IRUGO, kxsd9_show_YOUT_H, NULL);
++
++static ssize_t kxsd9_show_ZOUT_H(struct device *dev, 
++				 struct device_attribute *attr,
++				 char *buf)
++{
++	struct kxsd9 *kxs = dev_get_drvdata(dev);
++	int zout_h;
++	int ret;
++
++	ret = __kxs_reg_read_ZOUT_H(kxs, &zout_h);
++	if (ret)
++		return ret;
++	return sprintf(buf, "%d\n", zout_h);
++}
++const DEVICE_ATTR(ZOUT_H, S_IRUGO, kxsd9_show_ZOUT_H, NULL);
++
+ static int kxs_probe(struct i2c_client *client,
+ 		     const struct i2c_device_id *id)
+ {
+@@ -129,6 +180,12 @@
+ 	ret = device_create_file(&client->dev, &dev_attr_XOUT_H);
+ 	if (ret)
+ 		goto err_device_create_file;
++	ret = device_create_file(&client->dev, &dev_attr_YOUT_H);
++	if (ret)
++		goto err_device_create_file;
++	ret = device_create_file(&client->dev, &dev_attr_ZOUT_H);
++	if (ret)
++		goto err_device_create_file;
+ 
+ 	return 0;
+ 
+@@ -142,6 +199,8 @@
+ {
+ 	struct kxsd9 *kxs = i2c_get_clientdata(client);
+ 
++	device_remove_file(&client->dev, &dev_attr_ZOUT_H);
++	device_remove_file(&client->dev, &dev_attr_YOUT_H);
+ 	device_remove_file(&client->dev, &dev_attr_XOUT_H);
+ 	i2c_set_clientdata(kxs->i2c, NULL);
+ 	kfree(kxs);

@@ -1,0 +1,66 @@
+--- kxsd9-7.c	2013-03-21 01:07:36.571599441 -0500
++++ kxsd9-8.c	2013-03-21 01:16:32.810135063 -0500
+@@ -98,49 +98,24 @@
+ KXS_REG_READ(YOUT_H);
+ KXS_REG_READ(ZOUT_H);
+ 
+-static ssize_t kxsd9_show_XOUT_H(struct device *dev, 
+-				 struct device_attribute *attr,
+-				 char *buf)
+-{
+-	struct kxsd9 *kxs = dev_get_drvdata(dev);
+-	int xout_h;
+-	int ret;
+-
+-	ret = __kxs_reg_read_XOUT_H(kxs, &xout_h);
+-	if (ret)
+-		return ret;
+-	return sprintf(buf, "%d\n", xout_h);
++#define KXS_REG_SHOW(_name) \
++static ssize_t kxsd9_show_##_name(struct device *dev, \
++				 struct device_attribute *attr, \
++				 char *buf) \
++{ \
++	struct kxsd9 *kxs = dev_get_drvdata(dev); \
++	int v, ret; \
++	ret = __kxs_reg_read_##_name(kxs, &v); \
++	if (ret) return ret; \
++	return sprintf(buf, "%d\n", v); \
+ }
+-const DEVICE_ATTR(XOUT_H, S_IRUGO, kxsd9_show_XOUT_H, NULL);
+ 
+-static ssize_t kxsd9_show_YOUT_H(struct device *dev, 
+-				 struct device_attribute *attr,
+-				 char *buf)
+-{
+-	struct kxsd9 *kxs = dev_get_drvdata(dev);
+-	int yout_h;
+-	int ret;
++KXS_REG_SHOW(XOUT_H);
++KXS_REG_SHOW(YOUT_H);
++KXS_REG_SHOW(ZOUT_H);
+ 
+-	ret = __kxs_reg_read_YOUT_H(kxs, &yout_h);
+-	if (ret)
+-		return ret;
+-	return sprintf(buf, "%d\n", yout_h);
+-}
++const DEVICE_ATTR(XOUT_H, S_IRUGO, kxsd9_show_XOUT_H, NULL);
+ const DEVICE_ATTR(YOUT_H, S_IRUGO, kxsd9_show_YOUT_H, NULL);
+-
+-static ssize_t kxsd9_show_ZOUT_H(struct device *dev, 
+-				 struct device_attribute *attr,
+-				 char *buf)
+-{
+-	struct kxsd9 *kxs = dev_get_drvdata(dev);
+-	int zout_h;
+-	int ret;
+-
+-	ret = __kxs_reg_read_ZOUT_H(kxs, &zout_h);
+-	if (ret)
+-		return ret;
+-	return sprintf(buf, "%d\n", zout_h);
+-}
+ const DEVICE_ATTR(ZOUT_H, S_IRUGO, kxsd9_show_ZOUT_H, NULL);
+ 
+ static int kxs_probe(struct i2c_client *client,

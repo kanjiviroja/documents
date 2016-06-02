@@ -1,0 +1,13 @@
+# build a kxsd9-2.o kernel module
+#
+user@jumpstart$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- -C /usr/src/linux-3.08-perf+db8060/ M=$PWD obj-m=kxsd9-2.o clean modules
+
+# insert the kernel module
+#
+$ ssh root@$DB
+root@db:# insmod foo.ko
+
+# create the kxsd9 i2c device
+#
+root@db:# echo "kxsd9 24" > /sys/bus/i2c/devices/i2c-5/new_device
+

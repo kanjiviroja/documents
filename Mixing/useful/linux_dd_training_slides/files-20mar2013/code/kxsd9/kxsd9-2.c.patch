@@ -1,0 +1,47 @@
+--- /srv/www/files/code/kxsd9/kxsd9-2.c	2013-03-19 23:16:22.146114941 -0500
++++ ./kxsd9-2.c	2013-03-20 05:18:17.986326091 -0500
+@@ -65,11 +65,14 @@
+ 	struct i2c_client *i2c;
+ };
+ 
++#if 0
+ /* TODO: is "int" vs. "s32" always ok here et. al? */
+ static int __kxs_reg_read(struct kxsd9 *kxs, int reg)
+ {
+ 	return i2c_smbus_read_byte_data(kxs->i2c, reg);
+ }
++#endif
++
+ static int __kxs_reg_write(struct kxsd9 *kxs, int reg, int val)
+ {
+ 	return i2c_smbus_write_byte_data(kxs->i2c, reg, val);
+@@ -81,6 +84,7 @@
+ 			       KXSD9_REG_RESET_WRITE_KEY);
+ }
+ 
++#if 0
+ static int __kxs_reg_xout_h(struct kxsd9 *kxs, int *xout_h)
+ {
+ 	int ret;
+@@ -91,6 +95,7 @@
+ 	*xout_h = ret;
+ 	return 0;
+ }
++#endif
+ 
+ 
+ static int kxs_probe(struct i2c_client *client,
+@@ -106,8 +111,13 @@
+ 	i2c_set_clientdata(client, kxs);
+ 	kxs->i2c = client;
+ 
++	ret = __kxs_reset(kxs);
++	if (ret)
++		goto err_reset;
++
+ 	return 0;
+ 
++err_reset:
+ 	kfree(kxs);
+ 	return ret;
+ }

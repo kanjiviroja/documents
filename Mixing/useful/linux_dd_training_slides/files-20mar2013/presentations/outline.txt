@@ -1,0 +1,44 @@
+Linux Power and Performance Optimization
+
+Topic Coverage Outline
+
+
+Review of the Device Model API
+   * Exercise: a "pure" device and driver template
+
+Review of I2C Client Device Driver API
+   * Exercise: initial communications with DragonBoard's kxsd9/i2c accelerometer
+   * Exercise: attributes for accelerometer control registers
+
+Input Device Interface API
+   * Exercise: an input device interface for the accelerometer
+
+Runtime Power Management API
+   * Exercise: Observing the runtime-pm callbacks in action
+   * Exercise: Refactoring the kxsd9 driver to support runtime-pm
+   * Exercise: Refining power consumption based on user activity
+
+Device Driver Best Practices
+   * Exercise: Template-driven control register accessors and attributes
+   * Exercise: Handling special-case control registers
+
+The Voltage Regulator Consumer API
+   * Exercise: Adding regulator awareness to the kxsd9 driver
+
+The Voltage Regulator Board API
+   * Exercise: Describing DragonBoard's power tree
+
+CPU Frequency Scaling and Governors
+   * Review: existing governor code
+
+CPU Idle Framework
+   * Review: existing cpuidle code
+
+Power Management Quality-of-Service API
+   * Review: existing code examples
+
+Dynamic Voltage and Frequency Scaling Concepts
+   * Discussion, including existing code examples
+
+Wake Locks and alternatives for wake-up sources
+   * Discussion, including existing code examples

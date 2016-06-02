@@ -1,0 +1,65 @@
+--- kxsd9-6.c	2013-03-20 06:04:58.343826187 -0500
++++ kxsd9-7.c	2013-03-21 01:07:36.571599441 -0500
+@@ -45,10 +45,13 @@
+ 
+ enum {
+ 	KXSD9_REG_XOUT_H	= 0x0,
++	KXSD9_REG_XOUT_H__reserved	= 0x0,
+ 	KXSD9_REG_XOUT_L	= 0x1,
+ 	KXSD9_REG_YOUT_H	= 0x2,
++	KXSD9_REG_YOUT_H__reserved	= 0x0,
+ 	KXSD9_REG_YOUT_L	= 0x3,
+ 	KXSD9_REG_ZOUT_H	= 0x4,
++	KXSD9_REG_ZOUT_H__reserved	= 0x0,
+ 	KXSD9_REG_ZOUT_L	= 0x5,
+ 	KXSD9_REG_AUXOUT_H	= 0x6,
+ 	KXSD9_REG_AUXOUT_L	= 0x7,
+@@ -82,38 +85,18 @@
+ 			       KXSD9_REG_RESET_WRITE_KEY);
+ }
+ 
+-static int __kxs_reg_read_XOUT_H(struct kxsd9 *kxs, int *xout_h)
+-{
+-	int ret;
+-
+-	ret = __kxs_reg_read(kxs, KXSD9_REG_XOUT_H);
+-	if (ret < 0)
+-		return ret;
+-	*xout_h = ret;
+-	return 0;
++#define KXS_REG_READ(_name) \
++static int __kxs_reg_read_##_name(struct kxsd9 *kxs, int *v) \
++{ \
++	int ret = __kxs_reg_read(kxs, KXSD9_REG_##_name); \
++	if (ret < 0) return ret; \
++	*v = ret & ~(KXSD9_REG_##_name ##__reserved); \
++	return 0;\
+ }
+ 
+-static int __kxs_reg_read_YOUT_H(struct kxsd9 *kxs, int *yout_h)
+-{
+-	int ret;
+-
+-	ret = __kxs_reg_read(kxs, KXSD9_REG_YOUT_H);
+-	if (ret < 0)
+-		return ret;
+-	*yout_h = ret;
+-	return 0;
+-}
+-
+-static int __kxs_reg_read_ZOUT_H(struct kxsd9 *kxs, int *zout_h)
+-{
+-	int ret;
+-
+-	ret = __kxs_reg_read(kxs, KXSD9_REG_ZOUT_H);
+-	if (ret < 0)
+-		return ret;
+-	*zout_h = ret;
+-	return 0;
+-}
++KXS_REG_READ(XOUT_H);
++KXS_REG_READ(YOUT_H);
++KXS_REG_READ(ZOUT_H);
+ 
+ static ssize_t kxsd9_show_XOUT_H(struct device *dev, 
+ 				 struct device_attribute *attr,

@@ -1,0 +1,40 @@
+--- kxsd9-2.c	2013-03-20 05:18:17.986326091 -0500
++++ kxsd9-3.c	2013-03-20 05:32:58.570625518 -0500
+@@ -97,6 +97,14 @@
+ }
+ #endif
+ 
++static ssize_t kxsd9_show_XOUT_H(struct device *dev, 
++				 struct device_attribute *attr,
++				 char *buf)
++{
++	return 0;
++}
++
++const DEVICE_ATTR(XOUT_H, S_IRUGO, kxsd9_show_XOUT_H, NULL);
+ 
+ static int kxs_probe(struct i2c_client *client,
+ 		     const struct i2c_device_id *id)
+@@ -115,8 +123,13 @@
+ 	if (ret)
+ 		goto err_reset;
+ 
++	ret = device_create_file(&client->dev, &dev_attr_XOUT_H);
++	if (ret)
++		goto err_device_create_file;
++
+ 	return 0;
+ 
++err_device_create_file:
+ err_reset:
+ 	kfree(kxs);
+ 	return ret;
+@@ -125,6 +138,8 @@
+ static int kxs_remove(struct i2c_client *client)
+ {
+ 	struct kxsd9 *kxs = i2c_get_clientdata(client);
++
++	device_remove_file(&client->dev, &dev_attr_XOUT_H);
+ 	i2c_set_clientdata(kxs->i2c, NULL);
+ 	kfree(kxs);
+ 	return 0;

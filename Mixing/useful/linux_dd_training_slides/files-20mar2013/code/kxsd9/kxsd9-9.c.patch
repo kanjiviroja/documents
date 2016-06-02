@@ -1,0 +1,34 @@
+--- kxsd9-8.c	2013-03-21 01:16:32.810135063 -0500
++++ kxsd9-9.c	2013-03-21 01:21:37.526349517 -0500
+@@ -94,10 +94,6 @@
+ 	return 0;\
+ }
+ 
+-KXS_REG_READ(XOUT_H);
+-KXS_REG_READ(YOUT_H);
+-KXS_REG_READ(ZOUT_H);
+-
+ #define KXS_REG_SHOW(_name) \
+ static ssize_t kxsd9_show_##_name(struct device *dev, \
+ 				 struct device_attribute *attr, \
+@@ -110,13 +106,14 @@
+ 	return sprintf(buf, "%d\n", v); \
+ }
+ 
+-KXS_REG_SHOW(XOUT_H);
+-KXS_REG_SHOW(YOUT_H);
+-KXS_REG_SHOW(ZOUT_H);
++#define KXS_READABLE(_name) \
++KXS_REG_READ(_name); \
++KXS_REG_SHOW(_name); \
++static const DEVICE_ATTR(_name, S_IRUGO, kxsd9_show_##_name, NULL);
+ 
+-const DEVICE_ATTR(XOUT_H, S_IRUGO, kxsd9_show_XOUT_H, NULL);
+-const DEVICE_ATTR(YOUT_H, S_IRUGO, kxsd9_show_YOUT_H, NULL);
+-const DEVICE_ATTR(ZOUT_H, S_IRUGO, kxsd9_show_ZOUT_H, NULL);
++KXS_READABLE(XOUT_H);
++KXS_READABLE(YOUT_H);
++KXS_READABLE(ZOUT_H);
+ 
+ static int kxs_probe(struct i2c_client *client,
+ 		     const struct i2c_device_id *id)
