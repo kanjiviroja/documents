@@ -1,0 +1,166 @@
+Variable Context
+	Configuration
+	Distribution (Distro)
+		* DISTRO
+			If the DISTRO variable is blank, a set of default configurations are used
+			DISTRO = "poky" [Distro name same as poky.conf]
+		* DISTRO_NAME
+		* DISTRO_VERSION
+		* MAINTAINER
+		* PACKAGE_CLASSES 
+			PACKAGE_CLASSES ?= "package_rpm package_deb package_ipk" [package.bbclass]
+		* TARGET_OS
+			     Specifies the target's operating system. The variable can be set to "linux" for glibc-based systems and to "linux-uclibc" for uclibc. For ARM/EABI targets, there are also "linux-gnueabi" and "linux-uclibc-gnueabi" values possible. 
+		* TARGET_FPU [soft/hard]
+		* TCMODE
+			Specifies the toolchain selector. The TCMODE variable is similar to TCLIBC, which controls the variant of the GNU standard C library (libc) used during the build process: glibc or uclibc. 
+		* TCLIBC
+	Machine
+		* TARGET_ARCH
+			The target machine's architecture. The OpenEmbedded build system supports many architectures.
+			     arm
+				 i586
+				 x86_64
+				 powerpc
+				 powerpc64
+				 mips
+				 mipsel
+		* SERIAL_CONSOLES
+			     Defines the serial consoles (TTYs) to enable using getty. Provide a value that specifies the baud rate followed by the TTY device name separated by a semicolon. Use spaces to separate multiple devices: 
+				      SERIAL_CONSOLES = "115200;ttyS0 115200;ttyS1"
+		* PACKAGE_EXTRA_ARCHS
+			useful when you build for several different devices that use miscellaneous processors
+		* IMAGE_FSTYPES
+			Specifies the formats the OpenEmbedded build system uses during the build when creating the root filesystem.create root filesystems using two formats: .ext3 and .tar.bz2
+				     IMAGE_FSTYPES = "ext3 tar.bz2"
+		* MACHINE_FEATURES
+			Specifies the list of hardware features the MACHINE is capable of supporting.  For related information :DISTRO_FEATURES, COMBINED_FEATURES, IMAGE_FEATURES 
+		* MACHINE_EXTRA_RDEPENDS 
+			     A list of machine-specific packages to install as part of the image being built that are not essential for the machine to boot. However, the build process for more fully-featured images depends on the packages being present. 				 
+				EX. MACHINE_EXTRA_RDEPENDS += "wifidriver-firmware"
+		* MACHINE_EXTRA_RRECOMMENDS 
+			Ex.    MACHINE_EXTRA_RRECOMMENDS += "kernel-module-examplewifi" [same concept as above variable MACHINE_EXTRA_RDEPENDS]
+		* MACHINE_ESSENTIAL_EXTRA_RDEPENDS 
+			machine essential variable, the list of packages are essential for the machine to boot. The impact of this variable affects images based on packagegroup-core-boot, including the core-image-minimal image. 
+			Ex. MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "example-init"
+		* MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS
+			     A list of recommended machine-specific packages to install as part of the image being built.
+				 Ex. MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "kernel-module-ab123"
+				 
+		
+	Local
+		This section lists variables whose configuration context is the local configuration through the local.conf file. 
+		* DISTRO
+		* MACHINE 
+			Specifies the target device for which the image is built. You define MACHINE in the local.conf file found in the Build Directory.
+			MACHINE ?= "colibri-vf"
+			The variable corresponds to a machine configuration file of the same name, through which machine-specific configurations are set. [meta/conf/machine]
+		* DL_DIR
+			     The central download directory used by the build process to store downloads.
+				 If you want tarballs of Git repositories, use the BB_GENERATE_MIRROR_TARBALLS variable
+				 
+		* BBFILES
+			List of recipe files used by BitBake to build software. 
+		* EXTRA_IMAGE_FEATURES 
+			A list of additional features to include in an image. IMAGE_FEATURES and EXTRA_IMAGE_FEATURES
+		* PACKAGE_CLASSES
+			     This variable, which is set in the local.conf configuration file found in the conf folder of the Build Directory, specifies the package manager the OpenEmbedded build system uses when packaging data. 
+				 Ex.  PACKAGE_CLASSES ?= "package_rpm package_deb package_ipk"
+		* BB_NUMBER_THREADS
+			     The maximum number of tasks BitBake should run in parallel at any one time. 
+		* BBINCLUDELOGS
+			     Variable that controls how BitBake displays logs on build failure. 
+		* ENABLE_BINARY_LOCALE_GENERATION
+			Variable that controls which locales for glibc are generated during the build (useful if the target device has 64Mbytes of RAM or less). 
+		
+	Recipes
+	The following subsections provide lists of variables whose context is recipes: required, dependencies, path, and extra build information. 
+		Required
+			* LICENSE
+			* LIC_FILES_CHKSUM
+				     Checksums of the license text in the recipe source code. 
+					 This variable must be defined for all recipes 
+			* SRC_URI - used in recipes that fetch local or remote files. 
+				     The list of source files - local or remote.
+					 if the recipe or append file needs to fetch a tarball, apply two patches, and include a custom file, the recipe or append file would include four instances of the variable. 
+					 The following list explains the available URI protocols: 
+					 	file:// -  Fetches files, which are usually files shipped with the Metadata, from the local machine. The path is relative to the FILESPATH variable. Thus, the build system searches, in order, from the following directories, which are assumed to be a subdirectories of the directory in which the recipe file (.bb) or append file (.bbappend) resides: 
+							${BPN} - The base recipe name without any special suffix or version numbers.
+							${BP} - ${BPN}-${PV}. The base recipe name and version but without any special package name suffix.
+							files - Files within a directory, which is named files and is also alongside the recipe or append file. 
+							Note*=If you want the build system to pick up files specified through a SRC_URI statement from your append file, you need to be sure to extend the FILESPATH variable by also using the FILESEXTRAPATHS variable from within your append file. 
+						git:// - Fetches files from a Git revision control repository.
+						repo:// - Fetches files from a repo (Git) repository.
+						http:// - Fetches files from the Internet using http.
+						https:// - Fetches files from the Internet using https.
+						ftp:// - Fetches files from the Internet using ftp.
+						ssh:// - Fetches files from a secure shell.
+						svn:// - Fetches files from a Subversion (svn) revision control repository.
+						patchdir - Specifies the directory in which the patch should be applied. The default is ${S}
+						unpack - Controls whether or not to unpack the file if it is an archive. The default action is to unpack the file.
+						downloadfilename - Specifies the filename used when storing the downloaded file.
+		Dependencies
+			This section lists variables that define recipe dependencies. 
+				* DEPENDS
+					Lists a recipe's build-time dependencies (i.e. other recipe files).
+					Ex. DEPENDS = "b"
+				* RDEPENDS
+					Lists a package's runtime dependencies (i.e. other packages) that must be installed in order for the built package to run correctly. If a package in this list cannot be found during the build, you will get a build error. 
+					Ex. RDEPENDS_${PN} = "b"
+					PACKAGES variable
+					RDEPENDS_${PN} = "package (operator version)"
+					For operator, you can specify the following: 
+						 =
+						 <
+						 >
+						 <=
+						 >=
+						 	Ex. RDEPENDS_${PN} = "foo (>= 1.2)"
+				* RRECOMMENDS
+					     A list of packages that extends the usability of a package being built.
+						 you can prevent listed packages from being installed by using the BAD_RECOMMENDATIONS, NO_RECOMMENDATIONS, and PACKAGE_EXCLUDE variables
+						 Ex. RRECOMMENDS_${PN}-dev += "wireless_package_name"
+                  		  RRECOMMENDS_${PN} = "package (operator version)" [same as define above RDEPENDS]
+				* RCONFLICTS
+					The list of packages that conflict with packages.
+					Ex. RCONFLICTS_${PN} = "another_conflicting_package_name"
+					    RCONFLICTS_${PN} = "package (operator version)" 
+				* RREPLACES
+					     A list of packages replaced by a package. 
+						 The package manager uses this variable to determine which package should be installed to replace other package(s) during an upgrade.
+						 package(s) removed = you must add the name of the other package to the RCONFLICTS variable. 
+		Paths
+			This section lists variables that define recipe paths. 
+				* WORKDIR
+					The pathname of the work directory in which the OpenEmbedded build system builds a recipe. This directory is located within the TMPDIR directory structure and is specific to the recipe being built and the system for which it is being built.
+					 The WORKDIR directory is defined as follows:
+   						  ${TMPDIR}/work/${MULTIMACH_TARGET_SYS}/${PN}/${EXTENDPE}${PV}-${PR}
+					  The actual directory depends on several things:
+					  TMPDIR: The top-level build output directory
+					  MULTIMACH_TARGET_SYS: The target system identifier
+					  PN: The recipe name
+					  EXTENDPE: The epoch - (if PE is not specified, which is usually the case for most recipes, then EXTENDPE is blank)
+					  PV: The recipe version
+					  PR: The recipe revision                    
+				* S
+					The location in the Build Directory where unpacked recipe source code resides. This location is within the work directory (WORKDIR), which is not static. The unpacked source location depends on the recipe name (PN) and recipe version (PV) as follows: 
+					 ${WORKDIR}/${PN}-${PV}
+				* FILES
+					     The list of directories or files that are placed in packages. 
+						 To use the FILES variable, provide a package name override that identifies the resulting package.
+						 Ex. FILES_${PN} += "${bindir}/mydir1/ ${bindir}/mydir2/myfile"
+	Extra Build Information
+		This section lists variables that define extra build information for recipes. 
+			* EXTRA_OECMAKE
+				     Additional cmake options. 
+			* EXTRA_OECONF
+				     Additional configure script options. 
+			* EXTRA_OEMAKE
+				     Additional GNU make options. 
+			* PACKAGES
+					PACKAGES = The list of packages to be created from the recipe. The default value is the following: 
+		   			${PN}-dbg ${PN}-staticdev ${PN}-dev ${PN}-doc ${PN}-locale ${PACKAGE_BEFORE_PN} ${PN}
+			* DEFAULT_PREFERENCE 
+				    Specifies a weak bias for recipe selection priority. 
+					DEFAULT_PREFERENCE is weak and is overridden by BBFILE_PRIORITY if that variable is different between two layers that contain different versions of the same recipe.
+				
