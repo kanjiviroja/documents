@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html class="ie8" lang="en"><![endif]-->
+<!--[if IE 9]> <html class="ie9" lang="en"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en"><!----><!--[endif]----><head><title>i2c User Space Application | NXP Community</title><meta charset="utf-8"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="description" content="I am using imx6qsabresd board.  I want to develop user space application to access on board i2c based mma8451q 3-Axis Orientation/Motion Detection Sensor."><meta name="viewport" content="user-scalable=0, initial-scale=1.0">
+<script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/e1336a1f47" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/nr-943.js"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/analytics.js" async=""></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(e,t){return function(){o(e,[(new Date).getTime()].concat(a(arguments)),null,t)}}var o=e("handle"),i=e(2),a=e(3);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var u=["setPageViewName","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(u,function(e,t){newrelic[t]=r(f+t,"api")}),i(c,function(e,t){newrelic[t]=r(f+t)}),t.exports=newrelic,newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),o("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(0>o?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?u(e,a,i):i()}function n(n,r,o){e&&e(n,r,o);for(var i=t(o),a=l(n),u=a.length,c=0;u>c;c++)a[c].apply(i,r);var s=f[g[n]];return s&&s.push([m,n,r,i]),i}function p(e,t){w[e]=l(e).concat(t)}function l(e){return w[e]||[]}function d(e){return s[e]=s[e]||o(n)}function v(e,t){c(e,function(e,n){t=t||"feature",g[n]=t,t in f||(f[t]=[])})}var w={},g={},m={on:p,emit:n,get:d,listeners:l,context:t,buffer:v};return m}function i(){return new r}var a="nr@context",u=e("gos"),c=e(2),f={},s={},p=t.exports=o();p.backlog=f},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!w++){var e=v.info=NREUM.info,t=s.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&t){c(l,function(t,n){e[t]||(e[t]=n)});var n="https"===p.split(":")[0]||e.sslForHttp;v.proto=n?"https://":"http://",u("mark",["onload",a()],null,"api");var r=s.createElement("script");r.src=v.proto+e.agent,t.parentNode.insertBefore(r,t)}}}function o(){"complete"===s.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=window,s=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},e(1);var p=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-943.min.js"},d=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),v=t.exports={offset:a(),origin:p,features:{},xhrWrappable:d};s.addEventListener?(s.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(s.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),u("mark",["firstbyte",a()],null,"api");var w=0},{}]},{},["loader"]);</script><!--[if IE]><link rel="stylesheet" href="/2016.1.0.1f7ee12/styles/jive.ie.css" type="text/css" media="all"/><![endif]--><!--[if !IE]> --><link rel="stylesheet" href="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/jive.css" type="text/css" media="all"><!-- <![endif]--><link rel="stylesheet" href="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/jive-visor.css" type="text/css" media="all"><!--[if IE]><link rel="stylesheet" href="/2016.1.0.1f7ee12/styles/jive_content_redesign.ie.css" type="text/css" media="all"/><![endif]--><!--[if !IE]> --><link rel="stylesheet" href="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/jive_content_redesign.css" type="text/css" media="all"><!-- <![endif]--><!--[if IE]><link rel="stylesheet" href="/2016.1.0.1f7ee12/styles/tiny_mce3/themes/advanced/skins/default/content.ie.css" type="text/css" media="all"/><![endif]--><!--[if !IE]> --><link rel="stylesheet" href="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/content.css" type="text/css" media="all"><!-- <![endif]--><link rel="search" href="https://community.nxp.com/opensearch.xml" title="NXP Community" type="application/opensearchdescription+xml"><link rel="shortcut icon" type="image/x-icon" href="https://community.nxp.com/resources/images/palette-1013/faviconImage-1456513950206-favicon.ico"><!--[if lt IE 9]><script src="/2016.1.0.1f7ee12/resources/scripts/vendor/html5shiv/html5shiv.js"></script><![endif]--><!--[if IE]><script>
+            // Avoid 'console' errors in browsers that lack a console.
+            (function() {
+               var method;
+               var noop = function () {};
+               var methods = [
+                   'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+                   'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+                   'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+                   'timeStamp', 'trace', 'warn'
+               ];
+               var length = methods.length;
+               var console = (window.console = window.console || {});
+
+               while (length--) {
+                   method = methods[length];
+
+                   // Only stub undefined methods.
+                   if (!console[method]) {
+                       console[method] = noop;
+                   }
+               }
+            }());
+        </script><![endif]--><script>(function() {var prepareUrl = function(url) {if (url.indexOf(";") > 0) {url = url.substring(0, url.indexOf(";"));}if (url.charAt(url.length - 1) == '/') {url = url.substring(0, url.length - 1);}return url;}; if (typeof(window._jive_base_url) == "undefined") {window._jive_base_url = prepareUrl("\/")}if (typeof(window._jive_base_absolute_url) == "undefined") {window._jive_base_absolute_url = prepareUrl("https:\/\/community.nxp.com")}if (typeof(window._jive_resource_url) == "undefined") {window._jive_resource_url = prepareUrl("\/2016.1.0.1f7ee12\/")}if (typeof(window._jive_theme_url) == "undefined") {window._jive_theme_url = prepareUrl("\/themes\/\/")}if (typeof(window._jive_current_user) == "undefined") {window._jive_current_user = {anonymous: true, partner: false, visible: true, username: 'ANONYMOUS', ID: '-1', enabled: true, avatarID: '1034', displayName: 'ANONYMOUS'};}})(); var _jive_effective_user_id = "-1"; var _jive_auth_token ="no-user"; var _jive_locale = "en_US"; var _jive_translation_language = "en"; var _jive_display_language = "en"; var _jive_browser_event = {"providers":["activityStream.poll","appAlert.create","inboxCount.poll"],"since":1464678134031}; var _jive_browser_event_polling_delay =  300000.0 ; var _jive_socket_events = {"socketEvents":["activityStream.push","tiledata.push"]}; var _jive_realtime_push_enabled =  false ; var _jive_allstream_counts_enabled =  false ;var _jive_timezoneoffset =  -7.0 ; var _jive_server_timezoneoffset =  -7.0 ; var _jive_timezone_id = 'America\/Phoenix'; var _jive_enable_browserdb =  false ; var jive = jive || {}; jive.global = jive.global || {}; jive.global.instanceID = '52391d11-e1e0-4c7e-aeb6-a255e3c17340'; jive.global.containerType = '14'; jive.global.containerID = '2004';jive.global.containerBrowseId = '1114';jive.global.subdomain = {}; jive.global.subdomain.mode = 'single'; jive.global.subdomain.template = 'https:\/\/app-community.nxp.com%path%'; jive.global.extensions = {"8116bcf8-061b-4f31-9b9a-0fcd2228b769":"7b10402577","13780580-b4f8-4bcd-8189-a5d48414cb5d":"62c518a21c"}; window.SPELL_LANGS = "English (Canada)\x3den_ca,English (United Kingdom)\x3den_gb,+English (United States)\x3den_us,French\x3dfr,French (Canada)\x3dfr_ca,German\x3dde,Italian\x3dit,Spanish\x3des"; window.CS_BASE_URL = ""; window.CS_RESOURCE_BASE_URL = "\/2016.1.0.1f7ee12";window.tinyMCEPreInit = {suffix : "_src", base : CS_BASE_URL + "/resources/scripts/tiny_mce3"};if (typeof(_jive_project_i18n) == "undefined") {var _jive_project_i18n = new Array(); _jive_project_i18n['project.calendar.task'] = "Task"; _jive_project_i18n['project.calendar.tasks'] = "Tasks"; _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint"; _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints"; _jive_project_i18n['global.edit'] = "Edit"; _jive_project_i18n['global.delete'] = "Delete"; _jive_project_i18n['project.task.mark.complete'] = "Mark complete"; _jive_project_i18n['project.task.assign.to.me'] = "Assign to me"; _jive_project_i18n['task.incomplete.link'] = "Incomplete"; _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint"; _jive_project_i18n['project.task.create.link'] = "Create a task";}</script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/main.js"></script><script>requirejs.config({baseUrl: '/2016.1.0.1f7ee12/resources/scripts/', paths: {'jiveCoreApiV3': '/resources/scripts/gen/v3/71e9664dfada361cd76588ea9819bc11','plugins': '/2016.1.0.1f7ee12/plugins', 'shindig': '/gadgets/js/jive-core-container:container:core:rpc:open-views:selection:actions.js?c=1&container=default'},bundles: {'gen/soy/eae/common': [ 'soy!jive.eae.common.activityAuthor', 'soy!jive.eae.common.activityAuthorAndOnBehalfOfNoVerb', 'soy!jive.eae.common.activityAuthorNoVerb', 'soy!jive.eae.common.activityContainer', 'soy!jive.eae.common.activityContainerJoSubject', 'soy!jive.eae.common.activityContentCommon', 'soy!jive.eae.common.activityContentText', 'soy!jive.eae.common.activityHeadingHref', 'soy!jive.eae.common.activityHeadingHrefWithReferringUser', 'soy!jive.eae.common.activityHelpfulCounts', 'soy!jive.eae.common.activityNavActions', 'soy!jive.eae.common.collapsedExcerptText', 'soy!jive.eae.common.contentTypeClassName', 'soy!jive.eae.common.contentTypeDisplayName', 'soy!jive.eae.common.contentTypeParentPreviewStylingClassName', 'soy!jive.eae.common.currentCountText', 'soy!jive.eae.common.digestSubItem', 'soy!jive.eae.common.displayParentAuthor', 'soy!jive.eae.common.embeddedPreview', 'soy!jive.eae.common.entryRepost', 'soy!jive.eae.common.formatMediaLinkUrl', 'soy!jive.eae.common.formatMediaLinkUrl__C2bf6', 'soy!jive.eae.common.generateUserMetaData', 'soy!jive.eae.common.groupedUsers', 'soy!jive.eae.common.jsI18nHelper', 'soy!jive.eae.common.loadingSpinner', 'soy!jive.eae.common.microRTEContainer', 'soy!jive.eae.common.parentPreviewLinks', 'soy!jive.eae.common.parentPreviewLinksInline', 'soy!jive.eae.common.readingPaneBottomReplyLinkKey', 'soy!jive.eae.common.renderStreamAttachments', 'soy!jive.eae.common.repliedToIcon', 'soy!jive.eae.common.replyCountText', 'soy!jive.eae.common.replyingToText', 'soy!jive.eae.common.repostModal', 'soy!jive.eae.common.repostModalSuccess', 'soy!jive.eae.common.rtePanel', 'soy!jive.eae.common.rteTextArea', 'soy!jive.eae.common.sharedVia', 'soy!jive.eae.common.streamImage', 'soy!jive.eae.common.subactivity' ]},urlArgs: 'salt=' + '1462413638',locale: 'en_US', config: {'l10n': {locale: 'en_US'}, 'soy': {baseUrl: '/2016.1.0.1f7ee12/resources/scripts/'}}});</script><script>requirejs.config({config: {'application/config': {'allStreamCountsEnabled':  false , 'anyAppsEnabled':  false , 'appsAvailable':  false , 'authToken': 'no-user', 'browserDbEnabled':  false , 'browserEventQuery': JSON.parse('{\x22providers\x22:[\x22activityStream.poll\x22,\x22appAlert.create\x22,\x22inboxCount.poll\x22],\x22since\x22:1464678134031}'), 'browserEventsPollingDelay': '300000', 'containerBrowseId': '1114', 'containerId': '2004', 'containerType': '14', 'currentUser': JSON.parse('{\x22type\x22:3,\x22link\x22:\x22\/people\/ANONYMOUS\x22,\x22subject\x22:\x22ANONYMOUS\x22,\x22iconCss\x22:\x22jive-icon-profile\x22,\x22archetype\x22:\x22people\x22,\x22thumbnailTemplate\x22:\x22jive.browse.user.thumbnailUserItem\x22,\x22detailTemplate\x22:\x22jive.browse.user.detailUserItem\x22,\x22objectTypeName\x22:null,\x22objectTypeFeatureName\x22:null,\x22displayExternallyVisibleVisualCue\x22:false,\x22prop\x22:{\x22isVisibleToPartner\x22:false,\x22search\x22:{\x22defaultEnabled\x22:true},\x22avatarID\x22:\x221034\x22,\x22profile\x22:{\x22lastLoggedInDate\x22:null,\x22initialLoginDate\x22:null,\x22title\x22:null,\x22company\x22:null,\x22primaryEmailAddress\x22:null,\x22primaryEmailAddressVisible\x22:false,\x22alternateEmailAddress\x22:null,\x22faxNumber\x22:null,\x22homePhoneNumber\x22:null,\x22joinDate\x22:null,\x22department\x22:null,\x22mobilePhoneNumber\x22:null,\x22primaryPhoneNumber\x22:null,\x22alternatePhoneNumber\x22:null,\x22hireOrJoinDate\x22:null,\x22expertise\x22:null,\x22occupation\x22:null,\x22primaryURL\x22:null,\x22homeAddress\x22:null,\x22biography\x22:null,\x22pagerNumber\x22:null,\x22strictJoinDate\x22:null,\x22address\x22:null,\x22location\x22:null,\x22url\x22:null,\x22timeZone\x22:null},\x22profileImage\x22:{\x22url\x22:\x22\/images\/jive-profile-default-portrait.png\x22,\x22viewingSelf\x22:false,\x22default\x22:true},\x22presence\x22:{\x22userExternalID\x22:null,\x22online\x22:false,\x22jsObject\x22:\x22null\x22}},\x22username\x22:\x22ANONYMOUS\x22,\x22displayName\x22:\x22ANONYMOUS\x22,\x22initialLoginDate\x22:null,\x22anonymous\x22:true,\x22enabled\x22:true,\x22external\x22:false,\x22partner\x22:false,\x22email\x22:null,\x22entitled\x22:true,\x22visible\x22:true,\x22avatarID\x22:\x221034\x22,\x22id\x22:\x22-1\x22,\x22objectType\x22:3,\x22modificationDate\x22:null,\x22modificationTime\x22:null,\x22unmodified\x22:true,\x22creationTime\x22:null,\x22creationDate\x22:null}'), 'instanceId': '52391d11-e1e0-4c7e-aeb6-a255e3c17340', 'locale': 'en_US', 'onboardingEnabled':  false , 'realtimeCommunicationsEnabled':  false , 'realtimeEnabled':  false , 'realtimePushEnabled':  false , 'realtimeStatsEnabled':  false , 'serverTimeZoneOffset':  -7.0 , 'socketEvents': JSON.parse('{\x22socketEvents\x22:[\x22activityStream.push\x22,\x22tiledata.push\x22]}'), 'timezoneId': 'America\/Phoenix', 'timezoneOffset':  -7.0 , 'translationLanguage': 'en', 'tinymce4Enabled':  false , 'groupMembershipEvolutionEnabled':  false ,'jsPageController': 'page/content/controller','pageConfig': JSON.parse('{\x22containerId\x22:2004,\x22containerType\x22:14}'),'baseUrl': '/', 'absoluteBaseUrl': 'https://community.nxp.com/', 'resourceUrl': '/2016.1.0.1f7ee12/', 'themeUrl': '/themes/', 'cssUrl': '/2016.1.0.1f7ee12/styles/'}}});</script><script>require(['main']);</script><script>require(['apps/tips/main', 'domReady!'], function() {var tipsApp = new jive.Tips.Main({tipGroups:[], skippedTipGroupIDs: []});});</script><link rel="stylesheet" href="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/jive-responsive.css" type="text/css" media="all"><link rel="stylesheet" href="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/n4jive.css" type="text/css" media="all"><link class="j-custom-theme" rel="stylesheet" href="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/1456513981217.css" type="text/css" media="all"><link rel="stylesheet" href="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/jive-exobjects-icons.css" type="text/css" media="all"><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/app.js" data-requiremodule="apps/tips/main" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/antivirus.js" data-requiremodule="antivirus" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/jive-core-containercontainercorerpcopen-viewsselectionactions.js" data-requiremodule="shindig" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/71e9664dfada361cd76588ea9819bc11.js" data-requiremodule="jiveCoreApiV3" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/blueconic_002.js" async=""></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/zapatec.js" data-requiremodule="jive/bundles/zapatec" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/tinymce3.js" data-requiremodule="jive/rte/main" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/breadcrumb.js" data-requiremodule="breadcrumb" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/contentplace_relationship.js" data-requiremodule="jive/contentplace_relationship" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/google-oidc-login.js" data-requiremodule="sso/google-oidc-login" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/main_002.js" data-requiremodule="plugins/gamification/resources/script/apps/admin/main" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/mock.js" data-requiremodule="jive/app/core_container/mock" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/tile_app.js" data-requiremodule="jive/app/core_container/tile_app" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/admin_source.js" data-requiremodule="plugins/gamification/resources/script/apps/admin/models/admin_source" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/admin_view.js" data-requiremodule="plugins/gamification/resources/script/apps/admin/views/admin_view" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/render.js" data-requiremodule="gen/soy/jive/integration/tiles/view/render" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/s-code-contents-fc28a2a1a707a26e36235229aa8feb6ea18d047d.js"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/correct_view.js" data-requiremodule="apps/content/questions/correct_view" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/assumed.js" data-requiremodule="apps/content/questions/assumed" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/v2_badge_view.js" data-requiremodule="apps/outcomes/v2_badge_view" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/SyntaxHighlighter.js" data-requiremodule="jive/rte/syntax/SyntaxHighlighter" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/getVideoDataAndRender.js" data-requiremodule="apps/getVideoDataAndRender" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/calendar-en.js" data-requiremodule="zapatec/zpcal/lang/calendar-en" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/placeLinkPopoverResults.js" data-requiremodule="gen/soy/jive/shared/breadcrumb/placeLinkPopoverResults" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/helpfulView.js" data-requiremodule="apps/outcomes/helpfulView" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/v2_badge_toplevel_view.js" data-requiremodule="apps/outcomes/v2_badge_toplevel_view" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/placeLinkRemoveConfirm.js" data-requiremodule="gen/soy/jive/shared/breadcrumb/placeLinkRemoveConfirm" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/breadcrumbIntroText.js" data-requiremodule="gen/soy/jive/shared/breadcrumb/breadcrumbIntroText" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/nitroAdminModal.js" data-requiremodule="gen/soy/jive/nitro/admin/nitroAdminModal" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/correctAnswer.js" data-requiremodule="gen/soy/jive/question/view/correctAnswer" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/placeLinkPopover.js" data-requiremodule="gen/soy/jive/shared/breadcrumb/placeLinkPopover" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shCore.js" data-requiremodule="jive/rte/syntax/shCore" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/helpfulMain.js" data-requiremodule="apps/outcomes/helpfulMain" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/placeLinkBreadcrumb.js" data-requiremodule="gen/soy/jive/shared/breadcrumb/placeLinkBreadcrumb" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/helpfulModel.js" data-requiremodule="apps/outcomes/helpfulModel" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/outdatedWarning.js" data-requiremodule="gen/soy/jive/unified/content/view/outdatedWarning" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/badge.js" data-requiremodule="gen/soy/jive/unified/content/view/badge" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/headerBadgeByline.js" data-requiremodule="gen/soy/jive/unified/content/view/headerBadgeByline" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/badges.js" data-requiremodule="gen/soy/jive/unified/content/view/badges" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shBrushCpp.js" data-requiremodule="jive/rte/syntax/shBrushCpp" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shBrushCSharp.js" data-requiremodule="jive/rte/syntax/shBrushCSharp" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shBrushCss.js" data-requiremodule="jive/rte/syntax/shBrushCss" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shBrushDelphi.js" data-requiremodule="jive/rte/syntax/shBrushDelphi" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shBrushJava.js" data-requiremodule="jive/rte/syntax/shBrushJava" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shBrushJScript.js" data-requiremodule="jive/rte/syntax/shBrushJScript" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shBrushPhp.js" data-requiremodule="jive/rte/syntax/shBrushPhp" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shBrushPython.js" data-requiremodule="jive/rte/syntax/shBrushPython" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shBrushRuby.js" data-requiremodule="jive/rte/syntax/shBrushRuby" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shBrushSql.js" data-requiremodule="jive/rte/syntax/shBrushSql" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shBrushVb.js" data-requiremodule="jive/rte/syntax/shBrushVb" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shBrushXml.js" data-requiremodule="jive/rte/syntax/shBrushXml" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/shBrushPlain.js" data-requiremodule="jive/rte/syntax/shBrushPlain" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/headerBadgePopup.js" data-requiremodule="gen/soy/jive/unified/content/view/headerBadgePopup" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/constants.js" data-requiremodule="apps/constants" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/renderVideo.js" data-requiremodule="apps/renderVideo" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/videoEncodingText.js" data-requiremodule="gen/soy/jive/videos/i18n/keys/videoEncodingText" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><style type="text/css">.dp-cpp .datatypes { color: #2E8B57; font-weight: bold; }</style></head><body style="" class="jive-body-content j-design-latest j-content-question j-header-mode-custom  j-simple-homepage j-responsive-md"><div aria-activedescendant="" class="current-view-blank" style="top: 0px; right: 316.5px; max-height: 896px;" id="j-search-visor" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-owns="j-visor-search-input" aria-hidden="true" aria-busy="false"><div class="j-search-visor-inner"><div class="j-visor-searchbar-wrapper"><label for="j-visor-search-input" class="j-508-label">Search</label><span class="j-search-n-spinner-wrapper"><i class="j-searchbar-icon icon-search"></i><i class="j-searchbar-thinker icon-spinner spin" aria-hidden="true"></i></span><input id="j-visor-search-input" class="j-search-input" required="required" type="text"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_1";return this.s_oc?this.s_oc(e):true' class="j-searchbar-close" aria-label="Close" href="#"><i class="icon-close-thin"></i></a></div><nav style="display: none;" class="j-visor-tabs"></nav><div class="j-visor-views"><div style="display: block;" class="j-visor-view-blank"></div></div></div></div><a data-content-finding="Community" id="top"></a><a onclick='s_objectID="https://community.nxp.com/thread/366520#j-main_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#j-main" class="j-508-label">Skip navigation</a><div id="j-header-wrap" data-company-name="Freescale Semiconductor, Inc. - Cloud" data-no-user-bar="false" role="banner"><header id="j-compact-header" class="clearfix"><!-- Customer generated HTML --><div id="j-cust-head" class="clearfix"><div id="hd" style="padding-top:22px; padding-left:8px;">
+    <a onclick='s_objectID="http://www.nxp.com/_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="http://www.nxp.com/">
+      <img alt="NXP Community" src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/nxp-logo-112x41.png">
+    </a>  
+    <div style="font-size:.9rem; float:right; padding-top:40px">
+      <a onclick='s_objectID="http://www.nxp.com/support/communities:COMMUNITIES_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="jive-link-external-small" href="http://www.nxp.com/support/communities:COMMUNITIES" target="_blank">
+        <strong>Additional Communities</strong>
+      </a>&nbsp;|&nbsp;
+      <a onclick='s_objectID="http://www.nxp.com/_2";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="jive-link-external-small" href="http://www.nxp.com/" target="_blank">
+        <strong>nxp.com&nbsp;</strong>
+      </a>
+    </div>
+  </div></div><!-- Navigational buttons/links --><nav id="j-globalNav-bg" role="navigation" aria-label="Jive" data-mode="custom"><ul id="j-globalNav" role="menubar" class="j-globalNav"><li id="mobile-menu" class="mobile-tool"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_2";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-globalNavLink" href="#"></a></li><li class="j-simple-nav-logo j-globalNav-li"><a onclick='s_objectID="https://community.nxp.com/_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-simple-logo js-logo j-globalNavLink" href="https://community.nxp.com/"><img src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/customNavLogoImage-1456513950137-community-logo.png"></a></li><li id="jive-nav-link-home" class=" j-globalNav-li j-ui-elem"><a onclick='s_objectID="https://community.nxp.com/welcome_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/welcome" class="j-globalNavLink j-ui-elem " role="menuitem"><span class="nav-link  ">Home</span></a></li><li id="jive-navbar-link-news" class=" j-globalNav-li j-ui-elem"><a onclick='s_objectID="https://community.nxp.com/news_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/news" class="j-globalNavLink j-ui-elem " role="menuitem"><span class="nav-link  ">News</span></a></li><li id="jive-nav-link-work" class=" j-globalNav-li j-ui-elem"><a onclick='s_objectID="https://community.nxp.com/content_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/content" class="j-globalNavLink j-ui-elem " role="menuitem"><span class="nav-link  ">Content</span></a></li><li id="jive-nav-link-conx" class=" j-globalNav-li j-ui-elem"><a onclick='s_objectID="https://community.nxp.com/people_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/people" class="j-globalNavLink j-ui-elem " role="menuitem"><span class="nav-link  ">People</span></a></li><li id="jive-nav-link-places" class=" j-globalNav-li j-ui-elem"><a onclick='s_objectID="https://community.nxp.com/places_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/places" class="j-globalNavLink j-ui-elem " role="menuitem"><span class="nav-link  ">Places</span></a></li></ul><div style="padding-right: 0px;" id="j-links"><ul class="j-globalNav"><li class="j-nav-create j-nav-user j-globalNav-li js-satellite-nav-container" aria-haspopup="true"><ul id="j-satNav"><li class="login"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_3";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" class="login" id="navLogin" title="Log in">Log in</a></li></ul><div id="j-satNav-menu" class="clearfix" style="display:none;"></div><span data-count="0" tabindex="-1" aria-label="nav.bar.inbox.count.label" class="j-js-update-indicator j-update-count zero  j-navbadge-count j-ui-elem" style="display:none;">0</span></li><li id="j-nav-search-li" class="j-nav-open-visor j-globalNav-li js-nav-open-visor-container j-nav-create" aria-haspopup="true"><label for="j-nav-search" class="j-508-label">Search</label><a onclick='s_objectID="https://community.nxp.com/thread/366520#_4";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" id="j-nav-search" class="j-globalNavLink j-ui-elem" role="menuitem" data-hideviews="bookmarks default history" data-hidetypes=""><span class="nav-link j-ui-elem"><i class="icon-search"></i></span></a></li><li id="mobile-search" class="j-globalNav-li mobile-tool"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_5";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-globalNavLink" href="#"></a></li></ul><div id="j-spotlight-search" role="search" data-mode="custom"><span class="j-ui-elem j-search-left"><span id="searchpopupanchor"></span></span><span><label for="autosearch" class="j-508-label">Search</label><input data-spotlight-enabled="false" id="autosearch" class="j-ui-elem" data-component="autosearch" data-popup-anchor="searchpopupanchor" placeholder="Search" role="combobox" aria-labelledby="autosearch" aria-expanded="false" data-hidetypes="bookmarks frequent recent " data-community-name="NXP Community" data-filters="" data-origin="spotlight" aria-hidden="true" aria-busy="true" type="text"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_6";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" id="mob-spotlight-cancel" title="Cancel"><span class="j-508-label">Cancel</span><span class="jive-icon-glyph icon-close-med"></span></a></span><span class="j-ui-elem j-search-right"></span><span class="jive-icon-sml jive-glyph-delete" data-component="button" data-type="clear" data-field="autosearch"></span></div></div></nav></header><noscript><div style="color:red" align="center">Error: You don't have JavaScript enabled. This tool uses JavaScript and much of it will not work correctly without it enabled. Please turn JavaScript back on and reload this page.</div></noscript></div><div id="mobile-overlay"></div><div class="j-breadcrumb-bar"><div class="j-wrap clearfix"><script>require([ 'apps/outcomes/badgeHelper', 'apps/outcomes/eventShim' ], function(badgeHelper) {badgeHelper.enableHeaderBadges();});require(['antivirus']);</script><nav class="j-context" role="navigation" aria-label="Breadcrumb"><span id="js-breadcrumb-intro" data-container-url="/community/imx" data-container-display-name="i.MX Community" data-content-browse-filter="/community/imx/content?filterID=contentstatus[published]~objecttype~thread[questions]" data-has-content-rel-intro-key="forum.thrd.relatedQuestionsIn.link" data-no-content-rel-intro-key="forum.thrd.upToQuestionsIn.link"><a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~objecttype~thre_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Eobjecttype%7Ethread[questions]">More questions</a> in <a onclick='s_objectID="https://community.nxp.com/community/imx_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/community/imx">i.MX Community</a></span> <a onclick='s_objectID="https://community.nxp.com/thread/366520#_7";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" id="js-place-parents-link" class="j-nav-more jive-icon-glyph icon-angle-down" title="Where is this place located?"></a><div id="js-place-parents-container" class="j-pop-main j-menu j-quick-menu j-breadcrumb-popover" style="display: none"><ul class="j-icon-list"><li><a onclick='s_objectID="https://community.nxp.com/_2";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/" class="noIcon"><span class="lnk">NXP Community</span></a></li><li><a onclick='s_objectID="https://community.nxp.com/places_2";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/places" class="noIcon"><span class="lnk">All Places</span></a><ul><li><a onclick='s_objectID="https://community.nxp.com/community/imx_2";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/community/imx" class="last-child"><span class="jive-icon-med jive-icon-space"></span><span class="lnk">i.MX Community</span></a></li></ul></li></ul></div><span id="js-place-link-breadcrumb" data-place-link-count="0" data-linked-content-id="366520" data-linked-content-type="1" data-place="true" data-parents="true"></span></nav><nav class="j-content-actions"><ul class="clearfix" role="toolbar" aria-label="Social Actions"></ul></nav><div class="j-content-mobile-menu js-content-mobile-menu"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_8";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" id="mobile-sidenav-btn"></a></div></div></div><div class="j-messages-wrapper j-content-info" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"><ul class="js-outcome-badge-container js-outcome-badge-container-top j-outcome-badge-container j-outcome-badge-container-top-v2 js-ed-1-366520" data-object-type="1" data-object-id="366520" data-object-type-name="discussion" aria-label="Outcome badges" data-allowed-outcome-types="[&quot;finalized&quot;,&quot;outdated&quot;,&quot;official&quot;,&quot;wip&quot;]" data-use-v2-outcomes="true" aria-live="polite"></ul><div class="j-content-info-item" role="alert" aria-live="assertive" aria-atomic="true" tabindex="-1" style="display:none;"></div><div id="object-follow-notify" class="j-content-info-item" style="display:none" aria-live="polite" aria-atomic="true"></div><div id="content-featured-notify" class="j-content-info-item" style="display:none" aria-live="polite" aria-atomic="true"></div></div><div id="j-main-wrapper"><section id="j-main" class="clearfix"><div id="jive-body" class="clearfix"><div id="jive-body-main" class="js-tlo js-ed-1-366520" data-object-id="366520" data-object-type="1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Question","text":"i2c User Space Application","headline":"\u003cbody\u003e\u003c!-- [DocumentBodyStart:7c11e713-0f50-432b-9689-c54be3576337] --\u003e\u003cdiv class\u003d\"jive-rendered-content\"\u003e\u003cp\u003eI am using imx6qsabresd board.\u003c/p\u003e\u003cp\u003eI want to develop user space application to access on board i2c based mma8451q 3-Axis Orientation/Motion Detection Sensor.\u003c/p\u003e\u003cp\u003eI am using eclipse for development. \u003c/p\u003e\u003cp\u003eBelow is my code for that.\u003c/p\u003e\u003c!--[CodeBlockStart:0b41cf43-88b7-4756-a42a-81538180bfa1][excluded]--\u003e\u003cpre class\u003d\"plain\" name\u003d\"code\"\u003e#include \u0026lt;stdlib.h\u0026gt;\n#include \u0026lt;stdio.h\u0026gt;\n#include \u0026lt;linux/i2c-dev.h\u0026gt;\n#include \u0026lt;fcntl.h\u0026gt;\n\n\n\n\n#define SLAVE_ADDRESS 0x1D\n\n\n// I2C Linux device handle\nint g_i2cFile;\n\n\n\n\n// open the Linux device\nvoid i2cOpen()\n{\n\u0026#160; g_i2cFile \u003d open(\"/dev/i2c-0\", O_RDWR);\n\u0026#160; if (g_i2cFile \u0026lt; 0) {\n\u0026#160; perror(\"i2cOpen\");\n\u0026#160; puts(\"I2C Open Failed\");\n\u0026#160; exit(1);\n\u0026#160; }\n\u0026#160; else\n\u0026#160; puts(\"I2C Open Success\");\n}\n\n\n\n\n// close the Linux device\nvoid i2cClose()\n{\n\u0026#160; close(g_i2cFile);\n}\n\n\n\n\n// set the I2C slave address for all subsequent I2C device transfers\nvoid i2cSetAddress(int address)\n{\n\u0026#160; if (ioctl(g_i2cFile, I2C_SLAVE, address) \u0026lt; 0) {\n\u0026#160; perror(\"i2cSetAddress\");\n\u0026#160; puts(\"I2C Set Address Failed\");\n\u0026#160; exit(1);\n\u0026#160; }\n\u0026#160; else\n\u0026#160; puts(\"I2C Set Address Success\");\n}\n\n\n\n\n\n\nint main(void) {\n\n\n\u0026#160; unsigned char res,i;\n\n\n\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160; puts(\"MMA8451Q Accelerometer Test Program\"); /* prints Hello World */\n\n\n\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160; i2cOpen();\n\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160; i2cSetAddress(SLAVE_ADDRESS);\n\n\n\n\n\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160; res \u003d i2c_smbus_read_byte_data(g_i2cFile, 0x0D);\n\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160; printf(\"Result\u003d %d\\n\\r\\n\\r\", res);\n\n\n\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160; i2cClose();\n\n\n\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160;\u0026#160; return 0;\n}\n\u003c/pre\u003e\u003c!--[CodeBlockEnd:0b41cf43-88b7-4756-a42a-81538180bfa1]--\u003e\u003cdiv style\u003d\"display:none;\"\u003e\u003c/div\u003e\u003cp style\u003d\"min-height: 8pt; padding: 0px;\"\u003e\u0026#160;\u003c/p\u003e\u003cp\u003eFirst function i2c_smbus_read_byte_data() cannot be found by eclipse.\u003c/p\u003e\u003cp\u003eSo i searched around and found solution. I run \"sudo apt-get install libi2c-dev\" and replace i2c_dev.h in \"/opt/poky/1.8/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/include/linux\" from newly created i2c_dev.h in \"/usr/include/linux\".\u003c/p\u003e\u003cp\u003eNow i can successfully compile the code.\u003c/p\u003e\u003cp\u003eSo is this a right step?\u003c/p\u003e\u003cp style\u003d\"min-height: 8pt; padding: 0px;\"\u003e\u0026#160;\u003c/p\u003e\u003cp\u003eAnd the output of the code is\u003c/p\u003e\u003c!--[CodeBlockStart:3cb2b82a-6544-4bfa-bcae-cbf924f0e51a][excluded]--\u003e\u003cpre class\u003d\"plain\" name\u003d\"code\"\u003eMMA8451Q Accelerometer Test Program\nI2C Open Success\nI2C Set Address Success\nResult\u003d 255\n\u003c/pre\u003e\u003c!--[CodeBlockEnd:3cb2b82a-6544-4bfa-bcae-cbf924f0e51a]--\u003e\u003cdiv style\u003d\"display:none;\"\u003e\u003c/div\u003e\u003cp style\u003d\"min-height: 8pt; padding: 0px;\"\u003e\u0026#160;\u003c/p\u003e\u003cp\u003eIt should be 0x1A (Device ID).\u003c/p\u003e\u003cp\u003eI am getting 255 result fro all the address.\u003c/p\u003e\u003cp\u003eSo whats wrong in this code?\u003c/p\u003e\u003c/div\u003e\u003c!-- [DocumentBodyEnd:7c11e713-0f50-432b-9689-c54be3576337] --\u003e\u003c/body\u003e","author":{"@context":"http://schema.org","@type":"Person","name":"Ritesh Panchal","image":"https://community.nxp.com/api/core/v3/people/251353/avatar?a\u003d1034"},"dateModified":"Aug 19, 2015 8:25:44 AM","datePublished":"Aug 18, 2015 12:48:05 PM","dateCreated":"Aug 18, 2015 12:48:05 PM","commentCount":4,"interactionStatistic":{"@context":"http://schema.org","@type":"InteractionCounter","interactionType":"http://schema.org/LikeAction","userInteractionCount":0},"image":"http://localhost","isPartOf":{"@context":"http://schema.org","@type":"Blog","url":"https://community.nxp.com/api/core/v3/places/1114"},"keywords":["i.MX6SL","i.MX6S","i.MX6DL","i.MX6Dual","i.MX6Quad","i.MX233","i.MX28","i.MX50","i.MX51","i.MX53","i.MX6_All","Linux","Yocto Project"],"answerCount":4}</script><!-- BEGIN Body region --><!-- BEGIN guided nav --><div class="j-guided-nav js-guided-nav" style="display: none;"><div class="j-header js-header j-rc-none-bottom"></div><div class="j-navbar js-navbar"></div></div><!-- END guided nav --><div class="j-content clearfix j-question-answered" aria-labelledby="main-doc-header" role="main" data-jive-view="apps/content/questions/correct_view"><header class="j-content-header"><div class="j-welt-container"><div class="j-welt"><span class="j-welt-answered"><span class="j-question-icon jive-icon-glyph icon-star3"></span><span class="j-question-icon-text">Answered</span></span><span class="j-welt-assumed"><span class="j-question-icon jive-icon-glyph icon-star3"></span><span class="j-question-icon-text">Assumed Answered</span></span><span class="j-welt-open"><span class="j-question-icon jive-icon-glyph icon-j-discussion-question"></span></span></div></div><h1>i2c User Space Application</h1><div class="j-content-header-author font-color-meta"><span role="img" title="Discussion" class="jive-icon-glyph .icon-j-discussion-question"></span>Question asked by <a onclick='s_objectID="https://community.nxp.com/people/ritesh_panchal_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/people/ritesh_panchal" data-username="ritesh_panchal" data-userid="251353" class="jive-username-link  jiveTT-hover-user  ">Ritesh Panchal</a> on Aug 18, 2015<br><span id="latestReplyLine"><a onclick='s_objectID="https://community.nxp.com/thread/366520#comment-552351_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#comment-552351" class="lastScroll">Latest reply</a> on Aug 19, 2015 by Ritesh Panchal</span> <a onclick='s_objectID="https://community.nxp.com/community/feeds/messages?thread=366520_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" id="latestReplyLine-RSS" class="j-rss-icon" href="https://community.nxp.com/community/feeds/messages?thread=366520" title="RSS"><span class="jive-icon-glyph icon-feed"></span></a></div><ul class="j-content-header-actions"><li class="j-js-follow-controls"><span id="acclaim-container-2-551885" data-type="medium" data-can-apply="false" data-acclaim-type="like" data-bullet="true" data-acclaim-count="0" class="js-acclaim-container acclaim-container acclaim-like-container j-disabled"><span><span class="j-social-action"><span class="jive-icon-glyph icon-thumbs-up3"></span>Like</span><span class="j-action-bullet"> • </span><label class="j-508-label" id="showAcclaim-551885-2-count-label">Show 0 Likes</label><a onclick='s_objectID="https://community.nxp.com/thread/366520#_9";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-people-count j-rc3 jive-acclaim-likedlink" data-command="showAcclaim" data-acclaim-type="like" data-object-id="551885" data-object-type="2" data-count="0" href="#" role="button" aria-labelledby="showAcclaim-551885-2-count-label" title="Show 0 Likes">0</a> </span></span></li><li class="jive-comment-link" data-jive-view="apps/content/region/comment_link_region_view"><span><span class="jive-icon-glyph icon-comment3"></span>Comment</span><span class="j-action-bullet"> • </span><a onclick='s_objectID="https://community.nxp.com/thread/366520#comments_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="js-view-comments" href="#comments"><span class="js-comment-link-count jive-comment-link-count">4</span></a></li></ul></header><section class="j-content-body"><!-- [DocumentBodyStart:7c11e713-0f50-432b-9689-c54be3576337] --><div class="jive-rendered-content"><p>I am using imx6qsabresd board.</p><p>I want to develop user space application to access on board i2c based mma8451q 3-Axis Orientation/Motion Detection Sensor.</p><p>I am using eclipse for development. </p><p>Below is my code for that.</p><!--[CodeBlockStart:0b41cf43-88b7-4756-a42a-81538180bfa1][excluded]--><div class="dp-highlighter"><div class="bar"><div></div></div><ol class="dp-c" start="1"><li class="alt"><span><span>#include&nbsp;&lt;stdlib.h&gt;&nbsp;&nbsp;</span></span></li><li class=""><span>#include&nbsp;&lt;stdio.h&gt;&nbsp;&nbsp;</span></li><li class="alt"><span>#include&nbsp;&lt;linux/i2c-dev.h&gt;&nbsp;&nbsp;</span></li><li class=""><span>#include&nbsp;&lt;fcntl.h&gt;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>#define&nbsp;SLAVE_ADDRESS&nbsp;0x1D&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>//&nbsp;I2C&nbsp;Linux&nbsp;device&nbsp;handle&nbsp;&nbsp;</span></li><li class="alt"><span>int&nbsp;g_i2cFile;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>//&nbsp;open&nbsp;the&nbsp;Linux&nbsp;device&nbsp;&nbsp;</span></li><li class="alt"><span>void&nbsp;i2cOpen()&nbsp;&nbsp;</span></li><li class=""><span>{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;g_i2cFile&nbsp;=&nbsp;open("/dev/i2c-0",&nbsp;O_RDWR);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;if&nbsp;(g_i2cFile&nbsp;&lt;&nbsp;0)&nbsp;{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;perror("i2cOpen");&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;puts("I2C&nbsp;Open&nbsp;Failed");&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;exit(1);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;else&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;puts("I2C&nbsp;Open&nbsp;Success");&nbsp;&nbsp;</span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>//&nbsp;close&nbsp;the&nbsp;Linux&nbsp;device&nbsp;&nbsp;</span></li><li class="alt"><span>void&nbsp;i2cClose()&nbsp;&nbsp;</span></li><li class=""><span>{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;close(g_i2cFile);&nbsp;&nbsp;</span></li><li class=""><span>}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>//&nbsp;set&nbsp;the&nbsp;I2C&nbsp;slave&nbsp;address&nbsp;for&nbsp;all&nbsp;subsequent&nbsp;I2C&nbsp;device&nbsp;transfers&nbsp;&nbsp;</span></li><li class=""><span>void&nbsp;i2cSetAddress(int&nbsp;address)&nbsp;&nbsp;</span></li><li class="alt"><span>{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;if&nbsp;(ioctl(g_i2cFile,&nbsp;I2C_SLAVE,&nbsp;address)&nbsp;&lt;&nbsp;0)&nbsp;{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;perror("i2cSetAddress");&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;puts("I2C&nbsp;Set&nbsp;Address&nbsp;Failed");&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;exit(1);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;else&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;puts("I2C&nbsp;Set&nbsp;Address&nbsp;Success");&nbsp;&nbsp;</span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>int&nbsp;main(void)&nbsp;{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;unsigned&nbsp;char&nbsp;res,i;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts("MMA8451Q&nbsp;Accelerometer&nbsp;Test&nbsp;Program");&nbsp;/*&nbsp;prints&nbsp;Hello&nbsp;World&nbsp;*/&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i2cOpen();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i2cSetAddress(SLAVE_ADDRESS);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res&nbsp;=&nbsp;i2c_smbus_read_byte_data(g_i2cFile,&nbsp;0x0D);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Result=&nbsp;%d\n\r\n\r",&nbsp;res);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i2cClose();&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0;&nbsp;&nbsp;</span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li></ol></div><pre style="display: none;" class="plain" name="code">#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;linux/i2c-dev.h&gt;
+#include &lt;fcntl.h&gt;
+
+
+
+
+#define SLAVE_ADDRESS 0x1D
+
+
+// I2C Linux device handle
+int g_i2cFile;
+
+
+
+
+// open the Linux device
+void i2cOpen()
+{
+&nbsp; g_i2cFile = open("/dev/i2c-0", O_RDWR);
+&nbsp; if (g_i2cFile &lt; 0) {
+&nbsp; perror("i2cOpen");
+&nbsp; puts("I2C Open Failed");
+&nbsp; exit(1);
+&nbsp; }
+&nbsp; else
+&nbsp; puts("I2C Open Success");
+}
+
+
+
+
+// close the Linux device
+void i2cClose()
+{
+&nbsp; close(g_i2cFile);
+}
+
+
+
+
+// set the I2C slave address for all subsequent I2C device transfers
+void i2cSetAddress(int address)
+{
+&nbsp; if (ioctl(g_i2cFile, I2C_SLAVE, address) &lt; 0) {
+&nbsp; perror("i2cSetAddress");
+&nbsp; puts("I2C Set Address Failed");
+&nbsp; exit(1);
+&nbsp; }
+&nbsp; else
+&nbsp; puts("I2C Set Address Success");
+}
+
+
+
+
+
+
+int main(void) {
+
+
+&nbsp; unsigned char res,i;
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; puts("MMA8451Q Accelerometer Test Program"); /* prints Hello World */
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i2cOpen();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i2cSetAddress(SLAVE_ADDRESS);
+
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; res = i2c_smbus_read_byte_data(g_i2cFile, 0x0D);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("Result= %d\n\r\n\r", res);
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i2cClose();
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;
+}
+</pre><!--[CodeBlockEnd:0b41cf43-88b7-4756-a42a-81538180bfa1]--><div style="display:none;"></div><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>First function i2c_smbus_read_byte_data() cannot be found by eclipse.</p><p>So
+ i searched around and found solution. I run "sudo apt-get install 
+libi2c-dev" and replace i2c_dev.h in 
+"/opt/poky/1.8/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/include/linux"
+ from newly created i2c_dev.h in "/usr/include/linux".</p><p>Now i can successfully compile the code.</p><p>So is this a right step?</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>And the output of the code is</p><!--[CodeBlockStart:3cb2b82a-6544-4bfa-bcae-cbf924f0e51a][excluded]--><div class="dp-highlighter"><div class="bar"><div></div></div><ol class="dp-c" start="1"><li class="alt"><span><span>MMA8451Q&nbsp;Accelerometer&nbsp;Test&nbsp;Program&nbsp;&nbsp;</span></span></li><li class=""><span>I2C&nbsp;Open&nbsp;Success&nbsp;&nbsp;</span></li><li class="alt"><span>I2C&nbsp;Set&nbsp;Address&nbsp;Success&nbsp;&nbsp;</span></li><li class=""><span>Result=&nbsp;255&nbsp;&nbsp;</span></li></ol></div><pre style="display: none;" class="plain" name="code">MMA8451Q Accelerometer Test Program
+I2C Open Success
+I2C Set Address Success
+Result= 255
+</pre><!--[CodeBlockEnd:3cb2b82a-6544-4bfa-bcae-cbf924f0e51a]--><div style="display:none;"></div><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>It should be 0x1A (Device ID).</p><p>I am getting 255 result fro all the address.</p><p>So whats wrong in this code?</p></div><!-- [DocumentBodyEnd:7c11e713-0f50-432b-9689-c54be3576337] --><div class="j-question-content-footer js-body-answer j-answer-correct clearfix"><div class="reply jive-comment-content clearfix"><a onclick='s_objectID="https://community.nxp.com/people/BrilliantovKirillVladimirovich_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/people/BrilliantovKirillVladimirovich" title="Kirill Brilliantov" class="j-avatar  jiveTT-hover-user" data-userid="201899"><img class="jive-avatar" src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/avatar.png" data-username="BrilliantovKirillVladimirovich" data-height="72" data-random="7523505078362044" alt="Kirill Brilliantov" title="Kirill Brilliantov" width="72" height="72"></a><div class="j-comment-header"><span class="jive-comment-meta font-color-meta-light"><span class="j-username-wrap"><a onclick='s_objectID="https://community.nxp.com/people/BrilliantovKirillVladimirovich_2";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/people/BrilliantovKirillVladimirovich" data-username="BrilliantovKirillVladimirovich" data-userid="201899" class="jive-username-link  jiveTT-hover-user  ">Kirill Brilliantov</a>  </span><a onclick='s_objectID="https://community.nxp.com/thread/366520#comment-551944_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#comment-551944" id="comment-modDate-551944" class="font-color-meta-light">Aug 18, 2015 7:21 AM</a></span></div><div class="j-mark-correct"><div class="j-marked-correct"><span class="jive-icon-glyph icon-star3"></span>Correct Answer</div></div><div id="comment-body-551944"><!-- [DocumentBodyStart:f909ac41-fc6c-442c-80ba-ba7db251c528] --><div class="jive-rendered-content"><!--[CodeBlockStart:34fec1b5-ecaf-4301-b552-f4e386e5b238][excluded]--><div class="dp-highlighter"><div class="bar"><div></div></div><ol class="dp-cpp" start="1"><li class="alt"><span><span class="datatypes">bool</span><span>&nbsp;I2C::read(unsigned&nbsp;</span><span class="datatypes">char</span><span>&nbsp;addr,&nbsp;unsigned&nbsp;</span><span class="datatypes">char</span><span>&nbsp;reg,&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unsigned&nbsp;<span class="datatypes">short</span><span>&nbsp;&amp;val,&nbsp;</span><span class="datatypes">bool</span><span>&nbsp;msb)&nbsp;</span><span class="keyword">const</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;i2c_rdwr_ioctl_data&nbsp;data;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;i2c_msg&nbsp;msgs[<span class="number">2</span><span>];&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;__u8&nbsp;buf[<span class="keyword">sizeof</span><span>(__u8)&nbsp;*&nbsp;</span><span class="number">2</span><span>]&nbsp;=&nbsp;{reg,&nbsp;</span><span class="number">0</span><span>};&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>&nbsp;(-</span><span class="number">1</span><span>&nbsp;==&nbsp;_fd)&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>&nbsp;</span><span class="keyword">false</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">0</span><span>].addr&nbsp;=&nbsp;</span><span class="keyword">static_cast</span><span>&lt;__u16&gt;(addr);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">0</span><span>].buf&nbsp;=&nbsp;buf;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">0</span><span>].flags&nbsp;=&nbsp;</span><span class="number">0</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">0</span><span>].len&nbsp;=&nbsp;</span><span class="keyword">static_cast</span><span>&lt;__u16&gt;(</span><span class="keyword">sizeof</span><span>(unsigned&nbsp;</span><span class="datatypes">char</span><span>));&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">1</span><span>].addr&nbsp;=&nbsp;</span><span class="keyword">static_cast</span><span>&lt;__u8&gt;(addr);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">1</span><span>].flags&nbsp;=&nbsp;I2C_M_RD;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">1</span><span>].len&nbsp;=&nbsp;</span><span class="keyword">static_cast</span><span>&lt;__u16&gt;(</span><span class="keyword">sizeof</span><span>(unsigned&nbsp;</span><span class="datatypes">short</span><span>));&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">1</span><span>].buf&nbsp;=&nbsp;buf;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;data.msgs&nbsp;=&nbsp;msgs;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;data.nmsgs&nbsp;=&nbsp;<span class="number">2</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>&nbsp;(-</span><span class="number">1</span><span>&nbsp;==&nbsp;ioctl(_fd,&nbsp;I2C_RDWR,&nbsp;&amp;data))&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>&nbsp;</span><span class="keyword">false</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;val&nbsp;=&nbsp;(buf[msb&nbsp;?&nbsp;<span class="number">1</span><span>&nbsp;:&nbsp;</span><span class="number">0</span><span>]&nbsp;&lt;&lt;&nbsp;</span><span class="number">8</span><span>)&nbsp;|&nbsp;buf[msb&nbsp;?&nbsp;</span><span class="number">0</span><span>&nbsp;:&nbsp;</span><span class="number">1</span><span>];&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>&nbsp;</span><span class="keyword">true</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li></ol></div><pre style="display: none;" class="c++" name="code">bool I2C::read(unsigned char addr, unsigned char reg,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; unsigned short &amp;val, bool msb) const
+{
+&nbsp;&nbsp;&nbsp; i2c_rdwr_ioctl_data data;
+&nbsp;&nbsp;&nbsp; i2c_msg msgs[2];
+&nbsp;&nbsp;&nbsp; __u8 buf[sizeof(__u8) * 2] = {reg, 0};
+&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp; if (-1 == _fd)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return false;
+
+&nbsp;&nbsp;&nbsp; msgs[0].addr = static_cast&lt;__u16&gt;(addr);
+&nbsp;&nbsp;&nbsp; msgs[0].buf = buf;
+&nbsp;&nbsp;&nbsp; msgs[0].flags = 0;
+&nbsp;&nbsp;&nbsp; msgs[0].len = static_cast&lt;__u16&gt;(sizeof(unsigned char));
+&nbsp;&nbsp;&nbsp; msgs[1].addr = static_cast&lt;__u8&gt;(addr);
+&nbsp;&nbsp;&nbsp; msgs[1].flags = I2C_M_RD;
+&nbsp;&nbsp;&nbsp; msgs[1].len = static_cast&lt;__u16&gt;(sizeof(unsigned short));
+&nbsp;&nbsp;&nbsp; msgs[1].buf = buf;
+&nbsp;&nbsp;&nbsp; data.msgs = msgs;
+&nbsp;&nbsp;&nbsp; data.nmsgs = 2;
+
+&nbsp;&nbsp;&nbsp; if (-1 == ioctl(_fd, I2C_RDWR, &amp;data))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return false;
+
+&nbsp;&nbsp;&nbsp; val = (buf[msb ? 1 : 0] &lt;&lt; 8) | buf[msb ? 0 : 1];
+
+&nbsp;&nbsp;&nbsp; return true;
+}
+</pre><!--[CodeBlockEnd:34fec1b5-ecaf-4301-b552-f4e386e5b238]--><div style="display:none;"></div></div><!-- [DocumentBodyEnd:f909ac41-fc6c-442c-80ba-ba7db251c528] --></div><div class="j-context-link"><a onclick='s_objectID="https://community.nxp.com/thread/366520#comment-551944_2";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#comment-551944" class="js-context-link">See the reply in context</a></div></div></div><!-- BEGIN attachments --><!-- END attachments --><div id="previewable-binary-viewer"></div><div class="j-question-content-footer js-samequestion clearfix"><div class="j-question-samequestion">No one else had this question</div><div class="j-mark-assumed js-assumed" data-jive-view="apps/content/questions/assumed" data-id="366520" data-type="1" style="display:none;"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_10";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#">Mark as assumed answered</a></div></div><div class="j-region-outcomes j-region-hidden" data-jive-view="apps/outcomes/v2_badge_view" data-object-id="366520" data-object-type="1"><h2>Outcomes</h2><ul class="js-outcome-badge-container j-outcome-badge-container js-outcome-summaries js-ed-1-366520" data-object-type="1" data-object-id="366520" aria-label="Outcome badges" data-allowed-outcome-types="[&quot;decision&quot;,&quot;success&quot;,&quot;pending&quot;,&quot;helpful&quot;,&quot;resolved&quot;]" data-use-v2-outcomes="true" aria-live="polite"></ul></div></section><footer class="j-content-footer clearfix font-color-meta"><div class="j-content-footer-line"><span class="jive-content-personal font-color-meta"><strong class="font-color-meta">Visibility: </strong><span class="jive-icon-glyph icon-j-space"></span> <a onclick='s_objectID="https://community.nxp.com/community/imx_3";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-container jivecontainerTT-hover-container" data-uri="https://community.nxp.com/api/core/v3/places/1114" href="https://community.nxp.com/community/imx">i.MX Community</a></span> • <span class="jive-content-footer-item"><span id="js-view-count" class="j-view-count">452 Views</span></span></div><div class="j-content-footer-line"><span class="jive-content-footer-item">Last modified on Aug 18, 2015 5:48 AM</span></div><div class="j-content-footer-line"><div class="j-content-categories-section"><span class="jive-content-footer-item"><span class="j-content-footer-label">Categories:</span> <a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~category[imx233_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-content-category-label" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Ecategory[imx233]" title="i.MX233">i.MX233</a> <a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~category[imx28]_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-content-category-label" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Ecategory[imx28]" title="i.MX28">i.MX28</a> <a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~category[imx50]_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-content-category-label" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Ecategory[imx50]" title="i.MX50">i.MX50</a> <a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~category[imx51]_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-content-category-label" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Ecategory[imx51]" title="i.MX51">i.MX51</a> <a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~category[imx53]_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-content-category-label" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Ecategory[imx53]" title="i.MX53">i.MX53</a> <a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~category[imx6al_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-content-category-label" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Ecategory[imx6all]" title="i.MX6_All">i.MX6_All</a> <a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~category[imx6sl_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-content-category-label" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Ecategory[imx6sl]" title="i.MX6SL">i.MX6SL</a> <a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~category[imx6s]_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-content-category-label" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Ecategory[imx6s]" title="i.MX6S">i.MX6S</a> <a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~category[imx6dl_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-content-category-label" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Ecategory[imx6dl]" title="i.MX6DL">i.MX6DL</a> <a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~category[imx6du_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-content-category-label" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Ecategory[imx6dual]" title="i.MX6Dual">i.MX6Dual</a> <a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~category[imx6qu_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-content-category-label" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Ecategory[imx6quad]" title="i.MX6Quad">i.MX6Quad</a> <a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~category[linux]_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-content-category-label" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Ecategory[linux]" title="Linux">Linux</a> <a onclick='s_objectID="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]~category[yocto-_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-content-category-label" href="https://community.nxp.com/community/imx/content?filterID=contentstatus[published]%7Ecategory[yocto-project]" title="Yocto Project">Yocto Project</a> </span></div></div></footer></div><script>var _editor_lang = document.getElementsByTagName('html')[0].lang; var _jive_video_picker__url = "?container=2004&containerType=14"; var _jive_comment_images_enabled = false; require([ 'jquery', 'jive/comment_app', 'apps/comment_app/regions/main', 'apps/pager/regions/main', 'jive/namespace', 'domReady!' ], function($j, commentApp, CommentAppMain, Pager) {var pager = new Pager( "jive-comments-all", "/replies/view.jspa?contentID=366520&contentType=1",{per_page: 100,sort: "dateasc",mode: "comments",},{regions_requested: 'true'}); if (typeof(ContentFilterHandler) != 'undefined') {ContentFilterHandler.contentLoader = pager;}var options = {resourceType:       1, resourceID:         366520, messageID:          551885, messageTarget:      'all', tabsEnabled:        false, regions_requested:  'true', contentObject: {object:            366520, contentObjectType: 1}, advEditorLnk: 'create-advanced-comment.jspa?id=', editReplyAction : 'update-advanced-comment.jspa?id=', isAnonymous:    true, isThreaded:     true, isFinalized:    false, paginate:       false, pageSize:           5, isPrintPreview:     false, rteOptions : {preset        : "mini-w-quote", preferredMode : "", startMode     : "", mobileUI      : false, toggleText    : 'Show Full Editor', alwaysUseTabText : 'Always use this editor', editDisabledText : 'You are using a device that only enables you to add content.', editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.', height        : 200, images_enabled: window._jive_comment_images_enabled, comment: true}, i18n: {confirmDeleteComment:    'Are you sure you want to delete this comment?', postSuccessText:         'Please note: your comment was added successfully, but a moderator needs to approve it before it can be posted.', postUserWroteLabel:      '{0} wrote', postGuestWroteLabel:     'Guest wrote', cmntEditingTitle:        'Editing comment', globalAjaxError:         'An unexpected error has occurred. Please make sure that your session did not expire while viewing this page.', replyToTitle:            'Reply to {0}', formSubmitPleaseWait:    'Please Wait ...', globalLoginRequired:     'You are no longer logged in. Please {0}log in{1} to continue.', loading:				 'Loading...', advEditor:               'Use advanced editor'}}; var tabView;jive.namespace('CommentApp'); jive.CommentApp.comments    = new CommentAppMain($j.extend({ commentMode: 'comments' }, options), tabView, pager);commentApp.set(jive.CommentApp);});</script><div id="jive-comments-all" class="j-content-comments-container"><div id="jive-all" class="j-content-comments j-content-comments-display-section j-comments-all"><div id="jive-rolled-up-comments" data-jive-view="apps/content/region/comment_app_view" data-show-replies="true" class="j-so-finalized-rollup j-rc4" style="display:none;">This content has been marked as final. <a onclick='s_objectID="https://community.nxp.com/thread/366520#_11";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" id="jive-unroll-comments" class="j-so-finalized-unroll j-comment-count" href="#">Show 4 comments</a></div><section id="jive-comments-block" class="j-ripstop-replies-block"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_12";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" name="comments"></a><ul class="j-comment-options clearfix"><li id="jive-comments-tab" class="jive-body-tab j-tab-selected"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_13";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#"><span id="jive-comments-count" class="j-comment-count">4</span> Comments</a></li></ul><!-- END tabs --><div style="display:none;" id="jive-comment-post-block"><!-- moderation warning --><!-- end moderation warning --><form method="post" action="javascript:void(0);" name="jive-comment-post-form" class="j-comment-form"><div class="jive-error-box" id="jive-comment-error-box" style="display:none"><p class="jive-error-message" id="jive-comment-error" style="display:none"></p></div><div class="jive-comment-post-anonymous jive-form-row"><div class="jive-form-label"><input id="comment-author" name="commentGuestName"><label for="comment-author">Name</label></div><div class="jive-form-label"><input id="comment-email" name="commentGuestEmail"><label for="comment-email">Email Address</label></div><div class="jive-form-label"><input id="comment-url" name="commentGuestUrl"><label for="comment-url">Website Address</label></div></div><input class="js-outcome-attachment" value="" type="hidden"><div><textarea id="7523505102055868" class="wysiwygtext" name="body" rows="15" cols="30"></textarea></div><div style="display:none;" id="jive-blog-comment-preview" class="jive-blog-comment-preview"></div><div class="j-rte-message js-rte-message"></div><div class="jive-form-buttons"><input name="post" class="j-btn-callout" value="Add Comment" type="submit"><input class="j-btn-global" name="cancel" value="Cancel" type="button"></div></form></div><div style="display:none;" id="jive-comment-edit-block"><form method="post" action="javascript:void(0);" name="jive-comment-edit-form" class="j-comment-form"><div class="jive-error-box" id="jive-comment-error-box" style="display:none"><p class="jive-error-text" id="jive-comment-error" style="display:none"></p></div><div class="jive-comment-post-anonymous"><div><input name="name"><label for="name">Name<span>(Required)</span></label></div><div><input name="email"><label for="email">Email Address<span>(Required, will not be published)</span></label></div><div><input name="url"><label for="url">Website Address</label></div></div><div><textarea id="7523505102403400" class="wysiwygtext" name="body" rows="15" cols="30"></textarea></div><div style="display:none;" id="jive-blog-comment-preview" class="jive-blog-comment-preview"></div><div class="j-rte-message js-rte-message"></div><div class="jive-form-buttons"><input name="post" class="j-btn-callout" value="Save" type="submit"><input name="cancel" value="Cancel" type="button"></div></form></div><div class="j-comment-action-bar clearfix"></div><div class="j-comment-display-listing"><ul class="j-answers jive-comment jive-comment-threaded clearfix jive-comment-indent-0"><li class="reply j-anchor-target j-answer-correct" id="comment-551944" data-object-type="2" data-object-id="551944"><div class="jive-comment-content clearfix"><a onclick='s_objectID="https://community.nxp.com/people/BrilliantovKirillVladimirovich_3";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/people/BrilliantovKirillVladimirovich" title="Kirill Brilliantov" class="j-avatar  jiveTT-hover-user" data-userid="201899"><img class="jive-avatar" src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/avatar.png" data-username="BrilliantovKirillVladimirovich" data-height="72" data-random="7523505094299543" alt="Kirill Brilliantov" title="Kirill Brilliantov" width="72" height="72"></a><div class="j-comment-header"><span class="jive-comment-meta font-color-meta-light"><span class="j-username-wrap"><a onclick='s_objectID="https://community.nxp.com/people/BrilliantovKirillVladimirovich_4";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/people/BrilliantovKirillVladimirovich" data-username="BrilliantovKirillVladimirovich" data-userid="201899" class="jive-username-link  jiveTT-hover-user  ">Kirill Brilliantov</a>  </span><a onclick='s_objectID="https://community.nxp.com/thread/366520#comment-551944_3";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#comment-551944" id="comment-modDate-551944" class="font-color-meta-light">Aug 18, 2015 7:21 AM</a></span></div><div class="j-mark-correct js-mark-correct js-correct clearfix" style="display:none;"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_14";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" data-object-id="551944" data-object-type="2" data-command="unmark" data-type="correct" class="js-action-link js-correct-answer-link js-unmark-correct-answer"><span class=""></span>Unmark Correct</a><div class="j-marked-correct"><span class="jive-icon-glyph icon-star3"></span>Correct Answer</div></div><div id="comment-body-551944"><!-- [DocumentBodyStart:f909ac41-fc6c-442c-80ba-ba7db251c528] --><div class="jive-rendered-content"><!--[CodeBlockStart:34fec1b5-ecaf-4301-b552-f4e386e5b238][excluded]--><div class="dp-highlighter"><div class="bar"><div></div></div><ol class="dp-cpp" start="1"><li class="alt"><span><span class="datatypes">bool</span><span>&nbsp;I2C::read(unsigned&nbsp;</span><span class="datatypes">char</span><span>&nbsp;addr,&nbsp;unsigned&nbsp;</span><span class="datatypes">char</span><span>&nbsp;reg,&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unsigned&nbsp;<span class="datatypes">short</span><span>&nbsp;&amp;val,&nbsp;</span><span class="datatypes">bool</span><span>&nbsp;msb)&nbsp;</span><span class="keyword">const</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;i2c_rdwr_ioctl_data&nbsp;data;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;i2c_msg&nbsp;msgs[<span class="number">2</span><span>];&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;__u8&nbsp;buf[<span class="keyword">sizeof</span><span>(__u8)&nbsp;*&nbsp;</span><span class="number">2</span><span>]&nbsp;=&nbsp;{reg,&nbsp;</span><span class="number">0</span><span>};&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>&nbsp;(-</span><span class="number">1</span><span>&nbsp;==&nbsp;_fd)&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>&nbsp;</span><span class="keyword">false</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">0</span><span>].addr&nbsp;=&nbsp;</span><span class="keyword">static_cast</span><span>&lt;__u16&gt;(addr);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">0</span><span>].buf&nbsp;=&nbsp;buf;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">0</span><span>].flags&nbsp;=&nbsp;</span><span class="number">0</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">0</span><span>].len&nbsp;=&nbsp;</span><span class="keyword">static_cast</span><span>&lt;__u16&gt;(</span><span class="keyword">sizeof</span><span>(unsigned&nbsp;</span><span class="datatypes">char</span><span>));&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">1</span><span>].addr&nbsp;=&nbsp;</span><span class="keyword">static_cast</span><span>&lt;__u8&gt;(addr);&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">1</span><span>].flags&nbsp;=&nbsp;I2C_M_RD;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">1</span><span>].len&nbsp;=&nbsp;</span><span class="keyword">static_cast</span><span>&lt;__u16&gt;(</span><span class="keyword">sizeof</span><span>(unsigned&nbsp;</span><span class="datatypes">short</span><span>));&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[<span class="number">1</span><span>].buf&nbsp;=&nbsp;buf;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;data.msgs&nbsp;=&nbsp;msgs;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;data.nmsgs&nbsp;=&nbsp;<span class="number">2</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>&nbsp;(-</span><span class="number">1</span><span>&nbsp;==&nbsp;ioctl(_fd,&nbsp;I2C_RDWR,&nbsp;&amp;data))&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>&nbsp;</span><span class="keyword">false</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;val&nbsp;=&nbsp;(buf[msb&nbsp;?&nbsp;<span class="number">1</span><span>&nbsp;:&nbsp;</span><span class="number">0</span><span>]&nbsp;&lt;&lt;&nbsp;</span><span class="number">8</span><span>)&nbsp;|&nbsp;buf[msb&nbsp;?&nbsp;</span><span class="number">0</span><span>&nbsp;:&nbsp;</span><span class="number">1</span><span>];&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>&nbsp;</span><span class="keyword">true</span><span>;&nbsp;&nbsp;</span></span></li><li class=""><span>}&nbsp;&nbsp;</span></li></ol></div><pre style="display: none;" class="c++" name="code">bool I2C::read(unsigned char addr, unsigned char reg,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; unsigned short &amp;val, bool msb) const
+{
+&nbsp;&nbsp;&nbsp; i2c_rdwr_ioctl_data data;
+&nbsp;&nbsp;&nbsp; i2c_msg msgs[2];
+&nbsp;&nbsp;&nbsp; __u8 buf[sizeof(__u8) * 2] = {reg, 0};
+&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp; if (-1 == _fd)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return false;
+
+&nbsp;&nbsp;&nbsp; msgs[0].addr = static_cast&lt;__u16&gt;(addr);
+&nbsp;&nbsp;&nbsp; msgs[0].buf = buf;
+&nbsp;&nbsp;&nbsp; msgs[0].flags = 0;
+&nbsp;&nbsp;&nbsp; msgs[0].len = static_cast&lt;__u16&gt;(sizeof(unsigned char));
+&nbsp;&nbsp;&nbsp; msgs[1].addr = static_cast&lt;__u8&gt;(addr);
+&nbsp;&nbsp;&nbsp; msgs[1].flags = I2C_M_RD;
+&nbsp;&nbsp;&nbsp; msgs[1].len = static_cast&lt;__u16&gt;(sizeof(unsigned short));
+&nbsp;&nbsp;&nbsp; msgs[1].buf = buf;
+&nbsp;&nbsp;&nbsp; data.msgs = msgs;
+&nbsp;&nbsp;&nbsp; data.nmsgs = 2;
+
+&nbsp;&nbsp;&nbsp; if (-1 == ioctl(_fd, I2C_RDWR, &amp;data))
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return false;
+
+&nbsp;&nbsp;&nbsp; val = (buf[msb ? 1 : 0] &lt;&lt; 8) | buf[msb ? 0 : 1];
+
+&nbsp;&nbsp;&nbsp; return true;
+}
+</pre><!--[CodeBlockEnd:34fec1b5-ecaf-4301-b552-f4e386e5b238]--><div style="display:none;"></div></div><!-- [DocumentBodyEnd:f909ac41-fc6c-442c-80ba-ba7db251c528] --></div><!-- BEGIN attachments --><!-- END attachments --><div id="previewable-binary-viewer"></div><span class="js-outcome-helpful-counts-container j-outcome-helpful-counts-container-default font-color-okay j-outcome-helpful-counts-container" data-object-type="2" data-object-id="551944" data-helpful-count="0" data-overall-count="0" data-display-overall="false"></span><ul class="js-outcome-badge-container j-outcome-badge-container js-ed-2-551944" data-object-type="2" data-object-id="551944" aria-label="Outcome badges" aria-live="polite"></ul><div class="j-comment-footer js-comment-footer clearfix"><div class="jive-comment-actions font-color-meta clearfix" data-comment-id="551944"><span class="j-tlo-helpful-controls"></span><span class="js-liking-control j-liking-control"><span class="jive-icon-glyph icon-thumbs-up3 "></span><span id="acclaim-container-2-551944" class="acclaim-container"><span id="jive-acclaim-like-container-2-551944" data-acclaim-count="0" data-can-apply="false" data-type="small" data-show-icon="true" data-bullet="true" class="js-acclaim-container acclaim-like-container"><span class="j-social-action">Like<span class="j-action-bullet"> • </span><label class="j-508-label" id="showAcclaim-551944-2-count-label">Show 0 Likes</label><a onclick='s_objectID="https://community.nxp.com/thread/366520#_15";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="jive-acclaim-likedlink" data-command="showAcclaim" data-acclaim-type="like" data-object-id="551944" data-object-type="2" data-count="0" href="#" role="button" aria-labelledby="showAcclaim-551944-2-count-label" title="Show 0 Likes">0</a> </span></span></span></span></div><div class="jive-comment-action-button font-color-meta clearfix"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_16";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" class="font-color-meta js-outcome-button j-outcome-button" data-object-type="2" data-object-id="551944" data-dom-actions="[]" data-parent-id="-1" data-root-community="NXP Community"><span class="jive-icon-glyph icon-gear"></span> Actions <span class="j-ui-elem j-action-down-arrow"></span></a></div></div></div><ul class="jive-comment jive-comment-threaded clearfix jive-comment-indent-1"><li class="reply j-anchor-target " id="comment-552240" data-object-type="2" data-object-id="552240"><div class="jive-comment-content clearfix"><a onclick='s_objectID="https://community.nxp.com/people/ritesh_panchal_2";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/people/ritesh_panchal" title="Ritesh Panchal" class="j-avatar  jiveTT-hover-user" data-userid="251353"><img class="jive-avatar" src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/avatar_002.png" data-username="ritesh_panchal" data-height="72" data-random="7523505091201531" alt="Ritesh Panchal" title="Ritesh Panchal" width="72" height="72"></a><div class="j-comment-header"><span class="jive-comment-meta font-color-meta-light"><span class="j-username-wrap"><a onclick='s_objectID="https://community.nxp.com/people/ritesh_panchal_3";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/people/ritesh_panchal" data-username="ritesh_panchal" data-userid="251353" class="jive-username-link  jiveTT-hover-user  ">Ritesh Panchal</a>  </span>@ <a onclick='s_objectID="https://community.nxp.com/thread/366520#comment-551944_4";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="font-color-meta-light localScroll" href="#comment-551944" title="Go to message">Kirill Brilliantov</a> <small>on</small> <a onclick='s_objectID="https://community.nxp.com/thread/366520#comment-552240_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#comment-552240" id="comment-modDate-552240" class="font-color-meta-light">Aug 18, 2015 10:50 PM</a></span></div><div class="j-mark-correct js-mark-correct  clearfix" style="display:none;"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_17";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" data-object-id="552240" data-object-type="2" data-command="mark" data-type="correct" class="js-action-link js-correct-answer-link js-mark-correct-answer"><span class=""></span>Mark Correct</a><div class="j-marked-correct"><span class="jive-icon-glyph icon-star3"></span>Correct Answer</div></div><div id="comment-body-552240"><!-- [DocumentBodyStart:ba3e2314-48e0-41b2-b867-0d0bd67c851d] --><div class="jive-rendered-content"><p>Thanks for the Reply.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>I am not getting the 0 for all register read.</p><p>Below is my program. I modified to clear eclipse compilation error.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><!--[CodeBlockStart:06a79332-f63d-494d-b562-cedb387f87e3][excluded]--><div class="dp-highlighter"><div class="bar"><div></div></div><ol class="dp-c" start="1"><li class="alt"><span><span>void&nbsp;I2C_read(unsigned&nbsp;char&nbsp;addr,&nbsp;unsigned&nbsp;char&nbsp;reg,&nbsp;unsigned&nbsp;char&nbsp;msb)&nbsp;&nbsp;</span></span></li><li class=""><span>{&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;__u16&nbsp;val;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;struct&nbsp;i2c_rdwr_ioctl_data&nbsp;data;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;struct&nbsp;i2c_msg&nbsp;msgs[2];&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;__u8&nbsp;buf[sizeof(__u8)&nbsp;*&nbsp;2]&nbsp;=&nbsp;{reg,&nbsp;0};&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[0].addr&nbsp;=&nbsp;(__u16)(addr);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[0].buf&nbsp;=&nbsp;buf;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[0].flags&nbsp;=&nbsp;0;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[0].len&nbsp;=&nbsp;(__u16)(sizeof(unsigned&nbsp;char));&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[1].addr&nbsp;=&nbsp;(__u8)(addr);&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[1].flags&nbsp;=&nbsp;I2C_M_RD;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[1].len&nbsp;=&nbsp;(__u16)(sizeof(unsigned&nbsp;short));&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;msgs[1].buf&nbsp;=&nbsp;buf;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;data.msgs&nbsp;=&nbsp;msgs;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;data.nmsgs&nbsp;=&nbsp;2;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(-1&nbsp;==&nbsp;ioctl(g_i2cFile,&nbsp;I2C_RDWR,&nbsp;&amp;data))&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;val&nbsp;=&nbsp;(buf[msb&nbsp;?&nbsp;1&nbsp;:&nbsp;0]&nbsp;&lt;&lt;&nbsp;8)&nbsp;|&nbsp;buf[msb&nbsp;?&nbsp;0&nbsp;:&nbsp;1];&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;printf("Result&nbsp;=&nbsp;%d\n\r",&nbsp;val);&nbsp;&nbsp;</span></li><li class=""><span>}&nbsp;&nbsp;</span></li></ol></div><pre style="display: none;" class="plain" name="code">void I2C_read(unsigned char addr, unsigned char reg, unsigned char msb)
+{
+&nbsp;&nbsp;&nbsp; __u16 val;
+
+&nbsp; struct i2c_rdwr_ioctl_data data;
+&nbsp;&nbsp;&nbsp; struct i2c_msg msgs[2];
+&nbsp;&nbsp;&nbsp; __u8 buf[sizeof(__u8) * 2] = {reg, 0};
+
+&nbsp;&nbsp;&nbsp; msgs[0].addr = (__u16)(addr);
+&nbsp;&nbsp;&nbsp; msgs[0].buf = buf;
+&nbsp;&nbsp;&nbsp; msgs[0].flags = 0;
+&nbsp;&nbsp;&nbsp; msgs[0].len = (__u16)(sizeof(unsigned char));
+&nbsp;&nbsp;&nbsp; msgs[1].addr = (__u8)(addr);
+&nbsp;&nbsp;&nbsp; msgs[1].flags = I2C_M_RD;
+&nbsp;&nbsp;&nbsp; msgs[1].len = (__u16)(sizeof(unsigned short));
+&nbsp;&nbsp;&nbsp; msgs[1].buf = buf;
+&nbsp;&nbsp;&nbsp; data.msgs = msgs;
+&nbsp;&nbsp;&nbsp; data.nmsgs = 2;
+
+&nbsp;&nbsp;&nbsp; if (-1 == ioctl(g_i2cFile, I2C_RDWR, &amp;data))
+&nbsp;&nbsp;&nbsp; {
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp; val = (buf[msb ? 1 : 0] &lt;&lt; 8) | buf[msb ? 0 : 1];
+&nbsp;&nbsp;&nbsp; printf("Result = %d\n\r", val);
+}
+</pre><!--[CodeBlockEnd:06a79332-f63d-494d-b562-cedb387f87e3]--><div style="display:none;"></div><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>I2C_read(0x0D,0x00,0);</p><p>the result:</p><!--[CodeBlockStart:31dd25ea-8fad-4744-9f1d-770d6825dabe][excluded]--><div class="dp-highlighter"><div class="bar"><div></div></div><ol class="dp-c" start="1"><li class="alt"><span><span>MMA8451Q&nbsp;Accelerometer&nbsp;Test&nbsp;Program&nbsp;&nbsp;</span></span></li><li class=""><span>I2C&nbsp;Open&nbsp;Success&nbsp;&nbsp;</span></li><li class="alt"><span>I2C&nbsp;Set&nbsp;Address&nbsp;Success&nbsp;&nbsp;</span></li><li class=""><span>Result=&nbsp;0&nbsp;&nbsp;</span></li></ol></div><pre style="display: none;" class="plain" name="code">MMA8451Q Accelerometer Test Program
+I2C Open Success
+I2C Set Address Success
+Result= 0
+</pre><!--[CodeBlockEnd:31dd25ea-8fad-4744-9f1d-770d6825dabe]--><div style="display:none;"></div><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>I got 0 for all address.</p><p>Also tried for I2C_read(0x0D,0x00,1); but thje result is 0.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Whats wrong in my code?</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Sensor Datasheet</p><p><a onclick='s_objectID="https://community.nxp.com/external-link.jspa?url=http%3A%2F%2Fcache.freescale.com%2Ffiles%2Fsenso_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="jive-link-external-small" href="https://community.nxp.com/external-link.jspa?url=http%3A%2F%2Fcache.freescale.com%2Ffiles%2Fsensors%2Fdoc%2Fdata_sheet%2FMMA8451Q.pdf" rel="nofollow" target="_blank">http://cache.freescale.com/files/sensors/doc/data_sheet/MMA8451Q.pdf</a></p><p>Refer Page19 i am reading register 0x0D.</p></div><!-- [DocumentBodyEnd:ba3e2314-48e0-41b2-b867-0d0bd67c851d] --></div><!-- BEGIN attachments --><!-- END attachments --><div id="previewable-binary-viewer"></div><span class="js-outcome-helpful-counts-container j-outcome-helpful-counts-container-default font-color-okay j-outcome-helpful-counts-container" data-object-type="2" data-object-id="552240" data-helpful-count="0" data-overall-count="0" data-display-overall="false"></span><ul class="js-outcome-badge-container j-outcome-badge-container js-ed-2-552240" data-object-type="2" data-object-id="552240" aria-label="Outcome badges" aria-live="polite"></ul><div class="j-comment-footer js-comment-footer clearfix"><div class="jive-comment-actions font-color-meta clearfix" data-comment-id="552240"><span class="j-tlo-helpful-controls"></span><span class="js-liking-control j-liking-control"><span class="jive-icon-glyph icon-thumbs-up3 "></span><span id="acclaim-container-2-552240" class="acclaim-container"><span id="jive-acclaim-like-container-2-552240" data-acclaim-count="0" data-can-apply="false" data-type="small" data-show-icon="true" data-bullet="true" class="js-acclaim-container acclaim-like-container"><span class="j-social-action">Like<span class="j-action-bullet"> • </span><label class="j-508-label" id="showAcclaim-552240-2-count-label">Show 0 Likes</label><a onclick='s_objectID="https://community.nxp.com/thread/366520#_18";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="jive-acclaim-likedlink" data-command="showAcclaim" data-acclaim-type="like" data-object-id="552240" data-object-type="2" data-count="0" href="#" role="button" aria-labelledby="showAcclaim-552240-2-count-label" title="Show 0 Likes">0</a> </span></span></span></span></div><div class="jive-comment-action-button font-color-meta clearfix"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_19";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" class="font-color-meta js-outcome-button j-outcome-button" data-object-type="2" data-object-id="552240" data-dom-actions="[]" data-parent-id="551944" data-root-community="NXP Community"><span class="jive-icon-glyph icon-gear"></span> Actions <span class="j-ui-elem j-action-down-arrow"></span></a></div></div></div><ul class="jive-comment jive-comment-threaded clearfix jive-comment-indent-1"><li class="reply j-anchor-target " id="comment-552317" data-object-type="2" data-object-id="552317"><div class="jive-comment-content clearfix"><a onclick='s_objectID="https://community.nxp.com/people/BrilliantovKirillVladimirovich_5";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/people/BrilliantovKirillVladimirovich" title="Kirill Brilliantov" class="j-avatar  jiveTT-hover-user" data-userid="201899"><img class="jive-avatar" src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/avatar.png" data-username="BrilliantovKirillVladimirovich" data-height="72" data-random="7523505088161925" alt="Kirill Brilliantov" title="Kirill Brilliantov" width="72" height="72"></a><div class="j-comment-header"><span class="jive-comment-meta font-color-meta-light"><span class="j-username-wrap"><a onclick='s_objectID="https://community.nxp.com/people/BrilliantovKirillVladimirovich_6";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/people/BrilliantovKirillVladimirovich" data-username="BrilliantovKirillVladimirovich" data-userid="201899" class="jive-username-link  jiveTT-hover-user  ">Kirill Brilliantov</a>  </span>@ <a onclick='s_objectID="https://community.nxp.com/thread/366520#comment-552240_2";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="font-color-meta-light localScroll" href="#comment-552240" title="Go to message">Ritesh Panchal</a> <small>on</small> <a onclick='s_objectID="https://community.nxp.com/thread/366520#comment-552317_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#comment-552317" id="comment-modDate-552317" class="font-color-meta-light">Aug 19, 2015 12:42 AM</a></span></div><div class="j-mark-correct js-mark-correct  clearfix" style="display:none;"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_20";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" data-object-id="552317" data-object-type="2" data-command="mark" data-type="correct" class="js-action-link js-correct-answer-link js-mark-correct-answer"><span class=""></span>Mark Correct</a><div class="j-marked-correct"><span class="jive-icon-glyph icon-star3"></span>Correct Answer</div></div><div id="comment-body-552317"><!-- [DocumentBodyStart:6e351348-fd6a-45d3-a822-332579f38e48] --><div class="jive-rendered-content"><p>Why you use address 0xD if datasheet describe 0x1C and 0x1D?</p><p>I think you can use register 0xD (WHO_AM_I) for check programm, it should return 0x1A.</p></div><!-- [DocumentBodyEnd:6e351348-fd6a-45d3-a822-332579f38e48] --></div><!-- BEGIN attachments --><!-- END attachments --><div id="previewable-binary-viewer"></div><span class="js-outcome-helpful-counts-container j-outcome-helpful-counts-container-default font-color-okay j-outcome-helpful-counts-container" data-object-type="2" data-object-id="552317" data-helpful-count="0" data-overall-count="0" data-display-overall="false"></span><ul class="js-outcome-badge-container j-outcome-badge-container js-ed-2-552317" data-object-type="2" data-object-id="552317" aria-label="Outcome badges" aria-live="polite"></ul><div class="j-comment-footer js-comment-footer clearfix"><div class="jive-comment-actions font-color-meta clearfix" data-comment-id="552317"><span class="j-tlo-helpful-controls"></span><span class="js-liking-control j-liking-control"><span class="jive-icon-glyph icon-thumbs-up3 "></span><span id="acclaim-container-2-552317" class="acclaim-container"><span id="jive-acclaim-like-container-2-552317" data-acclaim-count="0" data-can-apply="false" data-type="small" data-show-icon="true" data-bullet="true" class="js-acclaim-container acclaim-like-container"><span class="j-social-action">Like<span class="j-action-bullet"> • </span><label class="j-508-label" id="showAcclaim-552317-2-count-label">Show 0 Likes</label><a onclick='s_objectID="https://community.nxp.com/thread/366520#_21";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="jive-acclaim-likedlink" data-command="showAcclaim" data-acclaim-type="like" data-object-id="552317" data-object-type="2" data-count="0" href="#" role="button" aria-labelledby="showAcclaim-552317-2-count-label" title="Show 0 Likes">0</a> </span></span></span></span></div><div class="jive-comment-action-button font-color-meta clearfix"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_22";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" class="font-color-meta js-outcome-button j-outcome-button" data-object-type="2" data-object-id="552317" data-dom-actions="[]" data-parent-id="552240" data-root-community="NXP Community"><span class="jive-icon-glyph icon-gear"></span> Actions <span class="j-ui-elem j-action-down-arrow"></span></a></div></div></div><ul class="jive-comment jive-comment-threaded clearfix jive-comment-indent-1"><li class="reply j-anchor-target " id="comment-552351" data-object-type="2" data-object-id="552351"><div class="jive-comment-content clearfix"><a onclick='s_objectID="https://community.nxp.com/people/ritesh_panchal_4";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/people/ritesh_panchal" title="Ritesh Panchal" class="j-avatar  jiveTT-hover-user" data-userid="251353"><img class="jive-avatar" src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/avatar_002.png" data-username="ritesh_panchal" data-height="72" data-random="7523505085214905" alt="Ritesh Panchal" title="Ritesh Panchal" width="72" height="72"></a><div class="j-comment-header"><span class="jive-comment-meta font-color-meta-light"><span class="j-username-wrap"><a onclick='s_objectID="https://community.nxp.com/people/ritesh_panchal_5";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/people/ritesh_panchal" data-username="ritesh_panchal" data-userid="251353" class="jive-username-link  jiveTT-hover-user  ">Ritesh Panchal</a>  </span>@ <a onclick='s_objectID="https://community.nxp.com/thread/366520#comment-552317_2";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="font-color-meta-light localScroll" href="#comment-552317" title="Go to message">Kirill Brilliantov</a> <small>on</small> <a onclick='s_objectID="https://community.nxp.com/thread/366520#comment-552351_2";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#comment-552351" id="comment-modDate-552351" class="font-color-meta-light">Aug 19, 2015 1:25 AM</a></span></div><div class="j-mark-correct js-mark-correct  clearfix" style="display:none;"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_23";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" data-object-id="552351" data-object-type="2" data-command="mark" data-type="correct" class="js-action-link js-correct-answer-link js-mark-correct-answer"><span class=""></span>Mark Correct</a><div class="j-marked-correct"><span class="jive-icon-glyph icon-star3"></span>Correct Answer</div></div><div id="comment-body-552351"><!-- [DocumentBodyStart:2149f5e1-1324-463a-8bae-2c99cf3b9375] --><div class="jive-rendered-content"><p>Ya. That's my mistake.</p><p>I figured it out.</p><p>The device address is 0x1C. And if i try to open it will give message "device or resource busy".</p><p>This device driver is added as build in in kernel. So i unable to remove it. So i can't able to open i2c.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>So i modify kernel configuration. And Add other i2c based MAG3110 (Digital Compass) as module.</p><p>I tried for adding MMA8451Q as module but bitbake giving me error.</p><p>And after restart i remove the module. And Run Program with correct device id.</p><p>And i am getting the Right Result.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Thanks.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>But now i want to use MAC3110 kernel driver API in my application code.</p><p>Actually i am new to linux field.</p><p>So can you guide me how to so that?</p></div><!-- [DocumentBodyEnd:2149f5e1-1324-463a-8bae-2c99cf3b9375] --></div><!-- BEGIN attachments --><!-- END attachments --><div id="previewable-binary-viewer"></div><span class="js-outcome-helpful-counts-container j-outcome-helpful-counts-container-default font-color-okay j-outcome-helpful-counts-container" data-object-type="2" data-object-id="552351" data-helpful-count="0" data-overall-count="0" data-display-overall="false"></span><ul class="js-outcome-badge-container j-outcome-badge-container js-ed-2-552351" data-object-type="2" data-object-id="552351" aria-label="Outcome badges" aria-live="polite"></ul><div class="j-comment-footer js-comment-footer clearfix"><div class="jive-comment-actions font-color-meta clearfix" data-comment-id="552351"><span class="j-tlo-helpful-controls"></span><span class="js-liking-control j-liking-control"><span class="jive-icon-glyph icon-thumbs-up3 "></span><span id="acclaim-container-2-552351" class="acclaim-container"><span id="jive-acclaim-like-container-2-552351" data-acclaim-count="0" data-can-apply="false" data-type="small" data-show-icon="true" data-bullet="true" class="js-acclaim-container acclaim-like-container"><span class="j-social-action">Like<span class="j-action-bullet"> • </span><label class="j-508-label" id="showAcclaim-552351-2-count-label">Show 0 Likes</label><a onclick='s_objectID="https://community.nxp.com/thread/366520#_24";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="jive-acclaim-likedlink" data-command="showAcclaim" data-acclaim-type="like" data-object-id="552351" data-object-type="2" data-count="0" href="#" role="button" aria-labelledby="showAcclaim-552351-2-count-label" title="Show 0 Likes">0</a> </span></span></span></span></div><div class="jive-comment-action-button font-color-meta clearfix"><a onclick='s_objectID="https://community.nxp.com/thread/366520#_25";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#" class="font-color-meta js-outcome-button j-outcome-button" data-object-type="2" data-object-id="552351" data-dom-actions="[]" data-parent-id="552317" data-root-community="NXP Community"><span class="jive-icon-glyph icon-gear"></span> Actions <span class="j-ui-elem j-action-down-arrow"></span></a></div></div></div></li></ul></li></ul></li></ul></li></ul></div></section> <!-- / .jive-comment-wrapper --><ul class="j-comment-add-form jive-comment-section-region-all"></ul></div></div></div></div></section><div id="jive-footer-region" class="j-content-r2 clearfix"><section class="j-content-r2-wrap clearfix"><!-- BEGIN sidebar box 'More Like This' --><div class="j-content-r2-block js-more-like-this-block" style=""><header><h3 class="font-color-meta" id="more-like-header-1-366520">Related Content</h3></header><section class="j-content-r2-block-body" role="navigation" aria-labelledby="more-like-header-1-366520"><div id="jive-more-like-this-1-366520" class="j-more-like-this"><ul class="j-icon-list"><li><a onclick='s_objectID="https://community.nxp.com/thread/323453_1";return this.s_oc?this.s_oc(e):true' href="https://community.nxp.com/thread/323453"><span class="jive-icon-med jive-icon-discussion-correct"></span>I2C read not working.&nbsp; Driver exercises pins, but buffer is not filled.</a></li><li><a onclick='s_objectID="https://community.nxp.com/thread/339130_1";return this.s_oc?this.s_oc(e):true' href="https://community.nxp.com/thread/339130"><span class="jive-icon-med jive-icon-discussion-correct"></span>Linux Driver of MMA8451Q</a></li><li><a onclick='s_objectID="https://community.nxp.com/thread/66080_1";return this.s_oc?this.s_oc(e):true' href="https://community.nxp.com/thread/66080"><span class="jive-icon-med jive-icon-discussion-question"></span>Problems with Custom Boot in MPC8260</a></li><li><a onclick='s_objectID="https://community.nxp.com/thread/337987_1";return this.s_oc?this.s_oc(e):true' href="https://community.nxp.com/thread/337987"><span class="jive-icon-med jive-icon-discussion-question"></span>How to make FIQ work with vanilla kernel 3.18?</a></li><li><a onclick='s_objectID="https://community.nxp.com/thread/323914_1";return this.s_oc?this.s_oc(e):true' href="https://community.nxp.com/thread/323914"><span class="jive-icon-med jive-icon-discussion-question"></span>Issue in building RAM based u-boot.</a></li></ul></div></section></div><!-- END sidebar box 'More Like This' --><div class="j-content-r2-block"><header><h3 class="font-color-meta" id="recommended-content">Recommended Content</h3></header><section class="j-content-r2-block-body" role="navigation" aria-labelledby="recommended-content"><ul class="j-icon-list"><li><span class="jive-icon-discussion-correct jive-icon-med"></span><a onclick='s_objectID="https://community.nxp.com/thread/395468_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/thread/395468">MQX4.1 not detecting in CW10.5</a></li><li><span class="jive-icon-discussion-correct jive-icon-med"></span><a onclick='s_objectID="https://community.nxp.com/thread/394851_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/thread/394851">fsl,qman-fqd property missing on p5020 based board</a></li><li><span class="jive-icon-discussion-correct jive-icon-med"></span><a onclick='s_objectID="https://community.nxp.com/thread/394762_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/thread/394762">Flash programmer does not come up as a possible target task for LS2085A.</a></li><li><span class="jive-icon-discussion-question jive-icon-med"></span><a onclick='s_objectID="https://community.nxp.com/thread/394937_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/thread/394937">How to run the application file in the Freescale Universal boot loader ?</a></li><li><span class="jive-icon-discussion-correct jive-icon-med"></span><a onclick='s_objectID="https://community.nxp.com/thread/394766_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="https://community.nxp.com/thread/394766">Need help with eMIOS</a></li></ul></section></div></section></div><div id="j-footer-wrap" class="j-js-footer-wrap"><footer id="j-cust-foot" class="clearfix" role="contentinfo"><div class="nxp-nav container" id="footer">
+    <div class="row">
+      <div data-dtmname="ABOUT NXP" class="col-sm-2 col-xs-6 dtmFooter">
+        <h4>ABOUT NXP</h4>
+        <ul class="list-unstyled">
+          <li class="paddingtop5">
+            <a onclick='s_objectID="http://investors.nxp.com/phoenix.zhtml?c=209114&amp;p=irol-irhome_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="http://investors.nxp.com/phoenix.zhtml?c=209114&amp;p=irol-irhome">Investors</a>
+          </li>
+          <li class="paddingtop5">
+            <a onclick='s_objectID="http://www.nxp.com/webapp/connect/memberDirSearch.sp_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="http://www.nxp.com/webapp/connect/memberDirSearch.sp">Partners</a>
+          </li>
+          <li class="paddingtop5">
+            <a onclick='s_objectID="http://www.nxp.com/about/careers-at-nxp:CAREERS_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="http://www.nxp.com/about/careers-at-nxp:CAREERS">Careers</a>
+          </li>
+        </ul>
+      </div>
+      <div data-dtmname="RESOURCES" class="col-sm-2 col-xs-6 dtmFooter">
+        <h4>RESOURCES</h4>
+        <ul class="list-unstyled">
+          <li class="paddingtop5">
+            <a onclick='s_objectID="http://www.nxp.com/about/nxp-mobile-applications:MOBILE_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="http://www.nxp.com/about/nxp-mobile-applications:MOBILE">Mobile Apps</a>
+          </li>
+          <li class="paddingtop5">
+            <a onclick='s_objectID="http://media.nxp.com/_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="http://media.nxp.com/">Press, News, Blogs</a>
+          </li>
+          <li class="paddingtop5">
+            <a onclick='s_objectID="http://www.nxp.com/pages/contact-us:CONTACTUS_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="http://www.nxp.com/pages/contact-us:CONTACTUS">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+      <div data-dtmname="FOLLOW US" class="col-sm-3 col-xs-12 dtmFooter">
+        <h4>FOLLOW US</h4>
+        <ul class="list-inline paddingtop5" id="footer-social">
+          <li class="twitter">
+            <a onclick='s_objectID="https://twitter.com/NXP_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="FOLLOW US" data-content-finding="Community Footer" href="https://twitter.com/NXP" target="_blank" title="Follow NXP on Twitter">
+              <span class="icon-twitter22"></span>
+            </a>
+          </li>
+          <li class="linkedin">
+            <a onclick='s_objectID="http://www.linkedin.com/company/nxp-semiconductors_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="FOLLOW US" data-content-finding="Community Footer" href="http://www.linkedin.com/company/nxp-semiconductors" target="_blank" title="Follow NXP on Linked In">
+              <span class="icon-linkedin"></span>
+            </a>
+          </li>
+          <li class="facebook">
+            <a onclick='s_objectID="https://www.facebook.com/NXPsemi_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="FOLLOW US" data-content-finding="Community Footer" href="https://www.facebook.com/NXPsemi" target="_blank" title="Follow NXP on Facebook">
+              <span class="icon-facebook"></span>
+            </a>
+          </li>
+          <!--li class="youtube"><a href="https://www.youtube.com/nxpsemiconductors" title="Follow NXP on Youtube" target="_blank" data-content-finding="Footer" data-content-subfinding="FOLLOW US"><span class="icon-youtube-square2"></span></a></li-->
+          <li class="email">
+            <a onclick='s_objectID="https://contact.nxp.com/Subscription-Center_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="FOLLOW US" data-content-finding="Community Footer" href="https://contact.nxp.com/Subscription-Center" target="_blank" title="Subscription Center">
+              <span class="icon-mail2"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-5 col-xs-12">
+        <div id="newsContainer">
+          <div class="caroufredsel_wrapper" style="display: block; text-align: start; float: none; position: relative; top: auto; right: auto; bottom: auto; left: auto; z-index: auto; width: 370px; height: 84px; margin: 0px; overflow: hidden;">
+            <div id="news" style="text-align: left; float: none; position: absolute; top: 0px; right: auto; bottom: auto; left: 0px; margin: 0px; width: 30710px; height: 84px; z-index: auto; opacity: 1;">
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">11 Jan 2016</span>
+                </h5>
+                <p>Photo Advisory -- US Secretary of Transportation, Anthony Foxx, Meets With NXP CEO Rick Clemmer at CES 2016</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2128276_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2128276" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">11 Jan 2016</span>
+                </h5>
+                <p>NXP Semiconductors Announces Conference Call to Review Full-Year and Fourth Quarter 2015 Financial Results</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2128087_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2128087" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">9 Jan 2016</span>
+                </h5>
+                <p>The smart home of the future is on our doorstep</p>
+                <a onclick='s_objectID="http://blog.nxp.com/internet-of-things-2/the-smart-home-of-the-future-is-on-our-doorstep/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/internet-of-things-2/the-smart-home-of-the-future-is-on-our-doorstep/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">7 Jan 2016</span>
+                </h5>
+                <p>NXP "Smarter World Tour" Begins Its European Journey</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2127124_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2127124" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">7 Jan 2016</span>
+                </h5>
+                <p>NXP “Smarter World Tour” Begins Its European Journey</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2127123_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2127123" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">6 Jan 2016</span>
+                </h5>
+                <p>NXP and BRAGI Demonstrate World’s First Smart, Truly Wireless Earphones at CES 2016</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2126782_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2126782" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">4 Jan 2016</span>
+                </h5>
+                <p>Bluetooth Low Energy for the Internet of Things</p>
+                <a onclick='s_objectID="http://blog.nxp.com/portable-wearable/bluetooth-low-energy-for-the-internet-of-things/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/portable-wearable/bluetooth-low-energy-for-the-internet-of-things/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">4 Jan 2016</span>
+                </h5>
+                <p>NXP Radar Technology Accelerates ADAS Adoption</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2125903_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2125903" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">4 Jan 2016</span>
+                </h5>
+                <p>NXP Introduces Industry’s Most Comprehensive Smart Home Automation Solutions</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2125901_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2125901" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">4 Jan 2016</span>
+                </h5>
+                <p>NXP Launches World’s Most Power Efficient Bluetooth Low Energy Chip for Wearable Devices</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2125898_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2125898" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">28 Dec 2015</span>
+                </h5>
+                <p>NXP Announces Beginning of New Era in NFC Technology</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2125103_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2125103" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">22 Dec 2015</span>
+                </h5>
+                <p>NXP Receives China UnionPay Secure Product Certification</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2124572_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2124572" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">21 Dec 2015</span>
+                </h5>
+                <p>NFC is everywhere at CES</p>
+                <a onclick='s_objectID="http://blog.nxp.com/corporate/nfc-is-everywhere-at-ces/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/corporate/nfc-is-everywhere-at-ces/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">17 Dec 2015</span>
+                </h5>
+                <p>CES 2016: Preparing for the revolution ahead</p>
+                <a onclick='s_objectID="http://blog.nxp.com/events-featured/ces-2016-preparing-for-the-revolution-ahead/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/events-featured/ces-2016-preparing-for-the-revolution-ahead/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">16 Dec 2015</span>
+                </h5>
+                <p>Girlstart Announced as Beneficiary of NXP Fundraising Efforts at 2016 Austin Marathon</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2123195_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2123195" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">15 Dec 2015</span>
+                </h5>
+                <p>MIFARE® brings Villanova’s Wildcard to life</p>
+                <a onclick='s_objectID="http://blog.nxp.com/security/mifare-brings-villanovas-wildcard-to-life/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/security/mifare-brings-villanovas-wildcard-to-life/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">14 Dec 2015</span>
+                </h5>
+                <p>Experience the future of smart homes and smart mobility at CES 2016</p>
+                <a onclick='s_objectID="http://blog.nxp.com/events-featured/experience-the-future-of-smart-homes-and-smart-mobility-at-ce_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/events-featured/experience-the-future-of-smart-homes-and-smart-mobility-at-ces-2016/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">10 Dec 2015</span>
+                </h5>
+                <p>Stella Lux shows the future of green mobility in Shanghai</p>
+                <a onclick='s_objectID="http://blog.nxp.com/connected-car/stella-lux-shows-the-future-of-green-mobility-in-shanghai/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/connected-car/stella-lux-shows-the-future-of-green-mobility-in-shanghai/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">10 Dec 2015</span>
+                </h5>
+                <p>NXP Semiconductors Obtains Improved Credit Ratings From S&amp;P and Moody's</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2121599_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2121599" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">7 Dec 2015</span>
+                </h5>
+                <p>We are the new NXP</p>
+                <a onclick='s_objectID="http://blog.nxp.com/featured/we-are-the-new-nxp/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/featured/we-are-the-new-nxp/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">7 Dec 2015</span>
+                </h5>
+                <p>NXP and Freescale Announce Completion of Merger</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2120582_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2120582" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">3 Dec 2015</span>
+                </h5>
+                <p>Copper-wire bonding takes gold with latest AEC addendum</p>
+                <a onclick='s_objectID="http://blog.nxp.com/tech-in-depth/copper-wire-bonding-takes-gold-with-latest-aec-addendum/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/tech-in-depth/copper-wire-bonding-takes-gold-with-latest-aec-addendum/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">1 Dec 2015</span>
+                </h5>
+                <p>Living in a Smarter World: From Privacy to Control</p>
+                <a onclick='s_objectID="http://blog.nxp.com/security/living-in-a-smarter-world-from-privacy-to-control/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/security/living-in-a-smarter-world-from-privacy-to-control/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">26 Nov 2015</span>
+                </h5>
+                <p>The perfect wireless communication system</p>
+                <a onclick='s_objectID="http://blog.nxp.com/automotive/the-perfect-wireless-communication-system/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/automotive/the-perfect-wireless-communication-system/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">24 Nov 2015</span>
+                </h5>
+                <p>Streamlining Board Designs with NXP’s Mini Logic Portfolio</p>
+                <a onclick='s_objectID="http://blog.nxp.com/tech-in-depth/streamlining-board-designs-with-nxps-mini-logic-portfolio/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/tech-in-depth/streamlining-board-designs-with-nxps-mini-logic-portfolio/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">19 Nov 2015</span>
+                </h5>
+                <p>Saying no to traffic delays in Istanbul</p>
+                <a onclick='s_objectID="http://blog.nxp.com/tech-in-depth/saying-no-to-traffic-delays-in-istanbul/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/tech-in-depth/saying-no-to-traffic-delays-in-istanbul/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">18 Nov 2015</span>
+                </h5>
+                <p>6 ways NFC helps healthcare</p>
+                <a onclick='s_objectID="http://blog.nxp.com/iot/6-ways-nfc-helps-healthcare/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/iot/6-ways-nfc-helps-healthcare/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">17 Nov 2015</span>
+                </h5>
+                <p>NXP at IoT World Forum 2015, London – Security in IoT: How Secure is Smart?</p>
+                <a onclick='s_objectID="http://blog.nxp.com/iot/nxp-at-iot-world-forum-2015-london-security-in-iot-how-secure-is-smart/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/iot/nxp-at-iot-world-forum-2015-london-security-in-iot-how-secure-is-smart/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">12 Nov 2015</span>
+                </h5>
+                <p>The accidental thermal engineer: Can we know Tj by looking at Tcase?</p>
+                <a onclick='s_objectID="http://blog.nxp.com/tech-in-depth/the-accidental-thermal-engineer-can-we-know-tj-by-looking-at-tc_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/tech-in-depth/the-accidental-thermal-engineer-can-we-know-tj-by-looking-at-tcase/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">10 Nov 2015</span>
+                </h5>
+                <p>What’s next for your wearables design? WaRP 7</p>
+                <a onclick='s_objectID="http://blog.nxp.com/iot/whats-next-for-your-wearables-design-warp-7/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/iot/whats-next-for-your-wearables-design-warp-7/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">10 Nov 2015</span>
+                </h5>
+                <p>7 playful uses for NFC in gaming</p>
+                <a onclick='s_objectID="http://blog.nxp.com/iot/7-playful-uses-for-nfc-in-gaming/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/iot/7-playful-uses-for-nfc-in-gaming/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">6 Nov 2015</span>
+                </h5>
+                <p>Meet an NFC innovator: Speech Code</p>
+                <a onclick='s_objectID="http://blog.nxp.com/iot/meet-an-nfc-innovator-speech-code/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/iot/meet-an-nfc-innovator-speech-code/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">5 Nov 2015</span>
+                </h5>
+                <p>What you can do with Sensor Data Analytics, from babies to horses</p>
+                <a onclick='s_objectID="http://blog.nxp.com/sensors/babies-to-horses-what-you-can-do-with-sensor-data-analytics/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/sensors/babies-to-horses-what-you-can-do-with-sensor-data-analytics/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">3 Nov 2015</span>
+                </h5>
+                <p>Playroom 2.0: Made possible by NFC</p>
+                <a onclick='s_objectID="http://blog.nxp.com/iot/playroom-2-0-made-possible-by-nfc/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/iot/playroom-2-0-made-possible-by-nfc/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">19 Jan 2016</span>
+                </h5>
+                <p>NXP and Guala Closures Bring Smart-Security NFC Closure Solutions to Wine and Spirits Market</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2130073_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2130073" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">18 Jan 2016</span>
+                </h5>
+                <p>The accidental thermal engineer: Can we know Tj by looking at Tcase? (Part 2)</p>
+                <a onclick='s_objectID="http://blog.nxp.com/tech-in-depth/the-accidental-thermal-engineer-can-we-know-tj-by-looking-at-tc_2";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/tech-in-depth/the-accidental-thermal-engineer-can-we-know-tj-by-looking-at-tcase-part-2/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">14 Jan 2016</span>
+                </h5>
+                <p>Can we trust new mobility systems?</p>
+                <a onclick='s_objectID="http://blog.nxp.com/automotive/can-we-trust-new-mobility-systems/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/automotive/can-we-trust-new-mobility-systems/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">14 Jan 2016</span>
+                </h5>
+                <p>CES 2016</p>
+                <a onclick='s_objectID="http://blog.nxp.com/events/ces-2016/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/events/ces-2016/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">12 Jan 2016</span>
+                </h5>
+                <p>How NFC is taking mobile payments in bold new directions</p>
+                <a onclick='s_objectID="http://blog.nxp.com/near-field-communication/how-nfc-is-taking-mobile-payments-in-bold-new-direct_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/near-field-communication/how-nfc-is-taking-mobile-payments-in-bold-new-directions/" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">12 Jan 2016</span>
+                </h5>
+                <p>NXP Hosts Future Secure Connected Car Showcase in Silicon Valley</p>
+                <a onclick='s_objectID="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2128675_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://phx.corporate-ir.net/phoenix.zhtml?c=254228&amp;p=irol-newsArticle&amp;cat=news&amp;id=2128675" target="_blank">Read More</a>
+              </div>
+              <div class="newsItem">
+                <h5>NEWS&nbsp;&nbsp;
+                  <span class="newsdate">11 Jan 2016</span>
+                </h5>
+                <p>Security, Privacy and Mobility: CES 2016 Discussion</p>
+                <a onclick='s_objectID="http://blog.nxp.com/events-featured/security-privacy-and-mobility-ces-2016-discussion/_1";return this.s_oc?this.s_oc(e):true' data-content-subfinding="NEWS" data-content-finding="Community Footer" class="readmore" href="http://blog.nxp.com/events-featured/security-privacy-and-mobility-ces-2016-discussion/" target="_blank">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div id="newsDirection">
+            <a onclick='s_objectID="https://community.nxp.com/thread/366520#left_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="" href="#left" id="newsLeft" style="display: inline;">
+              <span class="icon-angle-left"></span>
+            </a>  
+            <a onclick='s_objectID="https://community.nxp.com/thread/366520#right_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="" href="#right" id="newsRight" style="display: inline;">
+              <span class="icon-angle-right"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row legal paddingtop5">
+      <div data-dtmname="Privacy" class="col-sm-7 paddingleft35 dtmFooter">
+        <ul class="list-inline vertical">
+          <li>
+            <a onclick='s_objectID="http://www.nxp.com/about/privacy:PRIVACYPRACTICES_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="http://www.nxp.com/about/privacy:PRIVACYPRACTICES">Privacy</a>
+          </li>
+          <li>
+            <a onclick='s_objectID="http://www.nxp.com/about/terms-of-use:TERMSOFUSE_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="http://www.nxp.com/about/terms-of-use:TERMSOFUSE">Terms of Use</a>
+          </li>
+          <li>
+            <a onclick='s_objectID="http://www.nxp.com/about/our-standard-terms-and-conditions-of-sale-counter-offer:TERMSCONDITIONSS_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="http://www.nxp.com/about/our-standard-terms-and-conditions-of-sale-counter-offer:TERMSCONDITIONSSALE">Terms of Sale</a>
+          </li>
+          <li>
+            <a onclick='s_objectID="https://community.nxp.com/thread/366520#stay_here_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="#stay_here" id="stay_here" name="stay_here">Feedback</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-5 pull-right" style="margin-top:6px;">
+        <span class="pull-right nxp-gray-text small">©2006-2016 NXP Semiconductors. All rights reserved.</span>
+      </div>
+    </div>
+  </div></footer><footer id="j-footer" role="contentinfo"><div id="j-footer-poweredBy"><a onclick='s_objectID="http://www.jivesoftware.com/poweredby/_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="font-color-meta-light j-copyright" href="http://www.jivesoftware.com/poweredby/" target="_blank"><span class="lnk">© 2016 Jive Software</span></a><span class="j-pipe"> | </span><a onclick='s_objectID="http://www.jivesoftware.com/poweredby/_2";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" href="http://www.jivesoftware.com/poweredby/" target="_blank" title="Jive Software Version: 2016.1.0.0 , revision: 20160412161809.1f7ee12.release_2016.1.7" class="j-powered-by"><span class="lnk">Powered by</span> <span class="jive-icon-glyph icon-jivelogo"></span></a></div><div class="j-footer-nav font-color-meta"><a onclick='s_objectID="https://community.nxp.com/_3";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-footer-nav-link" href="https://community.nxp.com/">Home</a><span class="j-pipe j-footer-nav-link"> | </span><a onclick='s_objectID="https://community.nxp.com/thread/366520#top_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-footer-nav-link" href="#top">Top of page</a><span class="j-pipe j-footer-nav-link"> | </span><a onclick='s_objectID="http://docs.jivesoftware.com/cloud_ext/end_user/jive.help.core_1";return this.s_oc?this.s_oc(e):true' data-content-finding="Community" class="j-footer-nav-link" href="http://docs.jivesoftware.com/cloud_ext/end_user/jive.help.core">Help</a></div><div class="j-footer-jiveVersion font-color-meta">Jive Software Version: 2016.1.0.0 , revision: 20160412161809.1f7ee12.release_2016.1.7</div><span id="speakSpan" class="j-508-label" role="marquee" aria-live="assertive" aria-relevant="all"></span><script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ 
+  ga('create', 'UA-42380235-1', 'freescale.com');
+  ga('send', 'pageview');
+</script>
+<script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/jivecommunity_fslanalytics.js"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/elqwebanalytics.js"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/svrGP.js"></script><script>if(!window.GetElqContentPersonalizationValue){elq_contactidNew = 'unable to GetElqContentPersonalizationValue';}else{elq_contactidNew = GetElqContentPersonalizationValue('V_Eloqua_Contact_ID1p');}</script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/visitorIdLookup.html"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/blueconic.js"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/elqCfg.js"></script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/elqFCS.js"></script><iframe name="elqFCSFra" style="visibility:none" src="//www.nxp.com/files/js/elqNow/elqBlank.htm" border="0" noresize="" scrolling="no" width="1" frameborder="0" height="1"></iframe>
+                    <script>require([ 'ui-modules/spotlight/scripts/main', 'domReady!' ], function(spotlight){spotlight.init();});</script></footer></div></div><div id="jiveTT-note" class="jive-tooltip2 notedefault snp-mouseoffset" role="tooltip"><div class="jive-tooltip2-mid j-mini-modal j-mini-modal-place"><div class="jive-tooltip2-mid-padding j-modal-content clearfix j-js-note-body" id="jive-note-body"></div></div></div><div id="jiveTT-note-additems" class="jive-tooltip2 notedefault snp-mouseoffset"><div class="jive-tooltip2-mid j-mini-modal"><div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-additems-body"></div></div></div><div id="jiveTT-note-checkpoint" class="jive-tooltip2 notedefault snp-mouseoffset"><div class="jive-tooltip2-mid j-mini-modal"><div class="jive-tooltip2-mid-padding j-modal-content" id="jive-note-checkpoint-body"></div></div></div><div id="jiveTT-note-tasks" class="jive-tooltip2 notedefault snp-mouseoffset"><div class="jive-tooltip2-mid j-mini-modal"><div class="jive-tooltip2-mid-padding j-modal-content" id="jive-note-tasks-body"></div></div></div><div id="jiveTT-note-playbox" class="jive-tooltip2 notedefault snp-mouseoffset"><div class="jive-tooltip2-mid j-mini-modal"><div class="jive-tooltip2-mid-padding j-modal-content" id="jive-note-playbox-body"></div></div></div><script type="application/ld+json">{"@context": "http://schema.org", "@type": "WebSite", "url": "https://community.nxp.com", "potentialAction": {"@type": "SearchAction", "target": "https://community.nxp.com/search.jspa?q={search_term_string}", "query-input": "required name=search_term_string"}}</script><div class="j-alert-container" role="alert" aria-live="polite" aria-atomic="true"></div><span id="j-speak-accessibility" class="j-508-label" role="status" aria-live="polite" aria-relevant="all" aria-atomic="true"></span><script>require(['apps/shared/models/user_relationship_list_source', 'apps/shared/models/user_relationship_source' ]);</script><script>require([ 'apps/follows/main', 'apps/follows/user/views/follow_user_link', 'apps/follows/user/main' ]);</script><script>require([ 'jive/urlcleaner' ]);</script><script>var containerShortUrl = "\/container-short.jspa"; var videoShortUrl = "\/view-video-short.jspa"; var profileShortUrl = "\/profile-short.jspa"; var profileLoadingTooltip = "Loading user profile"; var profileErrorTooltip = "There was an error loading that profile information."; var followErrorMessage = "An internal error occurred while following the object."; var ajaxErrorMessage = "An unexpected error has occurred. Please make sure that your session did not expire while viewing this page."; var ajaxNotFoundMessage = "The specified item was not found."; var ajaxUnauthorizedMessage = "You are not authorized to perform this operation. If you are not logged in please log in and try again.";
+        require([
+            'jquery'
+        ], function($) {
+            var originalWrite = document.write;
+            document.write = function() {
+                if(typeof $ != 'undefined' && $.isReady) {
+                    console.warn("document.write called after document was loaded: ", arguments);
+                } else {
+                    return Function.prototype.apply.call(originalWrite, document, arguments);
+                }
+            }
+        });
+        </script><script>require(['places-autocomplete']);</script><script>window.appsMarketEnabled =  false ; window.anyAppsEnabled =  false ; window.appsAvailable =  false ; window.appUUIDs = ""; require([ 'jive/app/core_container/event_relay' ], function() {require([ 'osapi' ], function(osapi) {require([ 'jive/app/app-feature-disabled' ], function(AppsDisabled) {window.appsDisabled = new AppsDisabled({apps_feature_disabled: "You may not be able to view this content as Apps have been disabled for this system. Please consult your System Administrator for more information."},{disabled: true});});});require([ 'jive/app/containerDeferred', 'jive/app/syntheticContainerDeferred', 'jive/app/core_container/mock', 'jive/app/core_container/tile_app' ], function(containerDeferred, syntheticContainerDeferred, Mock, TileApp) {var mockContainer = new Mock(); containerDeferred.resolve(mockContainer); var tileApp = TileApp(); tileApp.initActionLinkContext({coreAPIType: 'osapi.jive.core.Discussion', id:  366520.0   }); syntheticContainerDeferred.resolve(tileApp);});});</script><script>
+                require(['jquery'], function($) { $.migrateMute = true; });
+            </script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/cf98c7717b28a4a942cf60c7304f3609.js"></script>
+<script>
+require([ 'jive/rte/defaultStyles' ], function(defaultStyles) {defaultStyles = ["\/2016.1.0.1f7ee12\/plugins\/gamification_2016.1.7\/resources\/styles\/n4jive.concat.css"];require(['jiverscripts/conc/observable'], function(observable) {jive.observable = observable;}); require([ 'jive/rte/externalLinkModal' ], function(externalLinkModal) {jive.rte.mobileUI = false;externalLinkModal("true", "" );});}); jive.global.typeToNumeric = {"embedded_video":1100,"webhook":1224013431,"placeTemplateEntity":1567134318,"dm":109016030,"project":600,"discussion":1,"poll":18,"profileImage":501,"blog":37,"space":14,"post":38,"announcement":22,"group":700,"2901":2901,"image":111,"placeTemplateCategory":955999628,"static":1140061448,"securityGroup":4,"externalStreamInstance":1094237539,"task":602,"system":-2,"slide":1606291040,"person":3,"extprop":-1840153649,"extStreamActivity":-960826044,"page":-2106121635,"contentVersion":120,"favorite":800,"remoteDocument":9876,"streamEntry":1501,"idea":3227383,"document":102,"update":1464927464,"video":1100,"carousel":1527402675,"mention":550,"file":102,"attachment":13,"stream":-891990144,"share":109400031,"tileInstance":1094237539,"profileField":500,"event":96891546,"outcome":2700,"tileDefinition":1803367074,"photo":102,"message":2,"url":801,"collaboration":2800,"privateprop":987082157,"interaction":2801,"comment":105,"invite":350,"user":2020,"extStreamDefinition":1803367074}; jive.global.typeToMacroName = {"embedded_video":"videolink","idea":"idea","document":"document","project":"project","update":"microblog","photo":"document","discussion":"thread","poll":"polls","video":"videolink","blog":"blog","message":"message","space":"community","url":"external-site","task":"task","file":"document","post":"blogpost","person":"user","extStreamActivity":"tilestream","event":"event","group":"group"};
+
+require(['jive/bundles/zapatec'], function(Calendar) {Calendar._TT["DEF_DATE_FORMAT"] = "%m\/%d\/%Y";});
+
+require([ 'jquery', 'apps/follows/user/views/follow_user_link', 'apps/follows/user/main', 'jquery-plugin/jquery.placeheld', 'domReady!' ], function($, ProfileFollowView, FollowUserApp) {var followView = new ProfileFollowView({i18n: {startFollowingMessage: '<p>You are now following {0}.</p>', stopFollowingMessage:  '<p>You have stopped following {0}.</p>', pendingConnectionMessage: '<p>Note: {0} will need to approve your request</p>'}, bidirectional: false}); var jiveUserFollow = new FollowUserApp({followView: followView}); $("input[placeholder]").placeHeld();});
+
+</script>
+<script>var containerType = '14'; var containerID = '2004';var spotlightSearchURL = "spotlight-search";</script><script>window._jive_images_enabled = true; window._jive_video_module_enabled = false; require([ 'jive/rte/main', 'jive/rte/macro', 'jive/rte/emote', 'jive/rte/syntax/syntaxhighlightmacro' ], function(RTE, Macro) {if(typeof(tinyMCE) != "undefined"){tinyMCE.addI18n('en.jivemacros',{"unused.jive.key" : "nothing."});}
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]}], [{name: "__default_attr",value: ["java","plain","xml","html","sql"]}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("tag","tags/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""},{name: "tag",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""},{name: "name",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("user","people/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""},{name: "username",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("alert","","TEXT", false, true, [{ name: "success", deleteAll: true, params: [{ name: "__default_attr", value :"success"} ,{ name: "alert", value :"success"} ]},{ name: "info", deleteAll: true, params: [{ name: "__default_attr", value :"info"} ,{ name: "alert", value :"info"} ]},{ name: "warning", deleteAll: true, params: [{ name: "__default_attr", value :"warning"} ,{ name: "alert", value :"warning"} ]},{ name: "danger", deleteAll: true, params: [{ name: "__default_attr", value :"danger"} ,{ name: "alert", value :"danger"} ]}], [{name: "__default_attr",value: ""},{name: "alert",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("flag","","INLINE", false, true, [{ name: "new", deleteAll: true, params: [{ name: "flag", value :"new"} ]},{ name: "updated", deleteAll: true, params: [{ name: "flag", value :"updated"} ]}], [], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("kaltura","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""},{name: "playerKey",value: ""},{name: "playerID",value: ""},{name: "partnerID",value: ""},{name: "playerColor",value: "#FFFFFF"},{name: "sourcedomain",value: ""}], false,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("brightcove","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""},{name: "playerKey",value: ""},{name: "playerID",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("showandshare","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""},{name: "playerColor",value: "#000000"},{name: "sourcedomain",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("videomacro","","IMAGE", true, false, [], [{name: "__default_attr",value: ""},{name: "videoid",value: ""},{name: "imageURL",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("videolink","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("application","","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "__title",value: ""},{name: "__view",value: ""},{name: "__params",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("appEmbeddedView","","INLINE", true, false, [], [{name: "_default_attr",value: ""},{name: "_appuuid",value: ""},{name: "_title",value: ""},{name: "_view",value: ""},{name: "_context",value: ""},{name: "_url",value: ""},{name: "_previewimage",value: ""},{name: "_icon",value: ""},{name: "_action_id",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("tilestream","external/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("event","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));});
+require(['jive/rte/macro'], function() {jive.rte.macros.push(new jive.rte.Macro("idea","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));});
+window.tinyMCE_GZ = { loaded: true };});</script><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/68a7d1a781f95fa8a14bcbb159af70c6.js"></script>
+<script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/bundle_en.js"></script><script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+require([ 'apps/socialgroup/membership/main' ], function(MembershipApp) {var jiveMembership = new MembershipApp({objectID:2004});}); require([ 'apps/email_notification/main', 'domReady!' ], function(EmailNotification) {new EmailNotification(366520, 1);}); require(['jquery', 'jive/util'], function ($, util) {window.publishDraft = function() {var form = $j('#documentPublishForm'); util.securedForm(form).always(function() {form.submit();});}}); require(['jquery', 'domReady!'], function($j) {$j('#jive-office-plugin-download').css('display','block'); $j('#jive-office-plugin-download > div').css('padding', '0px');});
+
+require([ 'jquery', 'breadcrumb', 'jive/contentplace_relationship' ]);
+
+require([ 'apps/morelikethis/main' ], function() {new jive.MoreLikeThisApp.Main({objectType: '1', objectID: '366520', containerID: "jive-more-like-this-1-366520", numResults: 5, noContentMessage: 'No similar content found', errorMessage: 'Unable to retrieve content from the server:'});});
+
+
+
+require(['apps/core_acclaim/core_acclaim_main']);
+
+require([ 'apps/guided_navigation/main', 'domReady!' ], function(GuidedNavigation) {new GuidedNavigation();});
+
+require(['apps/outcomes/eventShim']);
+
+require(['apps/core_acclaim/core_acclaim_main']);
+
+require(['apps/outcomes/eventShim']);
+
+require(['apps/outcomes/eventShim']);
+
+require(['apps/core_acclaim/core_acclaim_main']);
+
+require(['apps/outcomes/eventShim']);
+
+require(['apps/outcomes/eventShim']);
+
+require(['apps/core_acclaim/core_acclaim_main']);
+
+require(['apps/outcomes/eventShim']);
+
+require(['apps/outcomes/eventShim']);
+
+require(['apps/core_acclaim/core_acclaim_main']);
+
+require(['apps/outcomes/eventShim']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+require([ 'sso/google-oidc-login', 'domReady!' ], function(GoogleOidcLogin) {window.jiveGoogleOidcLogin = new GoogleOidcLogin({jiveTokenName: "jive.googleoidc.login", jiveTokenGUID: "1464678134049-K6CII9L2ATNCMG37E8ULQKC4ZKHOWX2I", clientID: "null", openIDRealm: "null", redirectURI: "https://community.nxp.com/googleoidc/sso"});});
+
+
+                        require(['jquery'], function($) {
+                            $('#navLogin').on('click', function(e) {
+                                var fragment = '';
+                                if (window.location.hash.length > 1){
+                                    fragment = "?fragment=" + window.location.hash.substring(1);
+                                }
+                                $('#navLogin').attr("href", window._jive_base_url + '/login.jspa' + fragment);
+                           });
+                        });
+                        
+
+
+            require(['apps/autosearch/autosearch_main']);
+            
+
+require([ 'apps/activity_stream/activity_notifier', 'apps/activity_stream/models/activity_stream_source', 'apps/shared/controllers/switchboard', 'domReady!', 'jive/responsive' ], function(ActivityNotifier, ActivityStreamSource) {}); require([ 'domReady!' ], function() {jive.onLoadEventComplete = true;});
+
+require([ 'apps/authentication/main', 'apps/authentication/models/authentication_source', 'apps/userregistration/main' ], function(Authentication, AuthenticationSource, UserRegistration) {var authSource = new AuthenticationSource({forceSecure: false});});
+
+require(['jive/app/app-feature-disabled', 'jiveCoreApiV3'], function() {require(['gadgets', 'shindig', 'osapi']);});
+
+</script>
+<!-- plugin javascript --><!-- end plugin javascript --><script src="i2c%20User%20Space%20Application%20%7C%20NXP%20Community_files/40475b48a5560f75bedea2b8cfb03941.js"></script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"errorBeacon":"bam.nr-data.net","licenseKey":"e1336a1f47","agent":"","beacon":"bam.nr-data.net","applicationTime":502,"applicationID":"9120693","transactionName":"b1xUN0YHXEVRWxIMWFYWeAxGC1NaWUIDAWJKUBkXXBRXV1QXTA==","queueTime":0}</script></body></html>

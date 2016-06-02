@@ -1,0 +1,25 @@
+External only RTC:
+Pin 	Function
+1	3.3 v
+2	scl
+3	gnd
+4	sda
+5	nc
+
+
+Commands for the i2c-tools:
+Check the configured I2C busses
+root@colibri-t20:~# ls -l /dev/i2c-*
+
+Detect devices on i2c-0
+root@colibri-t20:~# i2cdetect -y -r 0
+UU denotes a device which is used by a kernel driver and thus is usually not touched. Depending on the I2C device it may not get discovered by i2cdetect.
+
+Dump register content of an I2C device
+root@colibri-t20:~# i2cdump -r 0-0xf 0 0x20 b
+
+Read a single byte, change its value and verify it with an additional read
+root@colibri-t20:~# i2cget 0 0x20 4 b
+root@colibri-t20:~# i2cset 0 0x20 4 0x18 b
+root@colibri-t20:~# i2cget 0 0x20 4 b
+

@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>developersguide:i2cdriverprogramming [Wiki]</title>
+    <script src="developersguide:i2cdriverprogramming%20[Wiki]_files/ga.js" async="" type="text/javascript"></script><script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki">
+<meta name="robots" content="index,follow">
+<meta name="keywords" content="developersguide,i2cdriverprogramming">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wiki.minix3.org/lib/exe/opensearch.php" title="Wiki">
+<link rel="start" href="http://wiki.minix3.org/">
+<link rel="contents" href="http://wiki.minix3.org/doku.php?id=developersguide:i2cdriverprogramming&amp;do=index" title="Sitemap">
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://wiki.minix3.org/feed.php">
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://wiki.minix3.org/feed.php?mode=list&amp;ns=developersguide">
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://wiki.minix3.org/doku.php?do=export_xhtml&amp;id=developersguide:i2cdriverprogramming">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://wiki.minix3.org/doku.php?do=export_raw&amp;id=developersguide:i2cdriverprogramming">
+<link rel="canonical" href="http://wiki.minix3.org/doku.php?id=developersguide:i2cdriverprogramming">
+<link rel="stylesheet" type="text/css" href="developersguide:i2cdriverprogramming%20[Wiki]_files/css.css">
+<script type="text/javascript">/*<![CDATA[*/var NS='developersguide';var JSINFO = {"id":"developersguide:i2cdriverprogramming","namespace":"developersguide"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="developersguide:i2cdriverprogramming%20[Wiki]_files/js.js"></script><style id="iris-css">.iris-picker{display:block;position:relative}.iris-picker,.iris-picker *{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input+.iris-picker{margin-top:4px}.iris-error{background-color:#ffafaf}.iris-border{border-radius:3px;border:1px solid #aaa;width:200px;background-color:#fff}.iris-picker-inner{position:absolute;top:0;right:0;left:0;bottom:0}.iris-border .iris-picker-inner{top:10px;right:10px;left:10px;bottom:10px}.iris-picker .iris-square-inner{position:absolute;left:0;right:0;top:0;bottom:0}.iris-picker .iris-square,.iris-picker .iris-slider,.iris-picker .iris-square-inner,.iris-picker .iris-palette{border-radius:3px;box-shadow:inset 0 0 5px rgba(0,0,0,.4);height:100%;width:12.5%;float:left;margin-right:5%}.iris-picker .iris-square{width:76%;margin-right:10%;position:relative}.iris-picker .iris-square-inner{width:auto;margin:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-square-inner,.iris-ie-9 .iris-palette{box-shadow:none;border-radius:0}.iris-ie-9 .iris-square,.iris-ie-9 .iris-slider,.iris-ie-9 .iris-palette{outline:1px solid rgba(0,0,0,.1)}.iris-ie-lt9 .iris-square,.iris-ie-lt9 .iris-slider,.iris-ie-lt9 .iris-square-inner,.iris-ie-lt9 .iris-palette{outline:1px solid #aaa}.iris-ie-lt9 .iris-square .ui-slider-handle{outline:1px solid #aaa;background-color:#fff;-ms-filter:"alpha(Opacity=30)"}.iris-ie-lt9 .iris-square .iris-square-handle{background:0;border:3px solid #fff;-ms-filter:"alpha(Opacity=50)"}.iris-picker .iris-strip{margin-right:0;position:relative}.iris-picker .iris-strip .ui-slider-handle{position:absolute;background:0;margin:0;right:-3px;left:-3px;border:4px solid #aaa;border-width:4px 3px;width:auto;height:6px;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.2);opacity:.9;z-index:5;cursor:ns-resize}.iris-strip .ui-slider-handle:before{content:" ";position:absolute;left:-2px;right:-2px;top:-3px;bottom:-3px;border:2px solid #fff;border-radius:3px}.iris-picker .iris-slider-offset{position:absolute;top:11px;left:0;right:0;bottom:-3px;width:auto;height:auto;background:transparent;border:0;border-radius:0}.iris-picker .iris-square-handle{background:transparent;border:5px solid #aaa;border-radius:50%;border-color:rgba(128,128,128,.5);box-shadow:none;width:12px;height:12px;position:absolute;left:-10px;top:-10px;cursor:move;opacity:1;z-index:10}.iris-picker .ui-state-focus .iris-square-handle{opacity:.8}.iris-picker .iris-square-handle:hover{border-color:#999}.iris-picker .iris-square-value:focus .iris-square-handle{box-shadow:0 0 2px rgba(0,0,0,.75);opacity:.8}.iris-picker .iris-square-handle:hover::after{border-color:#fff}.iris-picker .iris-square-handle::after{position:absolute;bottom:-4px;right:-4px;left:-4px;top:-4px;border:3px solid #f9f9f9;border-color:rgba(255,255,255,.8);border-radius:50%;content:" "}.iris-picker .iris-square-value{width:8px;height:8px;position:absolute}.iris-ie-lt9 .iris-square-value,.iris-mozilla .iris-square-value{width:1px;height:1px}.iris-palette-container{position:absolute;bottom:0;left:0;margin:0;padding:0}.iris-border .iris-palette-container{left:10px;bottom:10px}.iris-picker .iris-palette{margin:0;cursor:pointer}.iris-square-handle,.ui-slider-handle{border:0;outline:0}</style>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="http://wiki.minix3.org/lib/tpl/minix3c/images/favicon.ico">
+<link rel="apple-touch-icon" href="http://wiki.minix3.org/lib/tpl/minix3c/images/apple-touch-icon.png">
+    </head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_minix3c     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://wiki.minix3.org/doku.php?id=developersguide:i2cdriverprogramming&amp;do=register" class="action register" rel="nofollow" title="Register">Register</a></li><li><a href="http://wiki.minix3.org/doku.php?id=developersguide:i2cdriverprogramming&amp;do=login&amp;sectok=47b6acf65278679fa8181670229b7ffa" class="action login" rel="nofollow" title="Log In">Log In</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="/doku.php?id=start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input name="do" value="search" type="hidden"><input placeholder="Search" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" type="text"><button type="submit" title="Search">Search</button><div style="display: none;" id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="/doku.php" method="get" accept-charset="utf-8"><div class="no"><input name="id" value="developersguide:i2cdriverprogramming" type="hidden"><select name="do" class="edit quickselect" title="Tools"><option selected="selected" value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option><option value="copypage">Copy this page</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent Changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Log In</option><option value="register">Register</option></optgroup></select><button style="display: none;" type="submit">&gt;</button></div></form>            </div>
+            <ul>
+                <li><a href="http://wiki.minix3.org/doku.php?id=developersguide:i2cdriverprogramming&amp;do=recent" class="action recent" accesskey="r" rel="nofollow" title="Recent Changes [R]">Recent Changes</a></li><li><a href="http://wiki.minix3.org/doku.php?id=developersguide:i2cdriverprogramming&amp;do=media&amp;ns=developersguide" class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="http://wiki.minix3.org/doku.php?id=developersguide:i2cdriverprogramming&amp;do=index" class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <!-- banner -->
+    <div id="header">
+    <strong class="logo"><a href="http://www.minix3.org/"></a></strong>
+        <div id="nav">
+            <ul>
+		<li><a class="first" href="http://www.minix3.org/"><span>HOME</span></a></li>
+		<li><a href="http://wiki.minix3.org/doku.php?id=www:getting-started:">GETTING STARTED</a></li>
+		<li><a href="http://wiki.minix3.org/doku.php?id=www:download:">DOWNLOAD</a></li>
+		<li><a href="http://wiki.minix3.org/doku.php?id=www:documentation:">DOCUMENTATION</a></li>
+		<li><a href="http://wiki.minix3.org/doku.php?id=www:community:">COMMUNITY</a></li>
+		<li><a href="http://www.minix3.org/news/index.html">NEWS</a></li>
+		<li class="active"><a class="last" href="http://wiki.minix3.org/"><span>WIKI</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+            </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="http://wiki.minix3.org/doku.php?id=start" class="wikilink1" title="start">start</a></bdi></span> » <bdi><a href="http://wiki.minix3.org/doku.php?id=developersguide:start" class="wikilink1" title="developersguide:start">developersguide</a></bdi> » <bdi><span class="curid"><a href="http://wiki.minix3.org/doku.php?id=developersguide:i2cdriverprogramming" class="wikilink1" title="developersguide:i2cdriverprogramming">i2cdriverprogramming</a></span></bdi></div>
+                                </div>
+    
+    
+    <hr class="a11y">
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>developersguide:i2cdriverprogramming</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 style="cursor: pointer;" class="toggle open"><strong><span>−</span></strong>Table of Contents</h3>
+<div aria-expanded="true" style="">
+
+<ul style="" class="toc">
+<li class="level1"><div class="li"><a href="#i2c_device_driver_programming">I2C Device Driver Programming</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#general_overview">General Overview</a></div></li>
+<li class="level2"><div class="li"><a href="#service_definition">Service Definition</a></div></li>
+<li class="level2"><div class="li"><a href="#build_system">Build System</a></div></li>
+<li class="level2"><div class="li"><a href="#driver_skeleton">Driver Skeleton</a></div></li>
+<li class="level2"><div class="li"><a href="#choosing_driver_interface_model">Choosing Driver Interface Model</a></div></li>
+<li class="level2"><div class="li"><a href="#main_message_loop">Main Message Loop</a></div></li>
+<li class="level2"><div class="li"><a href="#helpful_i2cdriver_library_functions">Helpful i2cdriver Library Functions</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#i2cdriver_exec">i2cdriver_exec</a></div></li>
+<li class="level3"><div class="li"><a href="#i2creg_read_write_set_clear">i2creg_read/write/set/clear</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#code_formatting">Code Formatting</a></div></li>
+<li class="level2"><div class="li"><a href="#compiling_your_code">Compiling your Code</a></div></li>
+<li class="level2"><div class="li"><a href="#starting_your_driver">Starting Your Driver</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#manually">Manually</a></div></li>
+<li class="level3"><div class="li"><a href="#automatically_at_boot">Automatically at Boot</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#contributing_your_driver_to_minix">Contributing your Driver to Minix</a></div></li>
+<li class="level2"><div class="li"><a href="#documentation">Documentation</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#wiki">Wiki</a></div></li>
+<li class="level3"><div class="li"><a href="#source_code">Source Code</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#other_things_not_covered_here">Other Things Not Covered Here</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#device_files">Device Files</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="i2c_device_driver_programming">I2C Device Driver Programming</h1>
+<div class="level1">
+
+<p>
+This guide walks you through the steps of creating your own device 
+driver for an I2C device in C on Minix3 using the i2cdriver library. The
+ current version of this guide documents the features used in git commit
+ <strong>75bd300</strong> and later. If you update this document because
+ of changes to MINIX 3, please mention the commit ID of the change in 
+the wiki comment.
+</p>
+
+<p>
+This guide is for Minix device drivers which run as services and 
+interace with the bus driver directly via Minix IPC. You should also be 
+aware that Minix supports the same /dev/i2c interface that is provided 
+by NetBSD and OpenBSD. That interface is defined here: <a href="http://git.minix3.org/?p=minix.git;a=blob;f=sys/dev/i2c/i2c_io.h;hb=HEAD" class="urlextern" title="http://git.minix3.org/?p=minix.git;a=blob;f=sys/dev/i2c/i2c_io.h;hb=HEAD" rel="nofollow">dev/i2c/i2c_io.h</a>. Depending on your needs, it may be easier or more appropriate to use the /dev interface. Usage is documented on the <a href="http://wiki.minix3.org/doku.php?id=developersguide:i2cdevinterface" class="wikilink1" title="developersguide:i2cdevinterface">I2C /dev interface</a> page.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="general_overview">General Overview</h2>
+<div class="level2">
+
+<p>
+Developing an I2C device driver isn't too difficult because the bus 
+interface is simple and straightforward, and Minix provides an i2cdriver
+ library to handle tasks that would be repeated in every driver, 
+including the more advanced stuff like querying DS for the bus' 
+endpoint. This guide will show you how to add your own driver to the 
+system and use libi2cdriver. It uses the TDA19988 driver as an example. 
+Before you begin, it is suggested that you read <a href="http://wiki.minix3.org/doku.php?id=developersguide:i2cinternals" class="wikilink1" title="developersguide:i2cinternals">I2C Subsystem Internals</a> and <a href="http://wiki.minix3.org/doku.php?id=developersguide:i2cprotocol" class="wikilink1" title="developersguide:i2cprotocol">The I2C Protocol</a> as those will give you additional insight into the Minix I2C subsystem.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="service_definition">Service Definition</h2>
+<div class="level2">
+
+<p>
+In order for our driver to function properly, it must be defined in 
+etc/system.conf. That file defines what each service/driver can do. Add 
+an entry for your driver. Here I'm specifying that ipc between the 
+driver, system, reincarnation server, data store server, and the i2c 
+driver should be allowed.
+</p>
+<pre class="code">service tda19988
+{
+	ipc SYSTEM RS DS i2c;
+};</pre>
+
+<p>
+A cleaner alternative is for the driver to have its own file in /etc/system.conf.d/.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="build_system">Build System</h2>
+<div class="level2">
+
+<p>
+The first step is to create a directory for your driver's source code under the <em>drivers</em> directory.
+</p>
+<pre class="code">mkdir drivers/tda19988</pre>
+
+<p>
+Next, we need to create drivers/tda19988/Makefile to instruct the build system on how it should be built.
+</p>
+<pre class="code"># Makefile for the tda19988 HDMI framer found on the BeagleBone Black.
+PROG=	tda19988
+SRCS=	tda19988.c
+
+DPADD+=	${LIBI2CDRIVER} ${LIBSYS} ${LIBTIMERS}
+LDADD+=	-li2cdriver -lsys -ltimers
+
+MAN=
+
+CPPFLAGS+=	-I${NETBSDSRCDIR}
+
+.include &lt;minix.service.mk&gt;</pre>
+
+<p>
+Then, we need to edit drivers/Makefile so that our driver is included in
+ the build. Find the list of drivers that get built on ARM, and add your
+ driver to that list. It goes in the ARM-only section for now as ARM is 
+the only Minix platform with I2C support. Note, there are two of these 
+and you'll want to add your driver to the longer one towards the bottom 
+in the ${MKIMAGEONLY} != “yes” section.
+</p>
+<pre class="code">  *if ${MACHINE_ARCH} == "earm"
+SUBDIR=  cat24c256 fb gpio i2c mmc log tda19988 tty random
+  *endif</pre>
+
+<p>
+We also need to tell the build system about the binaries we wish to be 
+included in the installation. This is done by adding a line to 
+distrib/sets/lists/minix/md.evbarm listing the installation path of the 
+driver.
+</p>
+<pre class="code">./service/tda19988				minix-sys</pre>
+
+<p>
+Editing those Makefiles and adding the install path to the file list is 
+all that is needed to add a driver to the build system. Now we're ready 
+to start writing some code.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="driver_skeleton">Driver Skeleton</h2>
+<div class="level2">
+
+<p>
+The following section goes step by step through the code that you should
+ have in almost any I2C driver and explains a bit about what it does and
+ how it works. All lines are being added to our driver's source: 
+drivers/tda19988/tda19988.c
+</p>
+
+<p>
+You should include minix/i2c.h which defines the minix_i2c_ioctl_exec_t 
+structure which will hold your read/write requests and the results of 
+the operation. You will also need to include minix/i2cdriver.h which 
+defines the library functions available. The minix/drivers.h and 
+minix/ds.h headers should also be included. Additionally, you may want 
+to include headers for library functions (stdlib.h, string.h, etc).
+</p>
+<pre class="code">#include &lt;minix/ds.h&gt;
+#include &lt;minix/drivers.h&gt;
+#include &lt;minix/i2c.h&gt;
+#include &lt;minix/i2cdriver.h&gt;</pre>
+
+<p>
+This next step is optional but highly recommended. Minix provides a 
+simple logging framework which is very flexible. You simply include the 
+minix/log.h header, define an instance of struct log, and then use the 
+log_*(&amp;log, “”) functions in your code.
+</p>
+<pre class="code">#include &lt;minix/log.h&gt;
+
+/* logging - use with log_warn(), log_info(), log_debug(), log_trace(), etc */
+static struct log log = {
+	.name = "tda19988",
+	.log_level = LEVEL_INFO,
+	.log_func = default_log
+};</pre>
+
+<p>
+Next, we'll define a list of valid slave addresses for the device. 
+Typically, I2C devices have a predefined slave address or can be 
+configured to have an address that's within a range of predefined slave 
+addresses. The list of valid addresses is used to validate that the user
+ is pointing the driver at the right device. The list ends with a 
+special end of list value, 0x00. Here the driver has 4 possible 
+addresses; the last two bits are configurable by setting pins high or 
+low on our particular device, the TDA19988. Again, take note that the 
+list ends with a NULL byte, 0x00.
+</p>
+<pre class="code">static i2c_addr_t valid_addrs[5] = {
+	0x34, 0x35, 0x36, 0x37, 0x00
+};</pre>
+
+<p>
+There are a few global variables that we need to define. Those relate to
+ the slave address of the device that this instance of the driver is 
+driving as well as the bus that the particular device we want to drive 
+is on. If you hadn't guessed it already, one aspect of the design is 
+that there will be 1 instance of the driver per I2C device. This 
+simplifies the programming model and helps isolate the damage a sick 
+driver can cause.
+</p>
+<pre class="code">/* the bus that this device is on (counting starting at 1) */
+static uint32_t bus;
+
+/* slave address of the device */
+static i2c_addr_t address;
+
+/* endpoint for the driver for the bus itself. */
+static endpoint_t bus_endpoint;</pre>
+
+<p>
+Now we'll move on to the main() function and discuss driver 
+initialization. Since the driver is flexible and can be used to drive 
+devices on different buses, the user needs a way to point the driver at a
+ specific device on a specific bus. To do that, the user passes the bus 
+number and slave address to the driver via the service(8) command using 
+the -args option. Minix provides a nice set of argument parsing 
+functions, so all you have to do is call env_setargs() and then 
+i2cdriver_env_parse() to extract the bus and slave address, and validate
+ the slave address. A negative return code is used to indicate that the 
+bus or slave address parameters were either not specified or totally 
+invalid. A positive return code is used to indicate that the address was
+ not in the expected address list. It's up to the driver author to 
+decide what to do in that case (maybe the user knows what he/she is 
+doing and you accept the input?). A return code of 0 means the bus and 
+slave addresses were valid.
+</p>
+<pre class="code">int
+main(int argc, char *argv[])
+{
+	int r;
+
+	env_setargs(argc, argv);
+
+	r = i2cdriver_env_parse(&amp;bus, &amp;address, valid_addrs);
+	if (r &lt; 0) {
+		log_warn(&amp;log, "Expecting -args 'bus=X address=0xYY'\n");
+		log_warn(&amp;log, "Example -args 'bus=1 address=0x34'\n");
+		return EXIT_FAILURE;
+	} else if (r &gt; 0) {
+		log_warn(&amp;log,
+		    "Invalid slave address for device, expecting 0x34-0x37\n");
+		return EXIT_FAILURE;
+	}
+
+	...</pre>
+
+<p>
+The next thing we want to do in main() is call a function that we'll 
+define soon called sef_local_startup(). It will initialize the <a href="http://wiki.minix3.org/doku.php?id=developersguide:sef" class="wikilink1" title="developersguide:sef">System Event Framework (SEF)</a>
+ for our driver. SEF is a framework that handles the live updating and 
+self-healing aspects of Minix. I won't discuss the whole thing here, but
+ more info is in the SEF link above as well as in the general <a href="http://wiki.minix3.org/doku.php?id=developersguide:driverprogramming" class="wikilink1" title="developersguide:driverprogramming">driver programming</a> guide.
+</p>
+<pre class="code">	...
+
+	sef_local_startup();
+
+	...</pre>
+
+<p>
+Add a function prototype at the top of your C file.
+</p>
+<pre class="code">static void sef_local_startup(void);</pre>
+
+<p>
+Then implement the function.
+</p>
+<pre class="code">static void
+sef_local_startup(void)
+{
+	/*
+	 * Register init callbacks. Use the same function for all event types
+	 */
+	sef_setcb_init_fresh(sef_cb_init);
+	sef_setcb_init_lu(sef_cb_init);
+	sef_setcb_init_restart(sef_cb_init);
+
+	/*
+	 * Register live update callbacks.
+	 */
+	/* Agree to update immediately when LU is requested in a valid state. */
+	sef_setcb_lu_prepare(sef_cb_lu_prepare_always_ready);
+	/* Support live update starting from any standard state. */
+	sef_setcb_lu_state_isvalid(sef_cb_lu_state_isvalid_standard);
+	/* Register a custom routine to save the state. */
+	sef_setcb_lu_state_save(sef_cb_lu_state_save);
+
+	/* Let SEF perform startup. */
+	sef_startup();
+}</pre>
+
+<p>
+Next, we'll implement the state save and state restore functions. List the prototypes at the top of the file.
+</p>
+<pre class="code">static int sef_cb_lu_state_save(int);
+static int lu_state_restore(void);</pre>
+
+<p>
+Here we're just saving the bus and address information and restoring it using the <a href="http://wiki.minix3.org/doku.php?id=developersguide:datastore" class="wikilink1" title="developersguide:datastore">Data Store API</a>. The bus endpoint will be re-queried during an update/restart so it doesn't need to be preserved.
+</p>
+<pre class="code">static int
+sef_cb_lu_state_save(int UNUSED(state))
+{
+	ds_publish_u32("bus", bus, DSF_OVERWRITE);
+	ds_publish_u32("address", address, DSF_OVERWRITE);
+	return OK;
+}
+
+static int
+lu_state_restore(void)
+{
+	/* Restore the state. */
+	u32_t value;
+
+	ds_retrieve_u32("bus", &amp;value);
+	ds_delete_u32("bus");
+	bus = (int) value;
+
+	ds_retrieve_u32("address", &amp;value);
+	ds_delete_u32("address");
+	address = (int) value;
+
+	return OK;
+}</pre>
+
+<p>
+Finally, we're at the last SEF related function, sef_cb_init(). This 
+callback is to (re-)initialize the driver. Here's the prototype to put 
+at the top of the file.
+</p>
+<pre class="code">static int sef_cb_init(int type, sef_init_info_t * info);</pre>
+
+<p>
+The initialization function uses the i2cdriver library to perform a 
+number of setup tasks. The endpoint of the bus driver is queried and set
+ with i2cdriver_bus_endpoint(). A reservation is made with the bus 
+driver so that only this driver can access the specified slave address 
+with i2cdriver_reserve_device(). Next, a call to 
+i2cdriver_subscribe_bus_updates() adds a subscription for updates from 
+the bus driver about restarts. This will be used later to automatically 
+update the bus driver's endpoint if it is restarted. It will allow your 
+driver to survive the bus driver being restarted. Finally, 
+i2cdriver_announce() is called. This announces that the driver is up and
+ helps the bus driver deal with I2C device drivers being restarted. 
+You'll want to replace “DO DRIVER SPECIFIC INIT HERE” with code to 
+initialize any internal data structures your driver uses.
+</p>
+<pre class="code">static int
+sef_cb_init(int type, sef_init_info_t * UNUSED(info))
+{
+	int r;
+
+	if (type == SEF_INIT_LU) {
+		/* Restore the state. */
+		lu_state_restore();
+	}
+
+
+	/** DO DRIVER SPECIFIC INIT HERE **/
+
+
+	/* look-up the endpoint for the bus driver */
+	bus_endpoint = i2cdriver_bus_endpoint(bus);
+	if (bus_endpoint == 0) {
+		log_warn(&amp;log, "Couldn't find bus driver.\n");
+		return EXIT_FAILURE;
+	}
+
+	/* claim the device */
+	r = i2cdriver_reserve_device(bus_endpoint, address);
+	if (r != OK) {
+		log_warn(&amp;log, "Couldn't reserve device 0x%x (r=%d)\n",
+		    address, r);
+		return EXIT_FAILURE;
+	}
+
+	if (type != SEF_INIT_LU) {
+
+		/* sign up for updates about the i2c bus going down/up */
+		r = i2cdriver_subscribe_bus_updates(bus);
+		if (r != OK) {
+			log_warn(&amp;log, "Couldn't subscribe to bus updates\n");
+			return EXIT_FAILURE;
+		}
+
+		i2cdriver_announce(bus);
+		log_debug(&amp;log, "announced\n");
+	}
+
+	return OK;
+}</pre>
+
+<p>
+That covers all of the initial setup that you'll have to do. The next part depends on your specific needs.
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="choosing_driver_interface_model">Choosing Driver Interface Model</h2>
+<div class="level2">
+
+<p>
+Now it's time to start thinking about how your driver will be used. Will
+ other services or drivers be sending Minix IPC messages to it? Will it 
+be accessed through a device file? Your choice here sort of dictates how
+ you develop the rest of your driver. For the particular driver that is 
+the focus of this tutorial, the TDA19988, it doesn't make a lot of sense
+ to provide a device file interface (what can a user program do with an 
+HDMI framer?), but it does make a lot of sense to provide a Minix IPC 
+interface since the frame buffer driver will need to access it.
+</p>
+
+<p>
+If you need documentation for block device drivers see: <a href="http://wiki.minix3.org/doku.php?id=developersguide:blockprotocol" class="wikilink1" title="developersguide:blockprotocol">The Block Device protocol</a>. If you need documentation for character device drivers see: <a href="http://wiki.minix3.org/doku.php?id=developersguide:driverprogramming" class="wikilink1" title="developersguide:driverprogramming">Programming Device Drivers in Minix</a>. Some simple examples of each are: the cat24c256 driver (block) and the i2c bus driver (char).
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="main_message_loop">Main Message Loop</h2>
+<div class="level2">
+
+<p>
+Nearly all Minix drivers spend their time blocked, waiting for a Minix 
+IPC message to arrive. They decode the message, perform some work, and 
+most of the time they send a reply with the result. For character device
+ drivers and block device drivers, there is a specific set of messages 
+that need to be implemented. In these cases and a few others (network 
+drivers for instance), libraries provide main message loop functions 
+that call callbacks (example: chardriver_task() and blockdriver_task()).
+ There is no i2cdriver_task() because there are no universal actions 
+that apply to all I2C devices. Instead, we have to develop our own main 
+message loop.
+</p>
+
+<p>
+Here we're going to add some more code to the main() function. This is 
+our main message loop. It doesn't do much now, but we'll be adding to it
+ later once the message types are defined for our driver. Currently it 
+just replies with OK. You'll also notice that notifications from DS get 
+special handling. Earlier, in the init code, we subscribed to updates 
+from DS about the bus driver. Here is where those get processed. It will
+ help our driver survive if the i2c bus driver restarts.
+</p>
+<pre class="code">...
+
+	endpoint_t user, caller;
+	message m;
+	int ipc_status;
+
+...
+
+	while (TRUE) {
+
+		/* Receive Message */
+		r = sef_receive_status(ANY, &amp;m, &amp;ipc_status);
+		if (r != OK) {
+			log_warn(&amp;log, "sef_receive_status() failed\n");
+			continue;
+		}
+
+		if (is_ipc_notify(ipc_status)) {
+
+			if (m.m_source == DS_PROC_NR) {
+				/* bus driver changed state, update endpoint */
+				i2cdriver_handle_bus_update(&amp;bus_endpoint, bus, address);
+			}
+
+			/* Do not reply to notifications. */
+			continue;
+		}
+
+		caller = m.m_source;
+		user = m.USER_ENDPT;
+
+		/* TODO/XXX: HANDLE MESSAGES HERE */
+
+		/* Send Reply */
+		m.m_type = TASK_REPLY;
+		m.REP_ENDPT = user;
+		m.REP_STATUS = OK;
+
+		r = sendnb(caller, &amp;m);
+		if (r != OK) {
+			log_warn(&amp;log, "sendnb() failed\n");
+			continue;
+		}
+	}
+
+	return 0;
+}</pre>
+
+<p>
+That concludes the generic code that you need for an I2C device driver. 
+The next task is to design the messages that your driver will handle, 
+define the message types in include/minix/com.h, add a switch statement 
+in main on m.m_type, and handle the messages.
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="helpful_i2cdriver_library_functions">Helpful i2cdriver Library Functions</h2>
+<div class="level2">
+
+<p>
+The <a href="http://git.minix3.org/?p=minix.git;a=blob;f=include/minix/i2cdriver.h;hb=HEAD" class="urlextern" title="http://git.minix3.org/?p=minix.git;a=blob;f=include/minix/i2cdriver.h;hb=HEAD" rel="nofollow">minix/i2cdriver.h</a>
+ header defines the set of functions provided by the i2cdriver library. 
+This library contains common functions useful throughout many I2C 
+drivers.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="i2cdriver_exec">i2cdriver_exec</h3>
+<div class="level3">
+
+<p>
+The i2cdriver_exec function does the heavy lifting when it comes to 
+accessing the bus. Given the endpoint for an i2c bus driver, it can send
+ a minix_i2c_ioctl_exec_t to the bus, and return the response. As 
+described earlier, your driver can look-up the bus endpoint using 
+i2cdriver_bus_endpoint().
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="i2creg_read_write_set_clear">i2creg_read/write/set/clear</h3>
+<div class="level3">
+
+<p>
+Filling a minix_i2c_ioctl_exec_t for every read/write operation requires
+ too much work. Additionally, most I2C devices work in a similar way; 
+the device has registers which are addressed before a read or write. To 
+make things simple, the i2cdriver library provides several functions for
+ reading and writing from and to I2C device registers. Below are some 
+examples from existing drivers:
+</p>
+
+<p>
+i2creg_read8 performs a 1 byte read of the given register. Here, the 
+TDA19988 driver is reading the CEC_STATUS_REG register and storing the 
+value in val.
+</p>
+<pre class="code">i2creg_read8(cec_bus_endpoint, cec_address, CEC_STATUS_REG, &amp;val);</pre>
+
+<p>
+i2creg_write8 performs a one byte write to the given register. Here, the
+ TDA19988 driver is writing CEC_ENABLE_ALL_MASK to the CEC_ENABLE_REG.
+</p>
+<pre class="code">i2creg_write8(cec_bus_endpoint, cec_address, CEC_ENABLE_REG, CEC_ENABLE_ALL_MASK);</pre>
+
+<p>
+i2creg_read24 is similar to the i2creg_read8 above, but instead of 
+reading just one byte, it reads 3 bytes. There is also a i2creg_read16. 
+Here, the BMP085 driver is reading a 24-bit value from 
+SENSOR_VAL_MSB_REG and storing the result in 'up'.
+</p>
+<pre class="code">i2creg_read24(bus_endpoint, address, SENSOR_VAL_MSB_REG, &amp;up)</pre>
+
+<p>
+i2creg_set_bits8 performs a read of the given register, sets the 
+specified bits, and writes the value back to the register. Here, the 
+TPS65950 driver is setting the STOP_RTC_BIT bit in the RTC_CTRL_REG to 
+1.
+</p>
+<pre class="code">i2creg_set_bits8(bus_endpoint, addresses[ID4], RTC_CTRL_REG, (1 &lt;&lt; STOP_RTC_BIT));</pre>
+
+<p>
+i2creg_clear_bits8 performs a read of the given register, clears the 
+specified bits, and writes the value back to the register. Here, the 
+TPS65950 driver is clearing the STOP_RTC_BIT bit in the RTC_CTRL_REG to 
+0.
+</p>
+<pre class="code">i2creg_clear_bits8(bus_endpoint, addresses[ID4], RTC_CTRL_REG, (1 &lt;&lt; STOP_RTC_BIT));</pre>
+
+<p>
+i2creg_raw_read8 and i2creg_raw_write8 work like i2creg_read8 and 
+i2creg_write8 but do not send the register address. Here are some 
+examples from the TSL2550 and BMP085 drivers:
+</p>
+<pre class="code">i2creg_raw_read8(bus_endpoint, address, &amp;val);
+i2creg_raw_write8(bus_endpoint, address, CMD_SOFT_RESET);</pre>
+
+</div>
+
+<h2 class="sectionedit11" id="code_formatting">Code Formatting</h2>
+<div class="level2">
+
+<p>
+There is a <a href="http://wiki.minix3.org/doku.php?id=developersguide:codingstyle" class="wikilink1" title="developersguide:codingstyle">Coding Style</a> guide which explains how your code should be formatted. In short, it's the NetBSD <a href="http://git.minix3.org/?p=minix.git;a=blob_plain;f=share/misc/style;hb=HEAD" class="urlextern" title="http://git.minix3.org/?p=minix.git;a=blob_plain;f=share/misc/style;hb=HEAD" rel="nofollow">style</a> (based on <a href="http://en.wikipedia.org/wiki/Kernel_Normal_Form" class="urlextern" title="http://en.wikipedia.org/wiki/Kernel_Normal_Form" rel="nofollow">Kernel Normal Form</a>). You should use the style for all new code. 
+</p>
+
+<p>
+If you want to ensure that your code conforms to that style, there is an <a href="http://git.minix3.org/?p=minix.git;a=blob_plain;f=share/misc/indent.pro;hb=HEAD" class="urlextern" title="http://git.minix3.org/?p=minix.git;a=blob_plain;f=share/misc/indent.pro;hb=HEAD" rel="nofollow">indent.pro</a> file that can be used with the <a href="http://www.gnu.org/software/indent/" class="urlextern" title="http://www.gnu.org/software/indent/" rel="nofollow">indent</a>
+ utility. If you're using GNU indent, not all of the options in the 
+official indent.pro file are accepted (GNU indent is different than the 
+indent that ships with NetBSD and Minix), so I use the following options
+ in my ~/.indent.pro file for GNU indent.
+</p>
+<pre class="code">-bap
+-br
+-ce
+-ci4
+-cli0
+-d0
+-di0
+-i8
+-ip8
+-l79
+-nbc
+-ncdb
+-ndj
+-nfc1
+-nlp
+-npcs
+-psl
+-sc
+-sob</pre>
+
+</div>
+
+<h2 class="sectionedit12" id="compiling_your_code">Compiling your Code</h2>
+<div class="level2">
+
+<p>
+Instructions for compiling Minix/arm are available on the <a href="http://wiki.minix3.org/en/DevelopersGuide/MinixOnARM" class="urlextern" title="http://wiki.minix3.org/en/DevelopersGuide/MinixOnARM" rel="nofollow">Minix on ARM</a> page.
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="starting_your_driver">Starting Your Driver</h2>
+<div class="level2">
+
+<p>
+Assuming your driver compiled okay, you can boot up Minix and start up 
+an instance of the driver. Remember to follow the labelling suggestions 
+in the I2C internals guide.
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="manually">Manually</h3>
+<div class="level3">
+
+<p>
+With no device file:
+</p>
+<pre class="code">service up /service/tda19988 -label tda19988.1.34 -args 'bus=1 address=0x34'</pre>
+
+<p>
+With a device file:
+</p>
+<pre class="code">service up /service/cat24c256 -dev /dev/eepromb1s50 -label cat24c256.1.50 -args 'bus=1 address=0x50'</pre>
+
+</div>
+
+<h3 class="sectionedit15" id="automatically_at_boot">Automatically at Boot</h3>
+<div class="level3">
+
+<p>
+Inside etc/usr/rc there is a section that starts up the I2C bus drivers 
+and the drivers for the specific board that Minix is running on. To get 
+your driver to start at boot, simply add it in the CASE statement for 
+the specific boards that the chip is used on.
+</p>
+
+<p>
+You'll notice that 'up' is a function that calls the service command. It
+ fills in the path to the driver, so you don't specify the /usr/sbin 
+path like you do when you manually bring up the driver.
+</p>
+
+<p>
+With no device file:
+</p>
+<pre class="code">up tda19988 -label tda19988.1.34 -args 'bus=1 address=0x34'</pre>
+
+<p>
+With a device file:
+</p>
+<pre class="code">up cat24c256 -dev /dev/eepromb1s50 -label cat24c256.1.50 -args 'bus=1 address=0x50'</pre>
+
+</div>
+
+<h2 class="sectionedit16" id="contributing_your_driver_to_minix">Contributing your Driver to Minix</h2>
+<div class="level2">
+
+<p>
+If you develop a new I2C driver for Minix, please consider <a href="http://wiki.minix3.org/doku.php?id=howtocontribute" class="wikilink1" title="howtocontribute">contributing</a>
+ it to the Minix project so that everyone can benefit from your work. If
+ you have trouble with the contribution process, contact the <a href="http://groups.google.com/group/minix3" class="urlextern" title="http://groups.google.com/group/minix3" rel="nofollow">Minix3 Google Group</a> or stop by the #minix <abbr title="Internet Relay Chat">IRC</abbr> channel on irc.freenode.net
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="documentation">Documentation</h2>
+<div class="level2">
+
+<p>
+If you contribute your driver to Minix, we would also welcome some 
+documentation along with it. As English isn't everyone's native 
+language, feel free to ask for some help on this part if you aren't 
+entirely comfortable writing long texts.
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="wiki">Wiki</h3>
+<div class="level3">
+
+<p>
+If the driver is to be accessed by other drivers, create a wiki page 
+describing the valid message types and possible responses. An example is
+ the <a href="http://wiki.minix3.org/en/DevelopersGuide/I2CProtocol" class="urlextern" title="http://wiki.minix3.org/en/DevelopersGuide/I2CProtocol" rel="nofollow">I2C Protocol</a> document. It lists the messages that the I2C bus driver will accept and what reply codes could be returned.
+</p>
+
+</div>
+
+<h3 class="sectionedit19" id="source_code">Source Code</h3>
+<div class="level3">
+
+<p>
+Try to use comments to explain your code. Don't go overboard, but at 
+least explain the tricky parts. Also, a brief intro at the top of the 
+main C file explaining what the driver is to be used for is nice.
+</p>
+
+<p>
+You can add a README.txt file to the source directory for your driver 
+explaining a bit about it, maybe where to find documentation on the 
+hardware, any limitations (hardware or otherwise), and possible future 
+improvements if you wish.
+</p>
+
+</div>
+
+<h2 class="sectionedit20" id="other_things_not_covered_here">Other Things Not Covered Here</h2>
+<div class="level2">
+
+</div>
+
+<h3 class="sectionedit21" id="device_files">Device Files</h3>
+<div class="level3">
+
+<p>
+The TDA19988 doesn't have a device file interface. In the event that 
+your driver needs one. Here are the steps for defining the device file.
+</p>
+<ul>
+<li class="level1"><div class="li"> Add the definition to include/minix/dmap.h so others know the device number is in use.</div>
+</li>
+<li class="level1"><div class="li"> Teach MAKEDEV how to make the device file by editing commands/MAKEDEV/MAKEDEV.sh</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>developersguide/i2cdriverprogramming.txt</bdi> · Last modified: 2014/11/17 07:26 (external edit)</div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y">
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://wiki.minix3.org/doku.php?id=developersguide:i2cdriverprogramming&amp;do=edit" class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="http://wiki.minix3.org/doku.php?id=developersguide:i2cdriverprogramming&amp;do=revisions" class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="http://wiki.minix3.org/doku.php?id=developersguide:i2cdriverprogramming&amp;do=backlink" class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li><li><a href="#" class="action copypage copypageplugin__copy" rel="nofollow"><span>Copy this page</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    
+    <div class="buttons">
+                <a href="http://www.dokuwiki.org/donate" title="Donate"><img src="developersguide:i2cdriverprogramming%20[Wiki]_files/button-donate.gif" alt="Donate" width="80" height="15"></a>
+        <a href="http://www.php.net/" title="Powered by PHP"><img src="developersguide:i2cdriverprogramming%20[Wiki]_files/button-php.gif" alt="Powered by PHP" width="80" height="15"></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5"><img src="developersguide:i2cdriverprogramming%20[Wiki]_files/button-html5.png" alt="Valid HTML5" width="80" height="15"></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS"><img src="developersguide:i2cdriverprogramming%20[Wiki]_files/button-css.png" alt="Valid CSS" width="80" height="15"></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki"><img src="developersguide:i2cdriverprogramming%20[Wiki]_files/button-dw.png" alt="Driven by DokuWiki" width="80" height="15"></a>
+    </div>
+</div></div><!-- /footer -->
+
+
+
+<!--Start of Google analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29470990-1']);
+  _gaq.push(['_setDomainName', 'wiki.minix3.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>  <!--END of Google analytics -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="developersguide:i2cdriverprogramming%20[Wiki]_files/indexer.gif" alt="" width="2" height="1"></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+
+
+</body></html>

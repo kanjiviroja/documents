@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+	<meta http-equiv="CONTENT-TYPE" content="text/html; charset=windows-1252">
+	<title></title>
+	<meta name="GENERATOR" content="OpenOffice.org 2.0  (Win32)">
+	<meta name="CREATED" content="20060122;22575100">
+	<meta name="CHANGED" content="20060123;2202217">
+	<meta name="KEYWORDS" content="i2c real time clock rtc and temperature sensor project 8051 at89s52 c source code schematic ds1307 lm75 ruksen inanir dokuz eylul university electrical and electronics engineering">
+	<style>
+	<!--
+		@page { size: 8.5in 11in; margin-left: 0.79in; margin-right: 0.58in; margin-top: 0.79in; margin-bottom: 0.79in }
+		P { margin-bottom: 0.08in }
+	-->
+	</style>
+</head>
+<body dir="LTR" bgcolor="#c0c0c0" lang="en-US">
+<p style="margin-bottom: 0in"><font size="4"><b>EEE445 MICROPROCESSOR
+SYSTEMS PROJECT DOCUMENTATION</b></font></p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in"><font size="4"><b>Project: </b>Real time
+clock and digital temperature sensor using I2c bus and AT89s52</font></p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in"><font size="3"><u><b>what is I2C bus and
+why use it?</b></u></font></p>
+<p style="margin-bottom: 0in"><img src="project3_files/project3_html_m65dd2416.png" name="graphics2" align="LEFT" border="0" width="435" height="145"><span style="text-decoration: none">Any
+I²C device can be attached to an I²C-bus and every device
+can talk with any master, passing information back and forth. There
+needs to be at least one master (e.g., microcontroller or DSP) on the
+bus but there can be more than one, with all masters having equal
+priority. Devices can be easily added to and removed from the
+I²C-bus. </span>Each device has a unique 7-bit I²C address
+so that the master knows specifically whom they are communicating
+with. Typically the four most significant bits are fixed and assigned
+to specific categories of devices (e.g. 1010 is assigned to serial
+EEPROMs). The three less significant bits (e.g., A2, A1 and A0) are
+programmable through hardware address pins allowing up to eight
+different I²C address combinations and therefore allowing up to
+eight of that type of device to operate on the same I²C-bus. 
+</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-right: 2.47in; margin-bottom: 0in" align="LEFT"><font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">Only
+2 bus lines required: data (SDA) and clock (SCL)</font></font></font></p>
+<p style="margin-right: 0.01in; margin-bottom: 0in" align="LEFT"><font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">Each
+device connected to the bus is software addressable by a <span style="text-decoration: none">unique
+address </span></font></font></font>
+</p>
+<p style="margin-right: 2.54in; margin-bottom: 0in; text-decoration: none" align="LEFT">
+<font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">2
+modes: Master-Transmitter and as Master-Receiver</font></font></font></p>
+<p style="margin-right: 2.47in; margin-bottom: 0in" align="LEFT"><font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">Created
+and developed by Philips</font></font></font></p>
+<p style="margin-right: 2.47in; margin-bottom: 0in" align="LEFT"><font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">More
+than 20 years of existence</font></font></font></p>
+<p style="margin-right: 2.47in; margin-bottom: 0in" align="LEFT"><font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">Has
+become a world-wide standard</font></font></font></p>
+<p style="margin-bottom: 0in" align="LEFT"><font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">Standard
+adopted by all the industry</font></font></font></p>
+<p style="margin-left: 0.46in; margin-right: 0.03in; text-indent: -0.42in; margin-bottom: 0in" align="LEFT">
+<font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">ICs
+can be added to or removed from a system without affecting any other
+circuits on the bus.</font></font></font></p>
+<p style="margin-right: 0.03in; margin-bottom: 0in" align="LEFT"><font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">Simplicity:
+2 wire protocol</font></font></font></p>
+<p style="margin-left: 0.04in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">Robustness
+of the protocol</font></font></font></p>
+<p style="margin-left: 0.04in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<img src="project3_files/project3_html_52051f33.png" name="graphics1" align="LEFT" border="0" width="428" height="234"><br clear="LEFT">
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">here
+is how to write to and read data from an i2c bus;</font></font></font></p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<font face="OEHAKB+Arial, Arial, sans-serif"><font size="4"><b><font color="#000000">LM75
+I2C TEMP SENSOR:</font></b><font size="3"><font face="Helvetica, sans-serif">The
+LM75 is a temperature sensor, Delta-Sigma analog-to digital
+converter, and digital over-temperature detector with I2C®
+interface. The host can query the LM75 at any time to read
+temperature.</font></font></font></font></p>
+<img src="project3_files/project3_html_m3ba763c0.gif" name="graphics3" align="LEFT" border="0" width="194" height="140">
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<font face="Helvetica, sans-serif"><font size="3">I2c slave address of
+lm75;</font></font></p>
+<img src="project3_files/project3_html_m64b95b32.gif" name="graphics4" align="LEFT" border="0" width="250" height="38"><br clear="LEFT">
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<font face="Helvetica-Bold, sans-serif"><font size="3"><b>TEMPERATURE
+DATA FORMAT</b></font></font></p>
+<p style="margin-bottom: 0in" align="LEFT"><font face="Helvetica, sans-serif"><font size="3">Temperature
+data can be read from the Temperature, TOS Set Point, and THYST Set
+Point registers; and written to the TOS Set Point, and THYST Set
+Point registers. Temperature</font></font></p>
+<p style="margin-bottom: 0in" align="LEFT"><font face="Helvetica, sans-serif"><font size="3">data
+is represented by a 9-bit, two’s complement word with an LSB
+(Least Significant Bit) equal to 0.5°C<font style="font-size: 8pt" size="1">:</font></font></font></p>
+<p style="margin-bottom: 0in" align="LEFT"><img src="project3_files/project3_html_m49336568.gif" name="graphics5" align="LEFT" border="0" width="266" height="142"><br clear="LEFT"><br>
+</p>
+<p style="margin-bottom: 0in" align="LEFT"><font face="Helvetica, sans-serif"><font size="3">here
+is i2c bus timing diagram for reading two bytes from lm75;</font></font></p>
+<p style="margin-bottom: 0in" align="LEFT"><img src="project3_files/project3_html_m1e3890dc.gif" name="graphics6" align="LEFT" border="0" width="685" height="129"><br clear="LEFT"><br>
+</p>
+<p style="margin-bottom: 0in" align="LEFT"><br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<font face="Helvetica, sans-serif"><font size="4"><b>DS1307 I2C RTC:</b></font></font></p>
+<img src="project3_files/project3_html_m51da881f.gif" name="graphics7" align="LEFT" border="0" width="385" height="239"><br clear="LEFT">
+<img src="project3_files/project3_html_m3c2f3c34.gif" name="graphics8" align="LEFT" border="0" width="310" height="130"><br clear="LEFT">
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in; font-weight: medium" align="LEFT">
+<font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3"><u>DESCRIPTION
+:</u>The DS1307 Serial Real Time Clock is a low power, full BCD
+clock/calendar plus 56 bytes of nonvolatile SRAM. Address and data
+are transferred serially via a 2–wire</font></font></font></p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in; font-weight: medium" align="LEFT">
+<font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">bi–directional
+bus. The clock/calendar provides seconds, minutes, hours, day, date,
+month, and year information. The end of the month date is
+automatically adjusted for months with less than 31 days, including
+corrections for leap year. The clock operates in either the 24–hour
+or 12–hour format with AM/PM indicator. The DS1307 has a
+built–in power sense circuit which detects power failures and
+automatically switches to the battery supply.</font></font></font></p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<font face="Arial, sans-serif"><font size="3"><font color="#000000">The
+DS1307/1308 operates as a slave device on the </font>serial bus.
+Access is obtained by implementing a START condition and providing a
+device identification code followed by a register address. Subsequent
+registers can be accessed sequentially until a STOP condition is</font></font></p>
+<p style="margin-bottom: 0in" align="LEFT"><font face="Arial, sans-serif"><font size="3">executed.
+When VCC falls below 1.25 x VBAT the device terminates an access in
+progress and resets the device address counter. Inputs to the device
+will not be recognized at this time to prevent erroneous data from
+being written to the device from an out of tolerance system.</font></font></p>
+<p style="margin-bottom: 0in" align="LEFT"><font face="Arial, sans-serif"><font size="3">When
+VCC falls below VBAT the device switches into a low current battery
+backup mode. Upon power up, the device switches from battery to VCC
+when VCC is greater than VBAT+0.2V and recognizes inputs when VCC is
+greater than 1.25 x VBAT.</font></font></p>
+<p style="margin-bottom: 0in" align="LEFT"><font face="Arial, sans-serif"><font size="3"><i>Timekeeper
+registers;</i></font></font></p>
+<p style="margin-bottom: 0in" align="LEFT"><img src="project3_files/project3_html_439a90ad.gif" name="graphics9" align="LEFT" border="0" width="290" height="207"><br clear="LEFT"><br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in; font-weight: medium" align="LEFT">
+<font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">ds1307
+uses 32.768 Khz crystal.</font></font></font></p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="4"><b>PROGRAM
+CODE:</b> <font size="3">Code is written in KEIL C. I2c functions are
+copied from dallas application notes. The program displays time for 6
+seconds, and temperature for 4 seconds, and goes like this. The
+displays are four multiplexed seven segment led displays. The source
+code and schematic are provided at the end of the documentation.</font></font></font></font></p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<a href="http://www.ahmetozkurt.net/EEE445p/6/source.pdf"><u><i><font face="OEHAKB+Arial, Arial, sans-serif"><font color="#000000">source</font></font></i></u></a></p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<a href="http://www.ahmetozkurt.net/EEE445p/6/schematic.bmp"><u><i><font face="OEHAKB+Arial, Arial, sans-serif"><font color="#000000">schematic
+</font></font></i></u></a>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in; font-weight: medium" align="LEFT">
+<font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">Any
+questions are welcome.</font></font></font></p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<font face="OEHAKB+Arial, Arial, sans-serif"><font color="#000000">prepared
+by: <a href="mailto:rukseninanir@hotmail.com">Ruksen Inanir</a></font></font></p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in; font-weight: medium" align="LEFT">
+<font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">Dokuz
+Eylul University Electronics Engineering Department Student </font></font></font>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in; font-weight: medium" align="LEFT">
+<font color="#000000"><font face="OEHAKB+Arial, Arial, sans-serif"><font size="3">01.23.2006
+Izmir-Turkey</font></font></font></p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+<p style="margin-left: 0.06in; margin-right: 0.03in; margin-bottom: 0in" align="LEFT">
+<br>
+</p>
+
+</body></html>

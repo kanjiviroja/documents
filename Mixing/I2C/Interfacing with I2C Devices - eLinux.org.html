@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html dir="ltr" class="client-js" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8"><script src="Interfacing%20with%20I2C%20Devices%20-%20eLinux.org_files/d0863ed20c" type="text/javascript"></script><script src="Interfacing%20with%20I2C%20Devices%20-%20eLinux.org_files/nr-943.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(e,t){return function(){o(e,[(new Date).getTime()].concat(a(arguments)),null,t)}}var o=e("handle"),i=e(2),a=e(3);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var u=["setPageViewName","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(u,function(e,t){newrelic[t]=r(f+t,"api")}),i(c,function(e,t){newrelic[t]=r(f+t)}),t.exports=newrelic,newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),o("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(0>o?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?u(e,a,i):i()}function n(n,r,o){e&&e(n,r,o);for(var i=t(o),a=l(n),u=a.length,c=0;u>c;c++)a[c].apply(i,r);var s=f[g[n]];return s&&s.push([m,n,r,i]),i}function p(e,t){w[e]=l(e).concat(t)}function l(e){return w[e]||[]}function d(e){return s[e]=s[e]||o(n)}function v(e,t){c(e,function(e,n){t=t||"feature",g[n]=t,t in f||(f[t]=[])})}var w={},g={},m={on:p,emit:n,get:d,listeners:l,context:t,buffer:v};return m}function i(){return new r}var a="nr@context",u=e("gos"),c=e(2),f={},s={},p=t.exports=o();p.backlog=f},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!w++){var e=v.info=NREUM.info,t=s.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&t){c(l,function(t,n){e[t]||(e[t]=n)});var n="https"===p.split(":")[0]||e.sslForHttp;v.proto=n?"https://":"http://",u("mark",["onload",a()],null,"api");var r=s.createElement("script");r.src=v.proto+e.agent,t.parentNode.insertBefore(r,t)}}}function o(){"complete"===s.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=window,s=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},e(1);var p=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-943.min.js"},d=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),v=t.exports={offset:a(),origin:p,features:{},xhrWrappable:d};s.addEventListener?(s.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(s.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),u("mark",["firstbyte",a()],null,"api");var w=0},{}]},{},["loader"]);</script>
+<title>Interfacing with I2C Devices - eLinux.org</title>
+<meta name="generator" content="MediaWiki 1.25.3">
+<link rel="shortcut icon" href="http://elinux.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://elinux.org/opensearch_desc.php" title="eLinux.org (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://elinux.org/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="http://elinux.org/Interfacing_with_I2C_Devices">
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/atom+xml" title="eLinux.org Atom feed" href="http://elinux.org/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="Interfacing%20with%20I2C%20Devices%20-%20eLinux.org_files/load.css">
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: elinux:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: elinux:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(/resources/src/mediawiki.action/images/green-checkmark.png?2014-04-14T23:20:00Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: elinux:resourceloader:filter:minify-css:7:d22a6eecbdedf9d88bcaa758a7cabb56 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: elinux:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="Interfacing%20with%20I2C%20Devices%20-%20eLinux.org_files/load_002.css">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: elinux:resourceloader:filter:minify-css:7:ce2ea8b61fdbcffeb01d2d7d8a6046d1 */</style>
+<script src="Interfacing%20with%20I2C%20Devices%20-%20eLinux.org_files/load_003.php"></script><script src="Interfacing%20with%20I2C%20Devices%20-%20eLinux.org_files/load_002.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Interfacing_with_I2C_Devices","wgTitle":"Interfacing with I2C Devices","wgCurRevisionId":178856,"wgRevisionId":178856,"wgArticleId":4877,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Robotics","BeagleBoard"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Interfacing_with_I2C_Devices","wgRelevantArticleId":4877,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"previewDialog":false,"publish":true}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: elinux:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="Interfacing%20with%20I2C%20Devices%20-%20eLinux.org_files/load_004.php"></script>
+<style type="text/css">
+li#pt-openidlogin {
+background: url(/extensions/OpenID/skin/icons/openid-inputicon.png) top left no-repeat;
+padding-left: 20px;
+text-transform: none;
+}
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Interfacing_with_I2C_Devices skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><script>document.write("\u003Cdiv id=\"localNotice\" lang=\"en\" dir=\"ltr\"\u003E\u003Cdiv style=\"margin:0; margin-top:10px; margin-right:10px; border:1px solid #dfdfdf; padding:0 1em 1em 1em; background-color:#ffffcc; align:center;\"\u003E\n\u003Cp\u003E\u003Cb\u003EDid you know that elinux.org has Mailing Lists?  Please feel free to \u003Ca href=\"/ELinuxWiki:Mailing_List\" title=\"ELinuxWiki:Mailing List\"\u003E register today\u003C/a\u003E to discuss the wiki in general, request features, etc. etc.. Thanks!--\u003Ca href=\"/User:Wmat\" title=\"User:Wmat\"\u003EWmat\u003C/a\u003E (\u003Ca href=\"/User_talk:Wmat\" title=\"User talk:Wmat\"\u003Etalk\u003C/a\u003E)\u003Cbr /\u003E\u003C/b\u003E\n\u003C/p\u003E\n\u003C/div\u003E\n\u003C/div\u003E");</script><div id="localNotice" dir="ltr" lang="en"><div style="margin:0; margin-top:10px; margin-right:10px; border:1px solid #dfdfdf; padding:0 1em 1em 1em; background-color:#ffffcc; align:center;">
+<p><b>Did you know that elinux.org has Mailing Lists?  Please feel free to <a href="http://elinux.org/ELinuxWiki:Mailing_List" title="ELinuxWiki:Mailing List"> register today</a> to discuss the wiki in general, request features, etc. etc.. Thanks!--<a href="http://elinux.org/User:Wmat" title="User:Wmat">Wmat</a> (<a href="http://elinux.org/User_talk:Wmat" title="User talk:Wmat">talk</a>)<br></b>
+</p>
+</div>
+</div></div>
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Interfacing with I2C Devices</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From eLinux.org</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-navigation">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en"><p><br>
+This page is meant to provide some basic information about how to interface with <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/I%C2%B2C">I²C</a>
+ devices through the /dev/i2c interface.  The I²C bus is commonly used 
+to connect relatively low-speed sensors and other peripherals to 
+equipment varying in complexity from a simple microcontroller to a 
+full-on motherboard.  I²C is extremely popular due to its ease-of-use 
+and ability to control multiple peripherals while utilizing only two 
+pins on the host controller.  Although I²C has a variety of modes, this 
+page will deal purely with communication between a Linux-based master 
+and a slave peripheral for the time being.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Code_Examples"><span class="tocnumber">1</span> <span class="toctext">Code Examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Beagleboard_I2C2_Enable"><span class="tocnumber">1.1</span> <span class="toctext">Beagleboard I2C2 Enable</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#i2c-tools"><span class="tocnumber">1.2</span> <span class="toctext">i2c-tools</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Basic_Communication_with_the_AD7991_ADC"><span class="tocnumber">1.3</span> <span class="toctext">Basic Communication with the AD7991 ADC</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Opening_the_Bus"><span class="tocnumber">1.3.1</span> <span class="toctext">Opening the Bus</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Initiating_communication_with_the_AD7991"><span class="tocnumber">1.3.2</span> <span class="toctext">Initiating communication with the AD7991</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Reading_from_the_ADC"><span class="tocnumber">1.3.3</span> <span class="toctext">Reading from the ADC</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Writing_to_the_ADC"><span class="tocnumber">1.3.4</span> <span class="toctext">Writing to the ADC</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Detecting_Errors"><span class="tocnumber">1.3.5</span> <span class="toctext">Detecting Errors</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Completed_Code"><span class="tocnumber">1.3.6</span> <span class="toctext">Completed Code</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Cross_Compilation"><span class="tocnumber">1.3.7</span> <span class="toctext">Cross Compilation</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Tested_Devices"><span class="tocnumber">2</span> <span class="toctext">Tested Devices</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#External_Links"><span class="tocnumber">3</span> <span class="toctext">External Links</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Code_Examples">Code Examples</span></h1>
+<p>Note:  Examples shown on this page were developed based on a Texas Instruments <a href="http://elinux.org/BeagleBoard" title="BeagleBoard" class="mw-redirect">BeagleBoard</a> and some changes <i>will</i> be required depending on the system being utilized.  
+</p>
+<h2><span class="mw-headline" id="Beagleboard_I2C2_Enable">Beagleboard I2C2 Enable</span></h2>
+<p>The TI BeagleBoard has 3 I²C buses available, which control a variety
+ of on-board peripherals, including the DVI display driver and power 
+sequencing.  As bus 2 is by far the easiest to connect to due to its 
+presence on the 0.1" spaced expansion header, it is assumed the user 
+will be controlling that bus for the purposes of this example.  However,
+ by default bus 2 is disabled due to a lack of pull-up resistors on the 
+board, so external pull-ups to 1.8V must be added and the kernel 
+recompiled to enable i2c2.  It is important to remember that this bus 
+runs at 1.8V on the Beagleboard and that external level shifters will be
+ required to interface with 3.3V or 5V devices.
+</p><p>See <a href="http://elinux.org/BeagleBoard#Linux_kernel" title="BeagleBoard" class="mw-redirect">BeagleBoard#Linux_kernel</a> and <a href="http://elinux.org/BeagleBoardLinuxKernel" title="BeagleBoardLinuxKernel">BeagleBoardLinuxKernel</a>
+ for details on how to recompile your Linux kernel.  To enable i2c2 
+specifically during that process, enable the setting during the "make 
+menuconfig" step.  
+</p><p>It is important to note that the method of enabling i2c2 varies 
+depending on your kernel and applied patches.  Recent kernel versions 
+have changed how <a href="http://elinux.org/BeagleBoardPinMux#Recent_Kernels" title="BeagleBoardPinMux"> PIN_MUX settings</a>
+ are set.  For me, running the openembedded stable/2009 kernel 
+(2.6.29-r46) was enough.  By default i2c2 was properly configured and 
+enabled.  A fast way to check is to see if /dev/i2c-2 exists (But this 
+does not check proper mux settings).
+</p><p>I2C2 is pinned out as pins 23 (SDA) and 24 (SCL) on the expansion header.
+</p>
+<h2><span class="mw-headline" id="i2c-tools">i2c-tools</span></h2>
+<p><a rel="nofollow" class="external text" href="http://www.lm-sensors.org/wiki/I2CTools">i2c-tools</a>
+ is a set of I²C programs that make it easy to debug I²C devices without
+ having to write any code. For example, with the BeagleBoard:
+</p>
+<pre>$i2cdetect -r 2
+</pre>
+<p>Will send out read byte commands on the /dev/i2c-2 line to probe for 
+addresses, and return any devices found. This is useful for checking 
+what devices are functioning properly. (Note: the -r flag may interfere 
+with write-only devices, but the default probing method does not work on
+ the Beagle.) <a rel="nofollow" class="external text" href="http://www.lm-sensors.org/wiki/man/i2cget">i2cget</a> and <a rel="nofollow" class="external text" href="http://www.lm-sensors.org/wiki/man/i2cset">i2cset</a> write and read to devices respectively.
+</p>
+<h2><span class="mw-headline" id="Basic_Communication_with_the_AD7991_ADC">Basic Communication with the <a rel="nofollow" class="external text" href="http://elinux.org/Interfacing_with_I%C2%B2C_Devices#Code_Examples">AD7991</a> <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Analog-to-digital_converter">ADC</a></span></h2>
+<p>The AD7991 has four inputs as well as the ability to use one of the 
+input pins as a reference voltage the other inputs are measured against.
+  If that input is not used as the reference voltage, it uses the supply
+ voltage as the reference voltage.  The power on default configuration 
+uses all 4 channels as inputs, so in this case no further configuration 
+is necessary.  Because the AD7991 is 12-bit device, its outputs ranges 
+linearly from 0 to 4096 as the voltage ranges from 0 to the reference 
+voltage.  
+</p><p>There are multiple ways to communicate with I²C devices, 
+including the writing of a full kernel driver.  This adds significant 
+extra complexity, however, as basic bus control can be accomplished with
+ the open, ioctl, read, and write commands.  
+</p>
+<h3><span class="mw-headline" id="Opening_the_Bus">Opening the Bus</span></h3>
+<p>In order to communicate with an I²C peripheral with this simple 
+structure, you must first open the bus for reading and writing like you 
+would any file.  A call to <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Open_%28system_call%29">open</a>
+ must be used rather than fopen so that writes to the bus are not 
+buffered.  Open returns a new file descriptor (a non-negative integer) 
+which can then be used to configure the bus.  A typical reason for 
+failure at this stage is a lack of permissions to access /dev/i2c-2.  
+Adding the user to a group which has permissions to access the file will
+ alleviate this problem, as will adjusting the file permissions to 
+enable user access.  Adding a <a rel="nofollow" class="external text" href="http://xgoat.com/wp/2008/01/29/i2c-device-udev-rule/">udev rule to set the I²C device group</a> is the most permanent solution.
+</p>
+<pre>int file;
+char *filename = "/dev/i2c-2";
+if ((file = open(filename, O_RDWR)) &lt; 0) {
+    /* ERROR HANDLING: you can check errno to see what went wrong */
+    perror("Failed to open the i2c bus");
+    exit(1);
+}
+</pre>
+<h3><span class="mw-headline" id="Initiating_communication_with_the_AD7991">Initiating communication with the AD7991</span></h3>
+<p>After successfully acquiring bus access, you must initiate 
+communication with whatever peripheral you are attempting to utilize.  
+I²C does this by sending out the seven bit address of the device 
+followed by a read/write bit.  The bit is set to 0 for writes and 1 for 
+reads.  This is another common failure point, as manufacturers tend to 
+report the I²C address of the peripheral in a variety of ways.  Some 
+report the address as a seven bit number, meaning that the address must 
+be shifted left by a bit and then have the r/w bit tacked onto the end. 
+ Others will provide it as an eight bit number and assume you will set 
+the last bit accordingly.  Although a few manufacturers actually say 
+which method they use to describe the address, the vast majority do not,
+ and the user may have to resort to testing via trial and error.  
+</p><p>The AD7991 used in this example is the AD7991-1, which has an 
+address reported by the datasheet as 0101001.  To use this properly, 
+zero pad the address on the left and store it as 0b00101001.  The calls 
+to read and write after the ioctl will automatically set the proper read
+ and write bit when signaling the peripheral.  
+</p>
+<pre>int addr = 0b00101001;          // The I2C address of the ADC
+if (ioctl(file, I2C_SLAVE, addr) &lt; 0) {
+    printf("Failed to acquire bus access and/or talk to slave.\n");
+    /* ERROR HANDLING; you can check errno to see what went wrong */
+    exit(1);
+}
+</pre>
+<h3><span class="mw-headline" id="Reading_from_the_ADC">Reading from the ADC</span></h3>
+<p>The read system call is used to obtain data from the I²C peripheral. 
+ Read requires a file handle, a buffer to store the data, and a number 
+of bytes to read.  Read will attempt to read the number of bytes 
+specified and will return the actual number of bytes read, which can be 
+used to detect errors.  
+</p><p>The code in the else block below calculates the voltage present 
+at the ADC pin assuming a 5 volt reference/supply voltage.  The AD7991 
+samples a 12 bit value, which is read back as two eight bit values.  
+Rather than waste the empty bits, two of them are also used to signal 
+the channel data being sent.  See page 21 of the datasheet for more 
+details.  
+</p>
+<pre>char buf[10] = {0};
+float data;
+char channel;
+
+for (int i = 0; i&lt;4; i++) {
+    // Using I2C Read
+    if (read(file,buf,2)&nbsp;!= 2) {
+        /* ERROR HANDLING: i2c transaction failed */
+        printf("Failed to read from the i2c bus.\n");
+        buffer = g_strerror(errno);
+        printf(buffer);
+        printf("\n\n");
+    } else {
+        data = (float)((buf[0] &amp; 0b00001111)&lt;&lt;8)+buf[1];
+        data = data/4096*5;
+        channel = ((buf[0] &amp; 0b00110000)&gt;&gt;4);
+        printf("Channel&nbsp;%02d Data: &nbsp;%04f\n",channel,data);
+    }
+}
+</pre>
+<h3><span class="mw-headline" id="Writing_to_the_ADC">Writing to the ADC</span></h3>
+<p>The write system call is used to obtain data from the I²C peripheral.
+  Write requires a file handle, a buffer in which the data is stored, 
+and a number of bytes to write.  Write will attempt to write the number 
+of bytes specified and will return the actual number of bytes written, 
+which can be used to detect errors.  
+</p><p>Some devices require an internal address to be sent prior to the 
+data to specify the register on the external device to access.  The 
+AD7991 contains only one configuration register, and as such, does not 
+require a internal register selection address to be sent to the device. 
+ For devices with more than one configuration register, the address of 
+the register should be written first, followed by the data to be placed 
+there.  See the datasheet specific to the part for more details.  
+</p>
+<pre>//unsigned char reg = 0x10; // Device register to access
+//buf[0] = reg;
+
+buf[0] = 0b11110000;
+if (write(file,buf,1)&nbsp;!= 1) {
+    /* ERROR HANDLING: i2c transaction failed */
+    printf("Failed to write to the i2c bus.\n");
+    buffer = g_strerror(errno);
+    printf(buffer);
+    printf("\n\n");
+}
+</pre>
+<h3><span class="mw-headline" id="Detecting_Errors">Detecting Errors</span></h3>
+<p>Errors on the I²C bus range from incorrect permissions and addressing
+ to hardware errors that may simply not allow peripherals to respond.  
+The errno interface is used to identify these errors using the glib 
+function g_strerror.  For simple usage, calling the function as above 
+will work.  See the glib api for more details.  
+</p>
+<h3><span class="mw-headline" id="Completed_Code">Completed Code</span></h3>
+<pre>#include &lt;glib.h&gt;
+#include &lt;glib/gprintf.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;linux/i2c-dev.h&gt;
+#include &lt;sys/ioctl.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+
+void
+sensors_ADC_init(void) {
+    int file;
+    char filename[40];
+    const gchar *buffer;
+    int addr = 0b00101001;        // The I2C address of the ADC
+
+    sprintf(filename,"/dev/i2c-2");
+    if ((file = open(filename,O_RDWR)) &lt; 0) {
+        printf("Failed to open the bus.");
+        /* ERROR HANDLING; you can check errno to see what went wrong */
+        exit(1);
+    }
+
+    if (ioctl(file,I2C_SLAVE,addr) &lt; 0) {
+        printf("Failed to acquire bus access and/or talk to slave.\n");
+        /* ERROR HANDLING; you can check errno to see what went wrong */
+        exit(1);
+    }
+
+    char buf[10] = {0};
+    float data;
+    char channel;
+
+    for(int i = 0; i&lt;4; i++) {
+        // Using I2C Read
+        if (read(file,buf,2)&nbsp;!= 2) {
+            /* ERROR HANDLING: i2c transaction failed */
+            printf("Failed to read from the i2c bus.\n");
+            buffer = g_strerror(errno);
+            printf(buffer);
+            printf("\n\n");
+        } else {
+            data = (float)((buf[0] &amp; 0b00001111)&lt;&lt;8)+buf[1];
+            data = data/4096*5;
+            channel = ((buf[0] &amp; 0b00110000)&gt;&gt;4);
+            printf("Channel&nbsp;%02d Data: &nbsp;%04f\n",channel,data);
+        }
+    }
+
+    //unsigned char reg = 0x10; // Device register to access
+    //buf[0] = reg;
+    buf[0] = 0b11110000;
+
+    if (write(file,buf,1)&nbsp;!= 1) {
+        /* ERROR HANDLING: i2c transaction failed */
+        printf("Failed to write to the i2c bus.\n");
+        buffer = g_strerror(errno);
+        printf(buffer);
+        printf("\n\n");
+    }
+}
+</pre>
+<h3><span class="mw-headline" id="Cross_Compilation">Cross Compilation</span></h3>
+<p>In order to compile the code and create a binary that can be run on the embedded system, you will need a cross compiler (e.g. <a href="http://elinux.org/ARMCompilers" title="ARMCompilers">ARMCompilers</a>) on the host computer and added to the PATH.
+</p><p>For example, using the CodeSourcery ARM toolchain:
+</p>
+<pre>$ gcc CROSS-COMPILE=arm-none-linux-gnueabi ARCH=arm i2c_interface.c -o i2c_binary
+</pre>
+<p>The resulting binary can then be moved to the embedded device and executed.
+</p>
+<ul><li>If you get a warning about I2C_SLAVE not being defined, you may 
+need to include both &lt;linux/i2c.h&gt; and &lt;linux/i2c-dev.h&gt; 
+(The location has changed in newer kernels vs. older kernels and the 
+above example is for newer)</li></ul>
+<h1><span class="mw-headline" id="Tested_Devices">Tested Devices</span></h1>
+<ul><li> <a rel="nofollow" class="external text" href="http://www.analog.com/en/analog-to-digital-converters/ad-converters/ad7991/products/product.html">AD7991 Quad Input ADC</a>
+<ul><li> Utilized with <a rel="nofollow" class="external text" href="http://www.acroname.com/robotics/parts/SharpGP2D12-15.pdf">Sharp GP2D12 IR Range Sensors</a>.  (That link is broken.  <a rel="nofollow" class="external text" href="http://www.acroname.com/robotics/parts/c_Sensors.html">Here</a> is a list of sensors from that site.</li></ul></li>
+<li> <a rel="nofollow" class="external text" href="http://www.robot-electronics.co.uk/htm/srf08tech.shtml">SRF08 Ultrasonic Range Sensors</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.analog.com/static/imported-files/data_sheets/ADXL345.pdf">ADXL345 3-axis Accelerometer</a></li></ul>
+<h1><span class="mw-headline" id="External_Links">External Links</span></h1>
+<ul><li> <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/I%C2%B2C">Wikipedia I²C Page</a></li>
+<li> <a rel="nofollow" class="external text" href="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=blob;f=Documentation/i2c/dev-interface">Linux Kernel I2C Documentation</a></li>
+<li> <a rel="nofollow" class="external text" href="http://linux.die.net/man/2/syscalls">Standard Linux Syscalls</a></li>
+<li> <a href="http://elinux.org/images/a/ad/I2C_PWM_Hardware.pdf" class="internal" title="I2C PWM Hardware.pdf">Presentation on I2C, PWM and Hardware interfacing with the BeagleBoard</a></li></ul>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.045 seconds
+Real time usage: 0.055 seconds
+Preprocessor visited node count: 105/1000000
+Preprocessor generated node count: 176/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key elinux:pcache:idhash:4877-0!*!0!!en!*!* and timestamp 20160531002451 and revision id 178856
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://elinux.org/index.php?title=Interfacing_with_I2C_Devices&amp;oldid=178856">http://elinux.org/index.php?title=Interfacing_with_I2C_Devices&amp;oldid=178856</a>"					</div>
+													<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="http://elinux.org/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="http://elinux.org/Category:Robotics" title="Category:Robotics">Robotics</a></li><li><a href="http://elinux.org/Category:BeagleBoard" title="Category:BeagleBoard">BeagleBoard</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="http://elinux.org/index.php?title=Special:UserLogin&amp;returnto=Interfacing+with+I2C+Devices" title="You are encouraged to log in; however, it is not mandatory [Alt+Shift+o]" accesskey="o">Log in</a></li><li id="pt-createaccount"><a href="http://elinux.org/Special:RequestAccount" title="You are encouraged to create an account and log in; however, it is not mandatory">Request account</a></li><li id="pt-openidlogin"><a href="http://elinux.org/index.php?title=Special:OpenIDLogin&amp;returnto=Interfacing_with_I2C_Devices">Log in / create account with OpenID</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="http://elinux.org/Interfacing_with_I2C_Devices" title="View the content page [Alt+Shift+c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk" class="new"><span><a href="http://elinux.org/index.php?title=Talk:Interfacing_with_I2C_Devices&amp;action=edit&amp;redlink=1" title="Discussion about the content page [Alt+Shift+t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 tabindex="0" id="p-variants-label"><span style="display: block;">Variants</span><a tabindex="-1" href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="http://elinux.org/Interfacing_with_I2C_Devices">Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="http://elinux.org/index.php?title=Interfacing_with_I2C_Devices&amp;action=edit" title="This page is protected.
+You can view its source [Alt+Shift+e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="http://elinux.org/index.php?title=Interfacing_with_I2C_Devices&amp;action=history" title="Past revisions of this page [Alt+Shift+h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div style="" id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 tabindex="0" id="p-cactions-label"><span>More</span><a tabindex="-1" href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input autocomplete="off" tabindex="1" name="search" placeholder="Search" title="Search eLinux.org [Alt+Shift+f]" accesskey="f" id="searchInput" type="search"><input value="Special:Search" name="title" type="hidden"><input name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" type="submit">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(/images/6/68/Logo_clear.png);" href="http://elinux.org/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal first" role="navigation" id="p-Navigation" aria-labelledby="p-Navigation-label">
+			<h3 id="p-Navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage"><a href="http://elinux.org/Main_Page" title="Visit the main page [Alt+Shift+z]" accesskey="z">Main Page</a></li>
+													<li id="n-portal"><a href="http://elinux.org/eLinux.org:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+													<li id="n-currentevents"><a href="http://elinux.org/eLinux.org:Current_events" title="Find background information on current events">Current events</a></li>
+													<li id="n-recentchanges"><a href="http://elinux.org/Special:RecentChanges" title="A list of recent changes in the wiki [Alt+Shift+r]" accesskey="r">Recent changes</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+													<li id="n-Volunteering"><a href="http://elinux.org/Sitesupport-url">Volunteering</a></li>
+													<li id="n-Bug-Tracker"><a href="http://bugs.elinux.org/" rel="nofollow">Bug Tracker</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-Where_else_to_find_us" aria-labelledby="p-Where_else_to_find_us-label">
+			<h3 id="p-Where_else_to_find_us-label">Where else to find us</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Google.2B-Community"><a href="https://plus.google.com/u/0/communities/113852495250648539361" rel="nofollow">Google+ Community</a></li>
+													<li id="n-Twitter-.28.40elinux.29"><a href="https://twitter.com/elinux" rel="nofollow">Twitter (@elinux)</a></li>
+													<li id="n-.23elinux-on-Freenode"><a href="irc://#elinux@irc.freenode.net" rel="nofollow">#elinux on Freenode</a></li>
+													<li id="n-Facebook-.28.40elinux.org.29"><a href="https://www.facebook.com/elinuxorg-750739005020534/" rel="nofollow">Facebook (@elinux.org)</a></li>
+													<li id="n-Mailing-Lists"><a href="http://www.elinux.org/ELinuxWiki:Mailing_List" rel="nofollow">Mailing Lists</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="http://elinux.org/Special:WhatLinksHere/Interfacing_with_I2C_Devices" title="A list of all wiki pages that link here [Alt+Shift+j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="http://elinux.org/Special:RecentChangesLinked/Interfacing_with_I2C_Devices" title="Recent changes in pages linked from this page [Alt+Shift+k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="http://elinux.org/Special:SpecialPages" title="A list of all special pages [Alt+Shift+q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="http://elinux.org/index.php?title=Interfacing_with_I2C_Devices&amp;printable=yes" rel="alternate" title="Printable version of this page [Alt+Shift+p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="http://elinux.org/index.php?title=Interfacing_with_I2C_Devices&amp;oldid=178856" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="http://elinux.org/index.php?title=Interfacing_with_I2C_Devices&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 8 October 2012, at 06:50.</li>
+											<li id="footer-info-viewcount">This page has been accessed 197,328 times.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-sa/3.0/">a Creative Commons Attribution-ShareAlike 3.0 Unported License</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="http://elinux.org/eLinux.org:Privacy_policy" title="eLinux.org:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="http://elinux.org/eLinux.org:About" title="eLinux.org:About">About eLinux.org</a></li>
+											<li id="footer-places-disclaimer"><a href="http://elinux.org/eLinux.org:General_disclaimer" title="eLinux.org:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-sa/3.0/"><img src="Interfacing%20with%20I2C%20Devices%20-%20eLinux.org_files/88x31.png" alt="a Creative Commons Attribution-ShareAlike 3.0 Unported License" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="http://www.mediawiki.org/"><img src="Interfacing%20with%20I2C%20Devices%20-%20eLinux.org_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://elinux.org/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="Interfacing%20with%20I2C%20Devices%20-%20eLinux.org_files/load.php"></script><div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="Interfacing%20with%20I2C%20Devices%20-%20eLinux.org_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-119847-6");
+pageTracker._trackPageview();
+} catch(err) {}
+</script><script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":194});
+}</script>
+	<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"d0863ed20c","applicationID":"1648593","transactionName":"ZwQGZkEAWUBZU0ZQWV5OMUBaTl5dXFVKF0ZYEQ==","queueTime":0,"applicationTime":241,"atts":"S0MFEAkaSk4=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+
+	</body></html>

@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!-->
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+
+    <!-- Use the .htaccess and remove these lines to avoid edge case issues. More info: h5bp.com/i/378 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Linux /dev/spidev1.0 present, but no SPI communication - Toradex Community</title>
+    <meta name="description" content="Dear Toradex Community,
+I want to test SPI on Colibri VF61 using the spidev_test testing utility from Linux sources. The spidev_test tool prints the ...">
+    
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="canonical" href="https://www.toradex.com/community/questions/1023/linux-devspidev10-present-but-no-spi-communication.html">
+
+
+<script src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+    var askFormURL = '/community/questions/ask.html';
+    var logoutURL = '/community/users/logout.html';
+    var voteUpJsonURL = '/community/commands/0/voteup.json';
+    var voteDownJsonURL = '/community/commands/0/votedown.json';
+    var getVotesJsonUrl = '/community/%7Bnode%7D/getVotes.json';
+    var related_questions_url = '/community/search.json';
+    var emailCheckerURL = '/community/users/temporaryLogin/dupsUserEmailCheck.json';
+
+    var authorizedFileTypes = 'gif,png,jpg,jpeg,zip,tar.gz,pdf,txt'.split(",");
+    var authorizedImageTypes = 'gif,png,jpg,jpeg'.split(",");
+
+    var flashMessages = [];
+
+    var pageContext = {
+        currentUser: {
+            id: '137',
+            username: 'kanjiviroja',
+            url: '/community/users/137/kanjiviroja.html',
+            avatar: 'http://www.toradex.com/community/users/137/photo/view.html?time=1453289141727',
+            reputation: '12',
+            follows: null,
+            canCreateTopics: true
+        },
+        attachments: {
+            maxSizeBytes: 1048576,
+            maxSizeBytesTotal: 5242880
+        },
+        i18n: {
+            confirm: "Are you sure?",
+            yes: "Yes",
+            no: "No",
+            save: "Save",
+            cancel: "Cancel",
+            close: "Close",
+            edit: "Edit",
+            insert: "Insert",
+            upload: "Upload",
+            download: "Download",
+            choose: "Choose",
+            deleted: "Deleted",
+            ok: "Ok",
+            by: "by",
+            word: "word",
+            words: "words",
+            character: "character",
+            characters: "characters",
+            login: "Sign in",
+            register: "Register",
+            timeAgo: "{0} ago",
+            timeAt: "at",
+            day: "day",
+            days: "days",
+            hour: "hour",
+            hours: "hours",
+            minute: "minute",
+            minutes: "minutes",
+            second: "sec",
+            seconds: "secs",
+            justNow: "just now",
+            retag: "retag",
+            comment: "Comment",
+            comments: "Comments",
+            showOneComment: "<i class='icon-comments'></i> Show 1",
+            hideOneComment: "<i class='icon-comments'></i> Hide 1",
+            showNComments: "<i class='icon-comments'></i> Show $n",
+            hideNComments: "<i class='icon-comments'></i> Hide $n",
+            question: "question",
+            questions: "Questions",
+            answer: "Answer",
+            answers: "Answers",
+            posts: "Posts",
+            wiki: "Wiki",
+            reputation: "Reputation",
+            unlike: "Unlike",
+            like: "Like",
+            likes: "Likes",
+            follow: "Follow",
+            unfollow: "Unfollow",
+            following: "Following",
+            followers: "Followers",
+            awarded: "Awarded",
+            completedBy: "Recently completed by",
+            joined: "Joined",
+            authorizedTypes: "Allowed Upload Types",
+            uploadDialog: {
+                uploadFile: "Choose a file to upload",
+                doUpload: "Upload",
+                fileTooBig: "Your attachment must be $size or smaller. Use the attachment feature for bigger pictures.",
+                invalidAttachmentType: "Your attachment must be one of: gif,png,jpg,jpeg,zip,tar.gz,pdf,txt",
+                invalidImageType: "Your image must be one of: gif,png,jpg,jpeg. Use the attachment feature for other file-types."
+            },
+            previewAndCropDialog: {
+                previewAndResize: "Preview and resize",
+                accept: "Accept"
+            },
+
+            closeQuestionTitle: "Close or Flag",
+            lockPostModalTitle: "Lock",
+            reportQuestionModalTitle: "Report",
+            confirmModalTitle: "Please confirm",
+            convertToAnswerText: "Are you sure you want to convert this comment to answer?",
+            unlockPostModalText: "Are you sure you want to allow comments on this post?",
+            cancelReportModalText: "Are you sure you want to undo reporting this post?",
+
+            reportSuccessText: "This post has been successfully reported.",
+            reportCancelText: "Your report on this post has been sucessfully canceled.",
+
+            commandsMoveToSpace: "Move",
+            commandsGiveReputation: "Reward user",
+            commandsGiveReputationSuccess: "Points awarded successfully",
+            commandsConvertToCommentTitle: "Select comment location",
+            uploadProfilePictureSelectButton: "Select photo from your computer",
+            changeAvatarSelectButton: "Select photo from your computer",
+            changeAvatarSelectNoPhoto: "No photo selected",
+            postControlsRedirectTitle: "Redirect",
+
+            WMDImageDialogText: "Enter image url",
+            WMDLinkDialogText: "Enter url",
+            WMDUploadImage: "upload image",
+            WMDBold: "Strong <strong> Ctrl+B",
+            WMDItalic: "Emphasis <em> Ctrl+I",
+            WMDLink: "Hyperlink <a> Ctrl+L",
+            WMDQuote: "Blockquote <blockquote> Ctrl+Q",
+            WMDCode: "Code Sample <pre><code> Ctrl+K",
+            WMDImage: "Image <img> Ctrl+G",
+            WMDAttachment: "Attachment Ctrl+U",
+            WMDOrderedList: "Numbered List <ol> Ctrl+O",
+            WMDUnorderedList: "Bulleted List <ul> Ctrl+U",
+            WMDHeading: "Heading <h1>/<h2> Ctrl+H",
+            WMDHorizontalRule: "Horizontal Rule <hr> Ctrl+R",
+            WMDUndo: "Undo - Ctrl+Z",
+            WMDRedoWin: "Redo - Ctrl+Y",
+            WMDRedoOther: "Redo - Ctrl+Shift+Z",
+            WMDHelp: "Markdown Help",
+
+            draftMessage: "We noticed that you were previously working on TYPO. What would you like to do now?",
+            draftSaveMessage: "Saving Draft...",
+            draftLoadButton: "Load Draft",
+            draftDeleteButton: "Delete Draft",
+
+            linkMenuInsertLink: "Insert link",
+            linkMenuEditLink: "Edit link",
+            linkMenuUnlink: "Remove link",
+            linkMenuAnchor: "Anchor",
+            linkMenuMailto: "Email",
+            inputTextPrompt: "Text",
+            inputWebPrompt: "URL",
+            inputLinkNewTab: "Open link in a new tab",
+            inputImageForm: "Update Image",
+            inputImageTitle: "Title",
+            inputImagePosition: "Position",
+            inputImagePositionNone: "None",
+            inputImagePositionLeft: "Left",
+            inputImagePositionRight: "Right",
+
+            formattingLabel: "Formatting",
+            formattingParagraph: "Normal Text",
+            formattingQuote: "Quote",
+            formattingCode: "Code",
+            formattingHeader: "Header",
+            formattingBold: "Bold",
+            formattingItalic: "Italic",
+            formattingUnderline: "Underline",
+            formattingFontColor: "Font Color",
+            formattingBackColor: "Back Color",
+            formattingIndent: "Indent",
+            formattingOutdent: "Outdent",
+            formattingAlignment: "Alignment",
+            formattingAlignLeft: "Align text to the left",
+            formattingAlignCenter: "Center text",
+            formattingAlignRight: "Align text to the right",
+            formattingAlignJustify: "Justify text",
+            formattingHorizontalRule: "Insert Horizontal Rule",
+
+            toolTipsInsertImage: "Insert Image",
+            toolTipsInsertFile: "Insert File",
+            toolTipsInsertCode: "Insert Code",
+            toolTipsInsertVideo: "Insert Video",
+            toolTipsInsertTable: "Insert Table",
+            toolTipsorderedList: "Ordered List",
+            toolTipsunorderedList: "Unordered List",
+            toolTipLink: "Link",
+
+            tableInsert: "Insert Table",
+            tableRows: "Rows",
+            tableColumns: "Columns",
+            tableInsertRowAbove: "Add Row Above",
+            tableInsertRowBelow: "Add Row Below",
+            tableInsertColumnLeft: "Add Column Left",
+            tableInsertColumnRight: "Add Column Right",
+            tableDelete: "Delete Table",
+            tableDeleteColumn: "Delete Column",
+            tableDeleteRow: "Delete Row",
+            tableAddHead: "Add Header",
+            tableDeleteHead: "Delete Header",
+
+            uploadOrChoose: "Or Choose",
+            uploadDropFileHere: "Drop file here",
+            uploadFilenameOptional: "Name (optional)",
+
+            emailValidationPrompt: "Resend validation email",
+            emailValidationPromptBody: "Do you want to resend email validation?"
+        },
+        url: {
+            login: "/community/users/login.html",
+            register: "/community/users/register.html",
+            getRevision: "/community/revisions/get-revision.json",
+            getComments: "/community/comments/%25ID%25/list.json",
+            uploadFile: "/community/uploadFile.html",
+            uploadProgress: "/community/uploadProgress.json",
+            uploadPreview: "/community/uploadPreview.html",
+            cropUpload: "/community/cropUpload.json",
+            cancelUpload: "/community/cancelUpload.json",
+            markdownHelp: "/community/static/markdown/help.html",
+            updateMarkdown: "/community/commands/updateMarkdown.json",
+            profile: "/community/users/{id}/{plug}.html",
+            extractKeywords: "/community/extract-keywords.json",
+            follow: "/community/follow/%7BobjId%7D/%7Btype%7D.json",
+            unfollow: "/community/unfollow/%7BobjId%7D/%7Btype%7D.json",
+            getUserFollows: "/community/%7Buser%7D/getUserFollows.json",
+            condensedProfileUrl: "/community/users/%7Buser%7D/condensedProfile.json",
+            viewTopicJSON: "/community/topics/%7Btopic%7D/view.json",
+            topicIcon: "/community/topics/%7Btopic%7D/icon.html",
+            topic: "/community/topics/%7Btopic%7D.html",
+            topicSearch: "/community/search/topics.json",
+            awardListUrl: "/community/badge/%7BawardType%7D/%7Bdesc%7D.json",
+            usersSearch: "/community/users/list.json",
+            usersLookup: "/community/users/lookup.json",
+            mentionsSearch: "/community/users/mentionsSearch.json",
+            searchJson: "/community/search.json",
+            trackJs: "/community/static/trackJs.json",
+            revisionView: "/community/revisions/{nodeId}.html"
+        },
+        extraScripts: {
+            jcrop: {
+                js: '/community/themes/thub/scripts/jcrop/js/jquery.Jcrop.js',
+                css: '/community/themes/thub/scripts/jcrop/css/jquery.Jcrop.css'
+            }
+        },
+        options: {
+        	maxTopics: '10'
+        },
+        additional: {"TH_CSRF":"5039895753192385239"},
+        useRelativeTime: true,
+        userRealName: false
+    };
+    pageContext.i18n["delete"] = "Delete";
+</script>
+    <!--[if lte IE 10]>
+    <script src="/community/themes/base/scripts/compatibility/indexOf.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="/community/themes/base/scripts/compatibility/document.getSelection.js" type="text/javascript"></script>
+    <script src="/community/themes/base/scripts/compatibility/ierange-m2-packed.js" type="text/javascript"></script>
+    <style type="text/css">
+        input[type="password"] {
+            font-family: Arial;
+        }
+    </style>
+    <![endif]-->
+<script type="text/javascript" src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/combined.pack" charset="utf-8"></script>    <script src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/jquery.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="https://www.toradex.com/community/themes/thub/images/favicon.ico">
+
+    <!-- Core Bootstrap css + Kickstrap styles -->
+<link rel="stylesheet" type="text/css" href="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/combined.css" charset="utf-8"><link rel="stylesheet" type="text/css" href="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/combined_002.css" charset="utf-8">
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var $style;
+            $style = $('<style type="text/css">:before,:after{content:none !important}</style>');
+            $('head').append($style);
+            return setTimeout((function() {
+                return $style.remove();
+            }), 0);
+        });
+    </script>
+    <![endif]-->
+
+        
+                
+
+        
+
+    <script type="text/javascript">
+        $(document).ready(function(){pageContext.options.commentsAttachmentsEnabled = true});
+    </script>
+
+    
+	
+    
+
+    <script type="text/javascript">
+        $(function () {
+pageContext.i18n.modTalk = 'moderation talk';
+pageContext.i18n.replyToComment = 'Add comment';
+pageContext.i18n.modTalkEmpty = 'moderation talk is empty';
+pageContext.url.getModTalk = "/community/comments/%25ID%25/listModTalk.json";
+pageContext.url.possibleCommentRecipients = "/community/comments/%ID%/possibleRecipients.json";
+pageContext.url.commentEdit = '/community/comments/%25ID%25/edit.html';
+
+pageContext.i18n.commentVisibility = {
+'full': 'Viewable by all users',
+'op': 'Viewable by the original poster',
+'mod': 'Viewable by moderators',
+'opAndMod': 'Viewable by moderators and the original poster',
+'other': 'Advanced visibility',
+'dialogTitle': 'Comment visibility',
+'selectGroups': 'Visible to groups',
+'selectOther': 'Other recipients',
+'selectOriginalPoster': 'Original poster',
+'selectModerators': 'Moderators',
+'selectAssignees': 'Asked to answer users'
+};
+
+pageContext.i18n.commentMenuLabels = {
+'comment-edit': 'comments.menu.edit',
+'comment-delete': 'comments.menu.delete',
+'comment-convert': 'comments.menu.convert'
+};pageContext.i18n.answer= {
+	bestAnswer: 'Best Answer',
+	controlBar : {
+		accept: 'Accept',
+		unaccept: 'Unaccept',
+		acceptCommand: 'Accept this answer as correct',
+		cancelAcceptedCommand: 'Remove this answers accepted status'
+	}
+};
+    window.croles = {
+        u: false, op: false, m: false,
+        og: false, as: false, ag: false,
+        dc: false, doc: true, eo: true, ea: false
+    };
+
+    tools.init({
+        q: {
+            e: false, ew: false, eo: true,
+            r: false, ro: true,
+            d: false, dow: true, fv: true,
+            c: false, co: false,
+            p: false, tm: false
+        },
+        n: {
+            f: true, vf: false, vfo: false,
+            vr: false, vro: true,
+            c: true, co: true,
+            vu: true, vd: true,
+            w: false, wo: true,
+            l: false
+        },
+        c: {
+            e: false, eo: true,
+            d: false, dow: true,
+            ta: false, tao: true,
+            l: true
+        },
+        a: {
+            e: false, ew: false, eo: true,
+            d: false, dow: true,
+            a: false, aoq: true, ao: false,
+            tc: false, tco: true,
+            p: false, tm: false
+        },
+        pc: croles
+    }, {
+        tc: true,
+        nsc: true
+    });
+
+                initCommandOverrides();
+            commandUtils.initializeLabels();
+        });
+    </script>
+
+</head>
+
+<body>
+        <div>
+                
+
+        </div>
+
+<div style="margin-bottom: -159px;" id="not-footer">
+<div id="main-navbar" class="navbar navbar-fixed-top">
+    <div class="navbar-inner brand-nav">
+        <div class="container brand-container">
+            <a class="brand" href="https://www.toradex.com/community/">
+                <img src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/toradex-logo.png">
+            </a>
+        </div>
+    </div>
+    <div class="navbar-inner main-navbar-wraper">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="search-wrapper span8">
+                    <a type="button" class="btn btn-navbar off-canvas-nav-btn" href="#sidr">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </a>
+                    <form action="/community/search.html" method="get" class="navbar-search">
+                        <input id="search-filters" name="f" value="" type="hidden">
+                        <input id="search-types" name="type" value="question" type="hidden">
+                        <input id="search-redirect" name="redirect" value="search/search" type="hidden">
+                        <input id="search-sort" name="sort" value="relevance" type="hidden">
+                        <span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span><input class="search-query ui-autocomplete-input" name="q" id="search-query" data-provide="typeahead" data-items="4" autocomplete="off" placeholder="Find answers and topics..." type="text">
+                        <a href="#" class="search-button no-style-link"><i class="icon-search"></i></a>
+
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+//                                var ie7 = $.browser.msie && $.browser.version <= 7;
+
+                                var label = $('.navbar-search label[for=search_box]');
+                                label.css({
+                                    position: 'absolute',
+                                    top: 4,
+                                    left: 17,
+                                    zindex: 10
+                                });
+                                $('#search_box')
+                                        .focus(function () {
+                                            label.hide()
+                                        })
+                                        .blur(function () {
+                                            this.value == "" ? label.show() : label.hide()
+                                        })
+                            });
+                        </script>
+                        <div id="searchResultsAutoComplete"><ul style="display: none;" tabindex="0" id="ui-id-1" class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all"></ul></div>
+                    </form>
+                </div>
+
+                <ul class="nav-links span4">
+                    <li>
+
+
+                                <div class="btn-group navbar-action">
+                                    <a id="create-button" class="btn btn-success" href="https://www.toradex.com/community/questions/ask.html?space=8">Ask a question</a>
+                                </div>
+                    </li>
+
+
+
+
+                            <li class="dropdown">
+                                <a href="#" id="spaces-menu-dropdown" class="dropdown-toggle" data-toggle="dropdown">
+Spaces                                    <i class="icon-caret-down"></i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                                                    <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/13/second-test-space.html"> Linux</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/21/carrier-boards.html">Carrier Boards</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/24/hardware-questions.html">Hardware Questions</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/16/linux-tegra-t20-t30.html">Linux Tegra (T20/30)</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/17/linux-vybrid-vf50-vf61.html">Linux Vybrid (VF50/61)</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/15/linux-imx6.html">Linux iMX6</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/32/linux-imx7.html">Linux iMX7</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/23/other-operating-systems.html">Other Operating Systems</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/25/other-toradex-proudcts.html">Other Toradex Proudcts</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/31/win-10-iot-core.html">Win 10 IoT Core</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/14/wince.html">WinCE</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/12/test-smart-space.html">WinCE PXA</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/18/wince-tegra-t20-t30.html">WinCE Tegra (T20/30)</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/19/wince-vybrid-vf5061.html">WinCE Vybrid (VF50/61)</a>
+                                </li>
+                                <li>
+                                    <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/20/wince-imx6.html">WinCE iMX6</a>
+                                </li>
+
+                                        <li class="divider"></li>
+                                                                    <li class="active">
+                                    <a class="main-nav" href="https://www.toradex.com/community/spaces/8/index.html">All</a>
+
+                                </li></ul>
+                            </li>
+                    <li class="dropdown">
+                        <a href="#" id="explore-menu-dropdown" class="dropdown-toggle" title="Explore" data-toggle="dropdown">
+                            <i class="icon-sitemap"></i>
+                            <i class="icon-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="https://www.toradex.com/community/questions/index.html">Questions</a>
+                                </li>
+							
+							<li>
+                                <a href="http://www.toradex.com/community/topics.html">Topics</a>
+                            </li>
+
+
+
+                             <li>
+                                <a href="https://www.toradex.com/community/badge/types.html">Badges</a>
+                            </li>
+                        </ul>
+                    </li>
+                        <li class="dropdown">
+                            <a href="#" id="profile-menu-dropdown" class="dropdown-toggle user-dropdown" data-toggle="dropdown">
+    		  <img class="gravatar " src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/view_005.png" id="" alt="avatar image" title="kanjiviroja" width="20">
+
+                                <i class="icon-caret-down"></i>
+                            </a>
+
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="https://www.toradex.com/community/users/137/kanjiviroja.html">Profile</a></li>
+                                <li><a href="https://www.toradex.com/community/users/137/kanjiviroja/preferences.html">My Preferences</a></li>
+
+                                <li class="divider"></li>
+                                <li><a href="https://www.toradex.com/community/users/logout.html">Logout</a></li>
+                            </ul>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- #if question?? || space?? || node?? || content?? || smartSpace?? -->
+<div id="main-breadcrumb" class="container">
+        <ul class="breadcrumb">
+            <li>
+                <a href="https://www.toradex.com/community/">Home</a> <span class="divider">/</span>
+            </li>
+                        <li><a href="https://www.toradex.com/community/spaces/8/default.html">All</a> <span class="divider">/</span>
+                        </li>
+        </ul>
+</div>
+
+
+    <section id="middle">
+
+        <div class="main">
+
+            <div class="main-inner">
+
+                <div class="container">
+                    <div class="row">
+                                <div class="span8 mainContent">
+
+                                        
+
+
+
+
+<script>
+
+
+    var jsonTopicSearch = '/community/search/topics.json';
+
+    var retagUrl = '/community/commands/1023/editQuestionTopics.json';
+
+
+    function submit_retag() {
+        $.post(retagUrl, $("#topics_retag_container").serializeArray(), function (data) {
+            document.location.reload();
+        });
+    }
+    function setup_retag() {
+        $("#topics_retag_container").css("display", "inline");
+//        $("#topics_retag_container").show();
+
+        $("#id_tags_container").hide();
+        $("#topics_retag").select2({
+            placeholder: 'Click to see details...',
+            minimumInputLength: 1,
+            width: "250px",
+            ajax: {
+                url: jsonTopicSearch,
+                dataType: 'json',
+                data: function (term, page) {
+                    return {
+                        q: term
+                    };
+                },
+                results: function (data, page) {
+                    for (var i = 0; i < data.topics.length; i++) {
+                        data.topics[i].text = data.topics[i].name;
+                        data.topics[i].id = data.topics[i].name;
+                    }
+                    return {results: data.topics};
+                }
+            },
+            tokenSeparators: [","],
+            tags: true,
+            createSearchChoice: function (term) {
+                return {id: term, text: term};
+            },
+            formatResult: function (item, container, query, escapeMarkup){
+                return escapeMarkup(item.text);
+            },
+            formatSelection: function(item,container, escapeMarkup) {
+                return escapeMarkup(item.text);
+            },
+            initSelection: function (element, callback) {
+                var data = [];
+                $(element.val().split(",")).each(function () {
+                    data.push({id: this, text: this});
+                });
+                callback(data);
+            }
+        });
+
+
+    }
+    $(document).ready(function () {
+        $("#id_do_retag").click(function () {
+            setup_retag();
+            return false;
+        });
+
+        $("#topics_retag_cancel").click(function () {
+
+            $("#topics_retag_container").hide();
+            $("#id_tags_container").show();
+        });
+    });
+</script>
+
+<div class="widget widget-nopad smallmargin" xmlns="http://www.w3.org/1999/html">
+    <div class="widget-content">
+
+
+        <div id="question-container-1023" class="post-container question-container" nodeid="1023">
+            <div id="question-1023" class="question post">
+
+<style type="text/css">
+    .question-body, .node-body {
+        min-height: 50px;
+    }
+
+    .answer-body, .reply-body {
+        min-height: 115px;
+    }
+</style>
+
+
+<div class="post-gravatar question-gravatar" nodeid="1023">
+<a data-hasqtip="0" href="https://www.toradex.com/community/users/176/cetoni-software-developer.html" style="display: inline-block; max-width: 48px;" rel="user" nodeid="176"> <img class="gravatar " src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/no-image.gif" id="" alt="avatar image" title="cetoni_software_developer" width="48">
+</a>    <div class="vote-widget">
+        <a title="Click to up vote" id="vote-up-button-1023" class="vote-up votes" href="#" command="voteUp"><i class="icon-chevron-up icon-2x"></i></a>
+        <span id="post-1023-score-wrapper" class="post-score-wrapper count votes" data-toggle="modal" data-target="#post-1023-votes-modal">
+            <span id="post-1023-score" class="score">0</span>
+        </span>
+        <a title="Click to down vote" id="vote-down-button-1023" class="vote-down votes" href="#" command="voteDown"><i class="icon-chevron-down icon-2x"></i></a>
+            <a title="Mark this question as favorite" id="favorite-mark-1023" class="ajax-command action-favorite ajax-command favorite-mark " href="#" command="markFavorite">
+                <i class="icon-star-empty"></i>
+            </a>
+    </div>
+</div>
+            <div class="muted author-info">
+            <strong>Question</strong> by <a data-hasqtip="1" href="https://www.toradex.com/community/users/176/cetoni-software-developer.html" rel="user" nodeid="176">cetoni_software_developer</a>                
+ ·
+            Feb 10 at 11:34 AM ·
+                <span class="tags" id="id_tags_container">
+<a data-hasqtip="13" href="https://www.toradex.com/community/topics/linux.html" class="tag" rel="topic" nodeid="9">linux</a><a data-hasqtip="14" href="https://www.toradex.com/community/topics/vf61.html" class="tag" rel="topic" nodeid="68">vf61</a>                </span>
+            </div>
+                <div class="post-tools" nodeid="1023">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-cog"></i></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+
+
+
+
+
+
+                            <li class="item">
+                                <a title="Report as offensive (i.e containing spam, advertising, malicious text, etc.)" rel="nofollow" class="ajax-command " href="#" command="reportPost">Report</a>
+                            </li>
+
+
+
+
+
+
+
+
+                        
+                        
+                    </ul>
+                </div>
+                <h1 class="question-title">Linux /dev/spidev1.0 present, but no SPI communication</h1>
+
+                <div class="question-body">
+                <p>Dear Toradex Community,</p> 
+<p>I want to test SPI on Colibri VF61 using the spidev_test testing 
+utility from Linux sources. The spidev_test tool prints the data it is 
+receiving. As I connected SPI MOSI with SPI MISO, I expect to see the 
+data sent. I also connected SPI clock and MOSI to an oscilliscope but I 
+can see neither a clock nor data. The \dev\spidev1.0 entry is present in
+ the Linux file system. Therer are no error messages when opening a 
+filedescriptor or doing the configuration using ioctl(). But there is 
+simply no communication on the pins.</p> 
+<p>We are using Colibri VF61 together with Viola carrier board Rev 1.1. 
+On the X9 expansion header of Viola carrier board I made the following 
+connections:</p> 
+<ul> 
+ <li><p> MOSI - X9 PIN20 (Colibri PIN_92) </p> </li> 
+ <li><p> MISO - X9 PIN21 (Colibri PIN_90) </p> </li> 
+ <li><p> CLK - X9 PIN22 (Colibri PIN_88)</p> </li> 
+</ul> 
+<p>We use the following Linux configuration</p> 
+<ul> 
+ <li><p> Buildroot 2015.11 </p> </li> 
+ <li><p> Linux kernel from git://git.toradex.com/linux-toradex.git (version c78b5ae472e69452d5fe44c261d57c8083c59f74) </p> </li> 
+ <li><p> Device tree from kernel vf610-colibri-eval-v3</p> </li> 
+</ul>
+					<hr style="margin: 5px 0">
+					<strong><em>Environment:</em></strong>
+					<p style="line-height: 14px;"><em>Colibri VF61
+<br>Viola Rev 1.1</em></p>
+                </div>
+
+            <div class="comment-tools hidden"><span class="add-comment-link "><a href="#">Comment</a></span></div>
+<div class="control-bar" nodeid="1023">
+    <div class="post-controls" nodeid="1023">
+            <a class="reply-link" href="#">Add comment</a>
+        ·
+        <a href="#" command="giveReputation">Reward user</a>
+
+    </div>
+</div>
+<div id="comment-1023-form-container" class="clearfix well comment-form-container">
+    <form id="comment-1023-form" action="/community/comments/1023/add.json" method="POST" accept-charset="utf-8"><input name="TH_CSRF" value="5039895753192385239" type="hidden">
+        <div class="comment-form-widgets-container">
+        
+            <div class="comment-form-textarea-container">
+                <div class="wmd-button-bar"><ul class="wmd-button-row"><li style="background-position: 0px 0px;" title="Strong &lt;strong&gt; Ctrl+B" class="wmd-button wmd-bold-button"></li><li style="background-position: -20px 0px;" title="Emphasis &lt;em&gt; Ctrl+I" class="wmd-button wmd-italic-button"></li><li class="wmd-spacer wmd-spacer1"></li><li style="background-position: -40px 0px;" title="Hyperlink &lt;a&gt; Ctrl+L" class="wmd-button wmd-link-button"></li><li style="background-position: -60px 0px;" title="Blockquote &lt;blockquote&gt; Ctrl+Q" class="wmd-button wmd-quote-button"></li><li style="background-position: -80px 0px;" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K" class="wmd-button wmd-code-button"></li><li style="background-position: -120px 0px;" title="Image &lt;img&gt; Ctrl+G" class="wmd-button wmd-image-button"></li><li style="background-position: -100px 0px;" title="Attachment Ctrl+U" class="wmd-button wmd-attachment-button"></li><li class="wmd-spacer wmd-spacer2"></li><li style="background-position: -140px 0px;" title="Numbered List &lt;ol&gt; Ctrl+O" class="wmd-button wmd-olist-button"></li><li style="background-position: -160px 0px;" title="Bulleted List &lt;ul&gt; Ctrl+U" class="wmd-button wmd-ulist-button"></li><li style="background-position: -180px 0px;" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H" class="wmd-button wmd-heading-button"></li><li style="background-position: -200px 0px;" title="Horizontal Rule &lt;hr&gt; Ctrl+R" class="wmd-button wmd-hr-button"></li><li class="wmd-spacer wmd-spacer3"></li><li style="background-position: -220px -20px;" title="Undo - Ctrl+Z" class="wmd-button wmd-undo-button"></li><li style="background-position: -240px -20px;" title="Redo - Ctrl+Shift+Z" class="wmd-button wmd-redo-button"></li><li style="background-position: -260px 0px;" class="wmd-button wmd-help-button"><a title="Markdown Help" target="_blank" href="https://www.toradex.com/community/static/markdown/help.html"></a></li></ul></div><textarea name="body" class="commentBox redactor" data-type="comment"></textarea><div class="comments-form-attachments"><div></div><div></div></div>
+            </div>
+            <div class="comment-form-buttons" style="margin-top: 10px;">
+                <span id="comment-{{ post.id }}-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count warn">10
+                        |1500</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span class="comments-chars-left-msg">characters left</span>
+                    <span class="comments-chars-exceeded-msg" style="display: none">characters exceeded</span>
+                </span>
+
+                <div class="comment-form-buttons-container" style="float: right">
+                    <input class="btn comment-cancel" value="Cancel" type="submit">
+					<input class="btn btn-primary comment-submit" value="Submit" type="submit">
+                </div>
+				<div style="clear: both"></div>
+                
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <input name="parent" value="1023" type="hidden">
+        <input name="visibility" value="full" type="hidden">
+
+        <div style="display: none" class="comment-form-extra-inputs"></div>
+    </form>
+</div>
+                <div style="display: block;" class="comments-container" id="comments-container-1023" nodeid="1023">
+                </div>
+                <script type="text/javascript">$(function () {
+                    setupComments($('#question-container-1023'), true, false, croles, "full", true)
+                });</script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var $question = $("#question-container-1023");
+        var $replyLink = $question.find(".reply-link");
+        $replyLink.click(function (e) {
+            e.preventDefault();
+            $question.find(".add-comment-link").click();
+        });
+
+        $(".ajax-command").click(function () {
+            $('.dropdown-toggle').dropdown('toggle');
+        });
+    })
+</script>
+
+<div class="widget widget-nopad answer-list">
+    <div class="widget-header">
+        <h3><strong>1</strong> Answer</h3> · <a href="#answer-form">Add your answer</a>
+        <ul class="nav nav-pills sort">
+            <li class="sort-label">Sort:&nbsp;</li>
+            <li title="Votes" class="active"><a href="https://www.toradex.com/community/questions/1023/linux-devspidev10-present-but-no-spi-communication.html?sort=votes"><i class="icon-thumbs-up"></i></a></li>
+            <li title="Created"><a href="https://www.toradex.com/community/questions/1023/linux-devspidev10-present-but-no-spi-communication.html?sort=newest"><i class="icon-time"></i></a></li>
+            <li title="Oldest"><a href="https://www.toradex.com/community/questions/1023/linux-devspidev10-present-but-no-spi-communication.html?sort=oldest"><i class="icon-history"></i></a></li>
+        </ul>
+    </div>
+
+<div class="widget-content">
+                <div id="answer-container-1037" class="post-container answer-container clearfix 
+            " nodeid="1037">
+            <div id="answer-1037" class="answer clearfix post">
+
+
+<div class="post-gravatar answer-gravatar" nodeid="1037">
+<a data-hasqtip="2" href="https://www.toradex.com/community/users/20/stefanagner.html" style="display: inline-block; max-width: 48px;" rel="user" nodeid="20"> <img class="gravatar " src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/view_008.png" id="" alt="avatar image" title="stefan.agner" width="48">
+</a>    <div class="vote-widget">
+        <a title="Click to up vote" id="vote-up-button-1037" class="vote-up votes" href="#" command="voteUp"><i class="icon-chevron-up icon-2x"></i></a>
+        <span id="post-1037-score-wrapper" class="post-score-wrapper count votes" data-toggle="modal" data-target="#post-1037-votes-modal">
+            <span id="post-1037-score" class="score">0</span>
+        </span>
+        <a title="Click to down vote" id="vote-down-button-1037" class="vote-down votes" href="#" command="voteDown"><i class="icon-chevron-down icon-2x"></i></a>
+    </div>
+</div>                    <div class="post-tools" nodeid="1037">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-cog"></i></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+
+
+
+
+
+                                <li class="item">
+                                    <a title="Report as offensive (i.e containing spam, advertising, malicious text, etc.)" arel="nofollow" class="ajax-command " href="#" command="reportPost">Report</a>
+                                </li>
+
+
+
+
+                        </ul>
+                    </div>
+                <div class="labels">
+                    
+                    
+                </div>
+                <p class="muted author-info">
+                    <strong>Answer</strong> by <a data-hasqtip="3" href="https://www.toradex.com/community/users/20/stefanagner.html" rel="user" nodeid="20">stefan.agner</a>                    
+ <span class="post-info muted">·
+Feb 10 at 06:24 PM                    </span></p>
+
+                <div class="answer-body">
+                <p>The kernel you are using is V2.3 Beta 7, which still 
+uses the old NAND ECC format. I recommend to switch to a newer, 4.1 
+based kernel, e.g. our stable release (branch toradex_vf_4.1, 
+e6d111cd909551cec5902358db1e25dcaa8c86bb).</p>
+<p>There is one caveat though, with that release, you need to alter the device tree or kernel sources to enable the spidev, see <a href="https://www.toradex.com/community/questions/732/unable-to-find-spi-node-in-dev-directory.html">https://www.toradex.com/community/questions/732/unable-to-find-spi-node-in-dev-directory.html</a></p>
+<p>With the new kernel and using spidev as compatible string, I could 
+successfully communicate with a MCP2515 (which is available on our 
+Colibri Evaluation Carrier Board)</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><code><span class="pln"> spidev_test </span><span class="pun">-</span><span class="pln">D </span><span class="pun">/</span><span class="pln">dev</span><span class="pun">/</span><span class="pln">spidev1</span><span class="pun">.</span><span class="lit">0</span><span class="pln">  </span><span class="pun">-</span><span class="pln">p </span><span class="str">"\x03\x0f\x00"</span><span class="pln"> </span><span class="pun">-</span><span class="pln">v</span></code></li><li class="L1"><code><span class="pln"> spi mode</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0x0</span></code></li><li class="L2"><code><span class="pln"> bits per word</span><span class="pun">:</span><span class="pln"> </span><span class="lit">8</span></code></li><li class="L3"><code><span class="pln"> max speed</span><span class="pun">:</span><span class="pln"> </span><span class="lit">500000</span><span class="pln"> </span><span class="typ">Hz</span><span class="pln"> </span><span class="pun">(</span><span class="lit">500</span><span class="pln"> </span><span class="typ">KHz</span><span class="pun">)</span></code></li><li class="L4"><code><span class="pln"> TX </span><span class="pun">|</span><span class="pln"> </span><span class="lit">03</span><span class="pln"> </span><span class="lit">0F</span><span class="pln"> </span><span class="lit">00</span><span class="pln"> __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __     __  </span><span class="pun">|</span><span class="pln"> </span><span class="pun">...</span></code></li><li class="L5"><code><span class="pln"> RX </span><span class="pun">|</span><span class="pln"> FF FF </span><span class="lit">87</span><span class="pln"> __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __  </span><span class="pun">|</span><span class="pln"> </span><span class="pun">..�</span></code></li></ol></pre>
+
+                </div>
+
+                <div class="comment-tools hidden"><span class="add-comment-link "><a href="#">Comment</a></span></div>
+<div class="control-bar" nodeid="1037">
+    <div class="post-controls" nodeid="1037">
+            <a class="reply-link" href="#">Add comment</a>
+        ·
+        <a href="#" command="giveReputation">Reward user</a>
+        ·
+        <a id="1037-show-comments-container" class="show-comments-container" commentcount="2"><i class="icon-comments"></i> Hide 2</a>
+    ·
+        <a title="Share a link to this answer" href="#" class="ajax-command" command="share">Share</a>
+
+    </div>
+</div>
+<div id="comment-1037-form-container" class="clearfix well comment-form-container">
+    <form id="comment-1037-form" action="/community/comments/1037/add.json" method="POST" accept-charset="utf-8"><input name="TH_CSRF" value="5039895753192385239" type="hidden">
+        <div class="comment-form-widgets-container">
+        
+            <div class="comment-form-textarea-container">
+                <div class="wmd-button-bar"><ul class="wmd-button-row"><li style="background-position: 0px 0px;" title="Strong &lt;strong&gt; Ctrl+B" class="wmd-button wmd-bold-button"></li><li style="background-position: -20px 0px;" title="Emphasis &lt;em&gt; Ctrl+I" class="wmd-button wmd-italic-button"></li><li class="wmd-spacer wmd-spacer1"></li><li style="background-position: -40px 0px;" title="Hyperlink &lt;a&gt; Ctrl+L" class="wmd-button wmd-link-button"></li><li style="background-position: -60px 0px;" title="Blockquote &lt;blockquote&gt; Ctrl+Q" class="wmd-button wmd-quote-button"></li><li style="background-position: -80px 0px;" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K" class="wmd-button wmd-code-button"></li><li style="background-position: -120px 0px;" title="Image &lt;img&gt; Ctrl+G" class="wmd-button wmd-image-button"></li><li style="background-position: -100px 0px;" title="Attachment Ctrl+U" class="wmd-button wmd-attachment-button"></li><li class="wmd-spacer wmd-spacer2"></li><li style="background-position: -140px 0px;" title="Numbered List &lt;ol&gt; Ctrl+O" class="wmd-button wmd-olist-button"></li><li style="background-position: -160px 0px;" title="Bulleted List &lt;ul&gt; Ctrl+U" class="wmd-button wmd-ulist-button"></li><li style="background-position: -180px 0px;" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H" class="wmd-button wmd-heading-button"></li><li style="background-position: -200px 0px;" title="Horizontal Rule &lt;hr&gt; Ctrl+R" class="wmd-button wmd-hr-button"></li><li class="wmd-spacer wmd-spacer3"></li><li style="background-position: -220px -20px;" title="Undo - Ctrl+Z" class="wmd-button wmd-undo-button"></li><li style="background-position: -240px -20px;" title="Redo - Ctrl+Shift+Z" class="wmd-button wmd-redo-button"></li><li style="background-position: -260px 0px;" class="wmd-button wmd-help-button"><a title="Markdown Help" target="_blank" href="https://www.toradex.com/community/static/markdown/help.html"></a></li></ul></div><textarea name="body" class="commentBox redactor" data-type="comment"></textarea><div class="comments-form-attachments"><div></div><div></div></div>
+            </div>
+            <div class="comment-form-buttons" style="margin-top: 10px;">
+                <span id="comment-{{ post.id }}-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count warn">10
+                        |1500</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span class="comments-chars-left-msg">characters left</span>
+                    <span class="comments-chars-exceeded-msg" style="display: none">characters exceeded</span>
+                </span>
+
+                <div class="comment-form-buttons-container" style="float: right">
+                    <input class="btn comment-cancel" value="Cancel" type="submit">
+					<input class="btn btn-primary comment-submit" value="Submit" type="submit">
+                </div>
+				<div style="clear: both"></div>
+                
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <input name="parent" value="1037" type="hidden">
+        <input name="visibility" value="full" type="hidden">
+
+        <div style="display: none" class="comment-form-extra-inputs"></div>
+    </form>
+</div>
+                <div style="display: block;" class="comments-container" id="comments-container-1037" nodeid="1037">
+        <span name="1127"></span>
+        <div class="comment nsc " id="comment-1127" activerev="1691" nodeid="1127" authorid="176">
+            <div class="comment-content" nodeid="1127">
+                <div class="comment-header" nodeid="1127">
+<a data-hasqtip="4" href="https://www.toradex.com/community/users/176/cetoni-software-developer.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="176"> <img class="gravatar comment-user-gravatar" src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/no-image.gif" id="" alt="avatar image" title="cetoni_software_developer" width="24">
+</a><a data-hasqtip="5" href="https://www.toradex.com/community/users/176/cetoni-software-developer.html" class="comment-user userinfo" rel="user" nodeid="176">cetoni_software_developer </a>                    
+                    <span class="comment-age friendly-date" title="2016, Feb 16 at 16:02:11+0000">
+                        ·
+                        <a href="https://www.toradex.com/community/comments/1127/view.html">Feb 16 at 04:02 PM</a>
+                    </span>
+                    <span id="post-1127-score" class="comment-score">1</span>
+                    <div class="comment-info" id="comment-1127-info">
+
+                        <a id="vote-up-button-1127" command="voteUp" href="#" class="make-tooltip vote-up " title="Click to up vote">Like</a>
+
+                        <a id="vote-down-button-1127" command="voteDown" href="#" class="make-tooltip vote-down " title="Click to down vote"><i class=" icon-chevron-down"></i></a>
+
+
+                                        <a id="comment-1127-reply" href="#" class="comment-reply"><i class="icon-reply"></i> Add comment</a>
+
+                        <a title="Share a link to this answer" href="#" class="ajax-command" command="share">Share</a>
+
+
+                        <div class="dropdown" style="display:inline">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class=" icon-cog"></i> More...</a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <li><a title="Report as offensive (i.e containing spam, advertising, malicious text, etc.)" rel="nofollow" class="ajax-coxmmand " href="#" command="reportPost">Report</a></li>
+
+
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div id="comment-1127-left" class="comment-left">
+                    <div id="post-1127-score" class="comment-score"></div>
+                </div>
+                <div class="comment-text"><p>Dear Toradex Community,</p> 
+<p>I've switched to 4.1 based kernel and created a custom device tree file with the following lines.</p> 
+<pre><code> &amp;dspi1 {
+     status = "okay";
+ 
+     mcp2515can: can@0 {
+         status = "disabled";
+     };
+ 
+     spidev1: dspi@1 {
+         status = "okay";
+         compatible = "spidev";
+         reg = &lt;0&gt;;
+         spi-max-frequency = &lt;50000000&gt;;
+     };
+     
+ };
+
+</code></pre> 
+<p>I got the /dev/spidev1.0 entry on the file system but still were not 
+able to send spi messages connecting MOSI and MISO and using the 
+spidev_test tool. The problem was that I've used an older version of the
+ spidev_test tool that didn't set all entries in the spi_ioc_transfer 
+struct. My version was:</p> 
+<pre><code>     struct spi_ioc_transfer tr;
+     tr.tx_buf = (unsigned long)tx;
+     tr.rx_buf = (unsigned long)rx;
+     tr.len = len;
+     tr.delay_usecs = delay;
+     tr.speed_hz = speed;
+     tr.bits_per_word = bits;
+
+</code></pre> 
+<p>And the version that perfectly works is:</p> 
+<pre><code>     struct spi_ioc_transfer tr;
+     tr.tx_buf = (unsigned long)tx;
+     tr.rx_buf = (unsigned long)rx;
+     tr.len = len;
+     tr.delay_usecs = delay;
+     tr.speed_hz = speed;
+     tr.bits_per_word = bits;
+     tr.tx_nbits = 0;
+     tr.rx_nbits = 0;
+     tr.pad = 0;
+
+</code></pre></div>
+
+            </div>
+        <span name="1128"></span>
+        <div class="comment nsc " id="comment-1128" activerev="1692" nodeid="1128" authorid="20">
+            <div class="comment-content" nodeid="1128">
+                <div class="comment-header" nodeid="1128">
+<a data-hasqtip="6" href="https://www.toradex.com/community/users/20/stefanagner.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="20"> <img class="gravatar comment-user-gravatar" src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/view_003.png" id="" alt="avatar image" title="stefan.agner" width="24">
+</a><a data-hasqtip="7" href="https://www.toradex.com/community/users/20/stefanagner.html" class="comment-user userinfo" rel="user" nodeid="20">stefan.agner ♦</a>                     <span class="comment-parent"><i class="icon-share-alt"></i> cetoni_software_developer </span>
+                    <span class="comment-age friendly-date" title="2016, Feb 16 at 17:20:13+0000">
+                        ·
+                        <a href="https://www.toradex.com/community/comments/1128/view.html">Feb 16 at 05:20 PM</a>
+                    </span>
+                    <span id="post-1128-score" class="comment-score">0</span>
+                    <div class="comment-info" id="comment-1128-info">
+
+                        <a id="vote-up-button-1128" command="voteUp" href="#" class="make-tooltip vote-up " title="Click to up vote">Like</a>
+
+                        <a id="vote-down-button-1128" command="voteDown" href="#" class="make-tooltip vote-down " title="Click to down vote"><i class=" icon-chevron-down"></i></a>
+
+
+                                        <a id="comment-1128-reply" href="#" class="comment-reply"><i class="icon-reply"></i> Add comment</a>
+
+                        <a title="Share a link to this answer" href="#" class="ajax-command" command="share">Share</a>
+
+
+                        <div class="dropdown" style="display:inline">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class=" icon-cog"></i> More...</a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <li><a title="Report as offensive (i.e containing spam, advertising, malicious text, etc.)" rel="nofollow" class="ajax-coxmmand " href="#" command="reportPost">Report</a></li>
+
+
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div id="comment-1128-left" class="comment-left">
+                    <div id="post-1128-score" class="comment-score"></div>
+                </div>
+                <div class="comment-text"><p>Thanks for your update.</p>
+<p>To avoid such issues in the future I recommend to make sure that the 
+struct is either not on stack, or initialized properly using</p>
+<pre><code> memset(&amp;tr, 0, sizeof(tr));
+
+</code></pre>
+<p>Or with C99 compound literals</p>
+<pre><code> struct spi_ioc_transfer tr = (const struct spi_ioc_transfer){ 0 };
+</code></pre>
+</div>
+
+            </div>
+        </div>
+        </div>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        setupComments($('#answer-container-1037'), true, false, croles, "full", true)
+                    });
+                    $(document).ready(function () {
+                        var $answer = $("#answer-container-1037");
+                        var $replyLink = $answer.find(".reply-link");
+                        $replyLink.click(function (e) {
+                            e.preventDefault();
+                            $answer.find(".add-comment-link").click();
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+</div>
+</div>
+
+
+<style type="text/css">
+    #notifyFollowers{
+        margin: 0px;
+    }
+</style>
+<div class="widget answer-form-widget">
+    <div class="widget-header">
+        <i class="icon-pencil"></i>
+
+        <h3>Your answer</h3>
+    </div>
+    <div class="widget-content">
+
+        <div class="row-fluid">
+            <div class="span1 hidden-phone">
+    		  <img class="gravatar " src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/view_004.png" id="" alt="avatar image" title="kanjiviroja" width="44">
+
+
+
+            </div>
+
+            <div class="span11">
+                <form id="answer-form" data-drafttype="an answer" data-draftkey="answer-1023" action="/community/answers/1023/post.html" method="POST"><input name="TH_CSRF" value="5039895753192385239" type="hidden">
+
+
+                    <fieldset>
+                        <div class="control-group">
+                            <div class="controls">
+                                <div id="wmd-button-bar" class="wmd-panel wmd-button-bar"><ul class="wmd-button-row"><li style="background-position: 0px 0px;" title="Strong &lt;strong&gt; Ctrl+B" class="wmd-button wmd-bold-button"></li><li style="background-position: -20px 0px;" title="Emphasis &lt;em&gt; Ctrl+I" class="wmd-button wmd-italic-button"></li><li class="wmd-spacer wmd-spacer1"></li><li style="background-position: -40px 0px;" title="Hyperlink &lt;a&gt; Ctrl+L" class="wmd-button wmd-link-button"></li><li style="background-position: -60px 0px;" title="Blockquote &lt;blockquote&gt; Ctrl+Q" class="wmd-button wmd-quote-button"></li><li style="background-position: -80px 0px;" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K" class="wmd-button wmd-code-button"></li><li style="background-position: -120px 0px;" title="Image &lt;img&gt; Ctrl+G" class="wmd-button wmd-image-button"></li><li style="background-position: -100px 0px;" title="Attachment Ctrl+U" class="wmd-button wmd-attachment-button"></li><li class="wmd-spacer wmd-spacer2"></li><li style="background-position: -140px 0px;" title="Numbered List &lt;ol&gt; Ctrl+O" class="wmd-button wmd-olist-button"></li><li style="background-position: -160px 0px;" title="Bulleted List &lt;ul&gt; Ctrl+U" class="wmd-button wmd-ulist-button"></li><li style="background-position: -180px 0px;" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H" class="wmd-button wmd-heading-button"></li><li style="background-position: -200px 0px;" title="Horizontal Rule &lt;hr&gt; Ctrl+R" class="wmd-button wmd-hr-button"></li><li class="wmd-spacer wmd-spacer3"></li><li style="background-position: -220px -20px;" title="Undo - Ctrl+Z" class="wmd-button wmd-undo-button"></li><li style="background-position: -240px -20px;" title="Redo - Ctrl+Shift+Z" class="wmd-button wmd-redo-button"></li><li style="background-position: -260px 0px;" class="wmd-button wmd-help-button"><a title="Markdown Help" target="_blank" href="https://www.toradex.com/community/static/markdown/help.html"></a></li></ul></div><textarea class="redactor" data-type="answer" id="body" name="body" rows="10" placeholder="Click to see details..."></textarea><div id="previewer" class="wmd-panel"></div>
+                                <span class="help-inline">Note: Please use the answer feature only if you are answering the question, otherwise, please use the Add Comment feature.</span>
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+
+<script type="text/javascript">
+    var attachmentsEnabled = true;
+    pageContext.url.authorizeAttachmentsUrl = "/community/authorizeAttachment.json";
+    pageContext.authorizeUploadContext = {
+        type: 'answer'
+    };
+</script>
+
+<div id="main-attachments-container" class="message">
+    <p>
+        <strong><label>Attachments:</label></strong>
+Up to 5 attachments (including images) can be used with a maximum of 1.0 MB each and 5.2 MB total.    </p>
+
+    <div id="img-attachments-container"></div>
+    <div id="attachments-container"></div>
+</div>
+
+
+                    <div class="form-actions">
+                        <input class="btn btn-primary" value="Submit" type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+        commands.likeComment.setMsg('title.on', "click to cancel");
+    commands.likeComment.setMsg('title.off', "I like this comment");
+
+    commands.likeComment.setUrl('click.on', "/community/commands/%25ID%25/cancelvote.json");
+    commands.likeComment.setUrl('click.off', "/community/commands/%25ID%25/voteup.json");
+
+    commands.deleteComment.setUrl('click.off', "/community/commands/%25ID%25/delete.json");
+
+    commands.voteUp.urls = commands.likeComment.urls;
+
+    commands.voteUp.setMsg('title.on',  "Click to cancel vote");
+    commands.voteUp.setMsg('title.off',  "Click to up vote");
+
+    commands.voteDown.setUrl('click.on', commands.voteUp.urls['click.on']);
+    commands.voteDown.setUrl('click.off', "/community/commands/%25ID%25/votedown.json");
+
+    commands.voteDown.setMsg('title.on',  commands.voteUp.messages['title.on']);
+    commands.voteDown.setMsg('title.off', "Click to down vote");
+
+    commands.acceptAnswer.setUrl('click.on', "/community/commands/%25ID%25/unaccept.json");
+    commands.acceptAnswer.setUrl('click.off', "/community/commands/%25ID%25/accept.json");
+
+    commands.markFavorite.setMsg('title.on', "Remove your favorite mark from this question");
+    commands.markFavorite.setMsg('title.off', "Mark this question as favorite");
+
+    commands.markFavorite.setUrl('click.on', "/community/commands/%25ID%25/unmarkfavorite.json");
+    commands.markFavorite.setUrl('click.off', "/community/commands/%25ID%25/markfavorite.json");
+
+    commands.reportPost.setMsg('title.on', "Cancel your report");
+    commands.reportPost.setMsg('title.off', "Report as offensive (i.e containing spam, advertising, malicious text, etc.)");
+    commands.reportPost.setMsg('link.on', "Cancel Report");
+    commands.reportPost.setMsg('link.off', "Report");
+    commands.reportPost.setMsg('description', "Please select a reason below or use the text box to input your own reason.");
+
+    commands.reportPost.setMsg('reportHints', [
+        "Spam",
+        "Advertising",
+        "Offensive, Abusive, or Inappropriate",
+        "Content violates terms of use",
+        "Copyright Violation",
+        "Misleading",
+        "Someone is not being nice",
+        "Not relevant/off-topic",
+        "Other"]);
+
+
+    commands.reportPost.setUrl('click.on', "/community/commands/%25ID%25/cancelReport.json");
+    commands.reportPost.setUrl('click.off', "/community/commands/%25ID%25/report.json");
+
+    commands.publishPost.setUrl('click', "/community/commands/%25ID%25/publish.json");
+    commands.publishPost.setMsg('linkText', "Publish");
+
+    commands.sendToMod.setUrl('click', "/community/commands/%25ID%25/sendToMod.json");
+    commands.sendToMod.setMsg('linkText', "Send to Moderation");
+
+    commands.redirectQuestion.setMsg('linkText.off', "Redirect");
+    commands.redirectQuestion.setMsg('linkText.on', "Cancel Redirect");
+    commands.redirectQuestion.setMsg('header', "Redirect Into An Existing Question");
+    commands.redirectQuestion.setMsg('search', "Search for a question:");
+    commands.redirectQuestion.setMsg('related', "Pick a related question:");
+
+    commands.redirectQuestion.setUrl('click.off', "/community/commands/%25ID%25/redirect.json");
+    commands.redirectQuestion.setUrl('click.on', "/community/commands/%25ID%25/unredirect.json");
+    commands.redirectQuestion.setUrl('search', "/community/search.json");
+
+    commands.deletePost.urls = commands.deleteComment.urls;
+    commands.deletePost.setUrl('click.on', "/community/commands/%25ID%25/undelete.json");
+
+    commands.deletePost.setMsg('linkText.off', "Delete");
+    commands.deletePost.setMsg('linkText.on', "Undelete");
+
+    commands.closeQuestion.setMsg('linkText.on', "Reopen");
+    commands.closeQuestion.setMsg('linkText.off', "Close");
+    commands.closeQuestion.setMsg('description', "Please select a reason below or use the text box to input your own reason.");
+    commands.closeQuestion.setMsg('lock', "also lock comments");
+
+    commands.closeQuestion.setMsg('reportHints', [
+        "Duplicate Question",
+        "Question is off-topic or not relevant",
+        "Too subjective and argumentative",
+        "The question is answered, right answer was accepted",
+        "Problem is not reproducible or outdated",
+        "Other"]);
+
+    commands.closeQuestion.setUrl('click.on', "/community/commands/%25ID%25/reopen.json");
+    commands.closeQuestion.setUrl('click.off', "/community/commands/%25ID%25/close.json");
+
+    commands.lockPost.setMsg('linkText.on', "Unlock Comments");
+    commands.lockPost.setMsg('linkText.off', "Lock Comments");
+    commands.lockPost.setMsg('description', "Please select a reason below or use the text box to input your own reason.");
+
+    commands.lockPost.setMsg('reportHints', [
+        "Discussion has gone too far",
+        "No more thank you or +1 comments",
+        "Other"]);
+
+    commands.lockPost.setUrl('click.on', "/community/commands/%25ID%25/unlock.json");
+    commands.lockPost.setUrl('click.off', "/community/commands/%25ID%25/lock.json");
+
+    commands.wikifyPost.setMsg('linkText.off', "Wikify");
+    commands.wikifyPost.setMsg('linkText.on', "Unwikify");
+
+    commands.wikifyPost.setUrl('click.on', "/community/commands/%25ID%25/cancelwiki.json");
+    commands.wikifyPost.setUrl('click.off', "/community/commands/%25ID%25/wikify.json");
+
+    commands.convertToComment.setUrl('click', "/community/commands/%25ID%25/convertToComment.json");
+    commands.convertToComment.setUrl('candidates', "/community/commands/%25ID%25/convertToComment/possibleParents.json");
+    commands.convertToComment.setMsg('linkText', "Convert to Comment");
+    commands.convertToComment.setMsg('description', "Place the comment under:");
+    commands.convertToComment.setMsg('question', "Question");
+    commands.convertToComment.setMsg('answer', "Answer");
+
+    commands.convertToAnswer.setUrl('click', "/community/commands/%25ID%25/convertToAnswer.json");
+
+    commands.moveToSpace.setUrl('click', "/community/commands/%25ID%25/moveToSpace.json");
+    commands.moveToSpace.setUrl('candidates', "/community/spaces/%25ID%25/moveToCandidates.json");
+    commands.moveToSpace.setMsg('linkText', "Move");
+    commands.moveToSpace.setMsg('description', "Select the space to move the question to");
+
+	commands.switchPrivacy.setMsg('linkText.off', "Make private");
+    commands.switchPrivacy.setMsg('linkText.on', "Make public");
+
+    commands.switchPrivacy.setUrl('click.on', "/community/commands/%25ID%25/makePublic.json");
+    commands.switchPrivacy.setUrl('click.off', "/community/commands/%25ID%25/makePrivate.json");
+
+    commands.giveReputation.setUrl('click', "/community/commands/giveReputation.json");
+    commands.giveReputation.setMsg('answerIntro', "If you like this answer you can reward the user with reputation points.");
+    commands.giveReputation.setMsg('questionIntro', "If you like this question you can reward the user with reputation points.");
+    commands.giveReputation.setMsg('description', "Use the input field to choose the number of points you would like to give.");
+    commands.giveReputation.setMsg('points', "Points:");
+
+    commands.share.setUrl("answer-url", "http://www.toradex.com/community/answers/%25ID%25/view.html");
+    commands.share.setUrl("comment-url", "http://www.toradex.com/community/comments/%25ID%25/view.html");
+    commands.share.setMsg("description", "Copy and paste the URL below to share a direct link to this answer.");
+    commands.share.setMsg("comment-description", "Copy and paste the URL below to share a direct link to this comment.");
+    commands.share.setMsg("title", "Share a link to this answer");
+    commands.share.setMsg("comment-title", "Share a link to this comment");
+
+    pageContext.i18n.seeRevisions = 'see revisions';
+    pageContext.url.seeRevisions = '/community/revisions/%25ID%25.html';
+    pageContext.url.questionEdit = '/community/questions/%25ID%25/edit.html';
+    pageContext.url.answerEdit = '/community/answers/%25ID%25/edit.html';
+    pageContext.url.commentEdit = '/community/comments/%25ID%25/edit.html';
+
+    commands.giveReputation.setMsg('currentPointsLabel', "points remaining");
+</script>
+<script type="text/x-jquery-tmpl" id="give-reputation-dialog">
+        <p style="font-size:14px;">{{if isAnswer }} ${answerIntro} {{/if}} {{if !isAnswer }} ${questionIntro} {{/if}}</p>
+        <p style="font-size:14px;">${description}</p>
+        <form >
+            <div style="font-size:14px;">
+                ${points} <input class="input-mini" style="margin-top: 10px;" type="text" name="points" /> (${currentUserPoints} ${currentPointsLabel})
+            </div>
+        </form>
+        <p style="color:red" id="invaliderror"></p>
+</script>
+<script type="text/x-jquery-tmpl" id="flag-or-close-post-dialog">
+
+    <p>${description}</p>
+
+    <form style="with: 250px;margin-bottom:10px">
+      <p>  <select name="sample" class="prompt-examples" style="width: 100%;">
+            {{each(i, hint) reportHints }}
+            <option value="${hint}">${hint}</option>
+            {{/each}}
+        </select>
+
+          </p>
+        <p><textarea name="prompt" style="width: 100%; padding: 0;"></textarea>
+        {{if canLock }}
+        <input type="checkbox" name="lock" value="true" /> ${lock}
+        {{/if}}
+        </p>
+    </form>
+
+</script>
+<script type="text/x-jquery-tmpl" id="convert-to-comment-dialog">
+    ${description}
+    <form>
+        <select name="targetParent" class="prompt-examples">
+            {{each(p, target) parentCandidates }}
+            <option value="${target.id}">${target.summary}</option>
+            {{/each}}
+        </select>
+    </form>
+</script>
+<script type="text/x-jquery-tmpl" id="move-to-space-dialog">
+    ${description}
+    <form>
+        <select name="targetSpace" class="prompt-examples">
+            {{each(p, target) spaces }}
+            <option value="${target.id}">${target.name}</option>
+            {{/each}}
+        </select>
+    </form>
+</script>
+
+<script type="text/x-jquery-tmpl" id="share-dialog">
+    <p>${description}</p>
+    <input type="text" class="input-block-level" value="${shareURL}"/>
+</script>
+
+<script type="text/x-jquery-tmpl" id="advanced-visibility-dialog">
+    <form>
+        <div>
+            {{if (perm.ag || perm.og) }}
+                <h4>${msg.selectGroups}</h4>
+                {{if groupsCheck }}
+                    {{each(i, group) groups }}
+                        <p><input type="checkbox" name="recipients" value="${group.id}" /> ${group.name}</p>
+                    {{/each}}
+                {{else}}
+                    <input type="text" class="comment-recipients-groups-autocomplete" />
+                    <div class="comment-recipients-groups-container" ></div>
+                {{/if}}
+            {{/if}}
+            {{if (perm.op || perm.mod || perm.as) }}
+                <h4>${msg.selectOther}</h4>
+                {{if perm.op }}
+                    <input type="checkbox" name="specialRecipients" value="op" /> ${msg.selectOriginalPoster}<br />
+                {{/if}}
+                {{if perm.m }}
+                    <input type="checkbox" name="specialRecipients" value="mod" /> ${msg.selectModerators}<br />
+                {{/if}}
+                {{if perm.as }}
+                    <input type="checkbox" name="specialRecipients" value="asg" /> ${msg.selectAssignees}<br />
+                {{/if}}
+            {{/if}}
+        </div>
+    </form>
+</script>
+<script type="text/x-jquery-tmpl" id="new-comment-skeleton">
+<div class="comment nsc" id="comment-${comment.id}" activerev="${comment.activeRevisionId}" nodeid="${comment.id}"
+     authorid="${comment.author.id}">
+<div class="comment-content" nodeid="${comment.id}">
+<div class="comment-header">
+    <a class="comment-user-gravatar" nodeId="${author.id}" rel="user" href="${author.url}"><img class="gravatar"
+                                                                                                src="${author.avatar}"
+                                                                                                style="width:${comment.depth > 0 ? 24 : 36};"></a>
+    <a class="comment-user userinfo" nodeId="${author.id}" rel="user" href="${author.url}">${(pageContext.userRealName && comment.author.realname)? comment.author.realname : comment.author.username}</a>
+    {{if comment.parentId != comment.originalParentId}}<span class="comment-parent"><i class="icon-share-alt"></i> ${(pageContext.userRealName && comment.parentAuthor.realname)?comment.parentAuthor.realname : comment.parentAuthor.username}</span>
+    {{/if}}
+    <span class="comment-age friendly-date" title="${creationDateFormatted}">
+                &middot; ${commentDateFriendly}
+            </span>
+<div class="comment-info btn-broup" id="comment-${comment.id}-info">
+    <span id="post-${comment.id}-score" class="comment-score">${comment.score}</span>
+        <a id="vote-up-button-${comment.id}" command="voteUp"  href="#" class="make-tooltip"
+           title="Vote comment up">Like </a>
+        <a id="vote-down-button-${comment.id}" command="voteDown" href="#" class="make-tooltip"
+         title="Vote comment up"><i class=" icon-chevron-down"></i></a>
+
+        {{if crel.canComment }}
+            <a id="comment-${comment.id}-reply" href="#" class="comment-reply"><i
+                class="icon-reply"></i> Add comment</a>
+        {{/if}}
+
+        <a href="#" class="ajax-command"
+                           command="share">Share</a>
+
+        {{if (crel.canReport || crel.canCancelReport) || crel.canEdit || crel.canDelete || crel.canConvertToAnswer }}
+
+        <div class="dropdown" style="display:inline">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class=" icon-cog"></i> More...</a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                {{if crel.canReport || crel.canCancelReport }}
+                    <li><a rel="nofollow" class="ajax-coxmmand {{if crel.reported }} on{{/if}}" href="#"
+                           command="reportPost">
+
+
+                        {{if !crel.reported }}123Flag{{else}}label.report.cancel{{/if}}
+                        {{if crel.canViewReports }}(${comment.reportCount}){{/if}}
+                    </a></li>
+                {{/if}}
+                {{if crel.canViewRevisions }}
+                    <li class="item">
+                        <a rel="nofollow" class="node-tools-revisions-link"
+                           href="${revisionUrl}">See revisions</a>
+                    </li>
+
+                {{/if}}
+                {{if crel.canEdit }}
+                    <li><a id="comment-${comment.id}-edit" href="#"
+                           class="comment-edit">Edit</a>
+                    </li>
+                {{/if}}
+                {{if crel.canDelete }}
+                    <li><a id="comment-${comment.id}-delete" href="#" class="comment-delete"
+                           command="deleteComment">Delete </a>
+                    </li>
+                {{/if}}
+                {{if crel.canConvertToAnswer }}
+                    <li><a href="#" class="convert-to-answer"
+                           command="convertToAnswer">Convert to answer</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+
+        {{/if}}
+
+</div>
+</div>
+    <div id="comment-${comment.id}-left" class="comment-left">
+        <div id="post-${comment.id}-score" class="comment-score"></div>
+    </div>
+    <div class="comment-text">{{html comment.bodyAsHTML}}</div>
+</div>
+</div>
+</script>
+<script type="text/x-jquery-tmpl" id="flag-or-close-post-dialog">
+    ${description}
+    <select name="sample" class="prompt-examples">
+        {{each(i, hint) reportHints }}
+        <option value="${hint}">${hint}</option>
+        {{/each}}
+    </select>
+    <textarea name="prompt">${reportHints[0]}</textarea>
+</script><script type="text/x-jquery-tmpl" id="redirect-question-dialog">
+    <h4>Linux /dev/spidev1.0 present, but no SPI communication</h4>
+    <label class="control-label" style="margin: 18px 0 22px;" for="searchQuestion">into:</label>
+    <div class="controls">
+        <div class="SearchAnswers">
+            <input type="text" style="background-image: none;" class="textInput input-block-level" id="searchQuestion" placeholder="Search for a question" onclick="if(this.value=='Find Question'){this.value = ''}" />
+            <div id="results"></div>
+            <form class="hidden">
+                <input type="hidden" name="to" />
+            </form>
+        </div>
+    </div>
+</script><script type="text/x-jquery-tmpl" id="switch-privacy-dialog">
+Are you sure you want to make this post private? Only you and users with special permissions will be able to see it.</script><script type="text/x-jquery-tmpl" id="post-wiki-mark">
+    <div class="community-wiki">
+        <div class="wiki-icon">&nbsp;</div>
+        <div class="wiki-text">
+            {{if isAnswer }}
+        This answer is marked "community wiki".
+            {{else}}
+        This question is marked "community wiki".
+            {{/if}}
+
+            {{if canEdit }}
+            <br />Feel free to <a href="${editUrl}">edit it</a>.
+            {{/if}}
+        </div>
+    </div>
+</script><script type="text/x-jquery-tmpl" id="user-with-follow">
+    <li class="userWithFollow">
+        <a class="gravatar-link" href="${user.profileUrl}"><img class="gravatar" src="${user.avatarUrl}"></a>
+        <div class="info">
+            <a href="${user.profileUrl}" class="username">${user.displayName}</a>
+        </div>
+        {{if user.id != currentUser.id}}
+        {{if $.grep(follows, function(follow){ return follow.followed.id == user.id }).length < 1}}
+        <a class="followLink btn" command="follow" data-node-type="user" nodeId="${user.id}"></a>
+        {{else}}
+        <a class="followLink on btn" command="follow" data-node-type="user" nodeId="${user.id}" ></a>
+        {{/if}}
+        {{/if}}
+    </li>
+</script>
+
+
+
+                                </div>
+                                <div class="span4 sidebarTwo">
+        <div>
+            
+
+
+<div class="widget question-follow-widget">
+    <div class="widget-header">
+        <i class="icon-arrow-right"></i>
+                <a href="https://www.toradex.com/community/unfollow/1023/question.html" class="btn btn-danger pull-right widget-action">
+                    <i class=" icon-remove-circle"></i>
+                    Unfollow</a>
+        <h3>Follow this Question</h3>
+    </div>
+    <div class="widget-content">
+        <p>
+            <a class="btn btn-small" title="Subscribe to Answers" href="https://www.toradex.com/community/feed/1023/answers.rss">
+                <i class="icon-rss"></i>
+
+                Answers </a>
+
+
+            <a class="btn btn-small" title="Subscribe to Comments and Answers" href="https://www.toradex.com/community/feed/1023/comments-and-answers.rss">
+                <i class="icon-rss"></i>
+Answers and Comments            </a>
+        </p>
+
+        <p>
+<strong>5</strong> People are following this question.
+        </p><div class="followers">
+
+<a data-hasqtip="8" href="https://www.toradex.com/community/users/137/kanjiviroja.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="137"> <img class="gravatar " src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/view_002.png" id="" alt="avatar image" title="kanjiviroja" width="24">
+</a><a data-hasqtip="9" href="https://www.toradex.com/community/users/24/maxkrummenacher.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="24"> <img class="gravatar " src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/view.png" id="" alt="avatar image" title="max.krummenacher" width="24">
+</a><a data-hasqtip="10" href="https://www.toradex.com/community/users/48/sanchayanmaity.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="48"> <img class="gravatar " src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/view_006.png" id="" alt="avatar image" title="sanchayan.maity" width="24">
+</a><a data-hasqtip="11" href="https://www.toradex.com/community/users/34/rajasivasankaran.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="34"> <img class="gravatar " src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/view_007.png" id="" alt="avatar image" title="raja.sivasankaran" width="24">
+</a><a data-hasqtip="12" href="https://www.toradex.com/community/users/176/cetoni-software-developer.html" style="display: inline-block; max-width: 24px;" rel="user" nodeid="176"> <img class="gravatar " src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/no-image.gif" id="" alt="avatar image" title="cetoni_software_developer" width="24">
+</a>        </div>
+        <p></p>
+    </div>
+
+</div>
+
+
+
+
+        </div>
+        <div>
+            
+
+
+<div class="widget">
+    <div class="widget-header">
+        <i class="icon-list-alt"></i>
+        <h3>Related Questions</h3>
+    </div>
+    <div class="widget-content">
+                <p><a href="https://www.toradex.com/community/questions/2722/how-to-get-the-serial-number-of-the-vf-61-module-o.html">How to get the serial number of the VF-61 module on Linux?</a>
+                1
+Answer
+                </p>
+
+                <p><a href="https://www.toradex.com/community/questions/114/led-trigger-on-kernel-41-lights-up-all-the-time.html">LED trigger on Kernel 4.1 lights up all the time</a>
+                1
+Answer
+                </p>
+
+                <p><a href="https://www.toradex.com/community/questions/1149/spi-on-linux.html">Spi on linux</a>
+                1
+Answer
+                </p>
+
+                <p><a href="https://www.toradex.com/community/questions/801/enable-gpio-expander-mcp23s17-on-device-tree-for-t.html">Enable gpio expander mcp23s17 on device tree for the viola and vf50</a>
+                2
+Answers
+                </p>
+
+                <p><a href="https://www.toradex.com/community/questions/502/usb-suspend-resume-issue-on-vybrid.html">USB suspend resume issue on Vybrid</a>
+                1
+Answer
+                </p>
+
+    </div>
+</div>
+
+
+        </div>
+        <div>
+            
+
+        </div>
+
+                                </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <div style="height: 159px;" class="push"></div>
+</div>
+
+
+<section id="bottom">
+    <div class="extra">
+
+        <div class="extra-inner">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="span12 text-center">
+                        <ul class="inline">
+                            <li><a href="https://www.toradex.com/community/page/howto.html">Help</a></li>
+							<li style="color:#ccc;">|</li>
+                            <li><a href="https://www.toradex.com/community/page/legal-privacy.html">Legal</a></li>
+							<li style="color:#ccc;">|</li>
+							<li><a href="https://www.toradex.com/community/page/contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span12 text-center">
+                        <p class="footer-copyright" style="font-size: 85%">
+                            <a href="https://www.toradex.com/?utm_source=appfooter&amp;utm_medium=comunity&amp;utm_campaign=Application%2BReferral%2B" style="color: #fff;">
+								<img src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/toradex-logo-small.png">
+							</a>
+                        </p>
+						<p>Copyright © 2016 Toradex AG</p>
+						<p style="font-size:10px; color:#aaaaaa;"><a style="font-size:10px; color:#aaaaaa;" href="http://answerhub.com/">AnswerHub</a> Enterprise Social Q&amp;A</p>
+                    </div>
+
+                </div> <!-- /row -->
+
+            </div> <!-- /container -->
+
+        </div> <!-- /extra-inner -->
+
+    </div> <!-- /extra -->
+</section>
+
+<a class="dummy-navbar-link hidden"></a>
+<div class="off-canvas-nav sidr left" id="sidr" style="display:none;">
+<ul class="nav nav-list">
+    <li class="nav-header">
+    		  <img class="gravatar " src="Linux%20_dev_spidev1.0%20present,%20but%20no%20SPI%20communication%20-%20Toradex%20Community_files/view_005.png" id="" alt="avatar image" title="kanjiviroja" width="20">
+
+        kanjiviroja</li>
+    <li>
+        <a href="https://www.toradex.com/community/users/137/kanjiviroja.html">Profile</a>
+    </li>
+    <li>
+        <a href="https://www.toradex.com/community/users/137/kanjiviroja/preferences.html">My Preferences</a>
+    </li>
+
+
+    <li class="nav-header">Create</li>
+    <li>
+        <a href="https://www.toradex.com/community/questions/ask.html?space=8">Ask a question</a>
+    </li>
+
+
+    <li class="nav-header">Spaces</li>
+
+
+
+                        <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/13/second-test-space.html"> Linux</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/21/carrier-boards.html">Carrier Boards</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/24/hardware-questions.html">Hardware Questions</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/16/linux-tegra-t20-t30.html">Linux Tegra (T20/30)</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/17/linux-vybrid-vf50-vf61.html">Linux Vybrid (VF50/61)</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/15/linux-imx6.html">Linux iMX6</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/32/linux-imx7.html">Linux iMX7</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/23/other-operating-systems.html">Other Operating Systems</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/25/other-toradex-proudcts.html">Other Toradex Proudcts</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/31/win-10-iot-core.html">Win 10 IoT Core</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/14/wince.html">WinCE</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/12/test-smart-space.html">WinCE PXA</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/18/wince-tegra-t20-t30.html">WinCE Tegra (T20/30)</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/19/wince-vybrid-vf5061.html">WinCE Vybrid (VF50/61)</a>
+            </li>
+            <li>
+                <a class="main-nav" href="https://www.toradex.com/community/smart-spaces/20/wince-imx6.html">WinCE iMX6</a>
+            </li>
+
+                    <li class="divider"></li>
+                        <li class="active">
+                <a class="main-nav" href="https://www.toradex.com/community/spaces/8/index.html">All</a>
+
+
+
+        </li><li class="nav-header">Explore</li>
+        <li>
+            <a href="http://www.toradex.com/community/topics.html">Topics</a>
+        </li>
+
+        <li>
+            <a href="https://www.toradex.com/community/questions/index.html">Questions</a>
+        </li>
+
+        <li>
+            <a href="https://www.toradex.com/community/users/index.html">Users</a>
+        </li>
+
+        <li>
+            <a href="https://www.toradex.com/community/badge/types.html">Badges</a>
+        </li>
+        <li class="divider"></li>
+        <li><a href="https://www.toradex.com/community/users/logout.html">Logout</a></li>
+</ul>
+</div><script type="text/x-jquery-tmpl" id="user-popover">
+    <div class="user-popover ahub-popover">
+        <div class="ahub-popover-content">
+            <div class="header">
+                <div class="popover-gravatar">
+                    <a href="${profileUser.profileUrl}">
+                        <img id="" class="gravatar " height="84" width="84" title="${profileUser.displayName}" alt="avatar image"  src="${pageContext.url.userAvatar.replace("%7BuserId%7D",profileUser.id)}?s=84">
+                    </a>
+                </div>
+                <p class="nameAndTagline">
+                    <a href="${profileUser.profileUrl}" class="username">${profileUser.displayName}</a><br>
+                    {{if profileUser.tagline}}<span class="tagline">${profileUser.tagline}</span>{{else}}{{if profileUser.location}}<span class="location">${profileUser.location}</span>{{/if}}{{/if}}
+                </p>
+                {{if currentUser.id != profileUser.id}}<a class="btn btn-follow {{if currentUserFollowing}}on btn-info{{/if}}" command="follow" data-node-type="user" nodeId="${profileUser.id}"></a>{{/if}}
+            </div>
+            <div class="body">
+                <div class="stats-wrapper">
+                    <ul class="stats unstyled">
+                        <li><a href="${profileUser.profileUrl}"><span class="count">${profileUser.reputation}</span><br>${i18n.reputation}</a></li>
+                        <li><a href="${profileUser.profileUrl}"><span class="count">${profileUser.postCount}</span><br>${i18n.posts}</a></li>
+                        <li><a href="${profileUser.profileUrl}"><span class="count">${profileUser.userFollowCount}</span><br>${i18n.following}</a></li>
+                        <li><a href="${profileUser.profileUrl}"><span class="count">${profileUser.followerCount}</span><br>${i18n.followers}</a></li>
+                        <li><a href="${profileUser.profileUrl}"><span class="count">${profileUser.creationDateObj.getMonth() + 1 + "/" + profileUser.creationDateObj.getFullYear().toString().substring(2,4)}</span><br>${i18n.joined}</a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script><script type="text/x-jquery-tmpl" id="topic-popover">
+    <div class="topic-popover ahub-popover">
+        <div class="ahub-popover-content">
+            <div class="header">
+                <div class="popover-icon">
+                    <a href="${topic.url}">
+                        <img id="" class="gravatar " height="84" width="84" title="${topic.name}" alt="${topic.name} icon" src="${topic.icon}">
+                    </a>
+                </div>
+                <p class="name"><a href="${topic.url}">${topic.name}</a></p>
+                <a class="btn btn-follow {{if currentUserFollowing}}on btn-info{{/if}}" command="follow" data-node-type="topic" nodeId="${topic.name}"></a>
+            </div>
+            <div class="body">
+                <div class="stats-wrapper">
+                    <ul class="stats unstyled">
+                        <li><a href="${topic.url}"><span class="count">${followerCount}</span><br>${i18n.followers}</a></li>
+                        <li><a href="${topic.url}"><span class="count">${questionCount}</span><br>${i18n.questions}</a></li>
+                        <li><a href="${topic.url}"><span class="count">${answerCount}</span><br>${i18n.answers}</a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                {{if description}}<div class="description">{{html description}}</div>{{/if}}
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-jquery-tmpl" id="badge-popover">
+    <div class="badge-popover ahub-popover">
+        <div class="ahub-popover-content">
+            <div class="header">
+                <div class="pull-left">
+                    <img class="gravatar award-icon" height="84" width="84" title="${awardType.name}" alt="avatar image" src="${awardType.awardIconSrc}">
+                </div>
+                <p class="nameAndTagline">
+                    <a href="${awardType.awardUrl}" class="name">${awardType.name}</a><br>
+                    <span class="tagline">${awardType.description}</span>
+                </p>   
+            </div>
+            <div class="body">
+                	<div class="stats-wrapper">
+	                	<ul class="stats unstyled">
+							<li><a href="${awardType.awardUrl}"><span class="count">${awardPager.totalCount}</span><br>${i18n.awarded}</a></li>
+	                		<li>
+	                			<ul class="users unstyled">
+	                				<li><span class="user-list-title">${i18n.completedBy}:</span></li>
+			                		{{each awardPager.list}}
+				                		<li>
+					                		<a href="${$value.user.profileUrl}" title="${$value.user.username}">
+					                			<img class="gravatar " width="32" height="32" src="${$value.user.avatar}?s=32">
+					                		</a>
+					                	</li>
+				                	{{/each}}
+				                	<div class="clearfix"></div>
+		                		</ul>
+	                		</li>
+	                		<div class="clearfix"></div>
+	                	</ul>
+	                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/javascript">
+    var searchItemMouseDown = false;
+    var $searchAuto = $("#search-query").autocomplete({
+        open: function () {
+            $searchAuto.addClass("open");
+            $("#searchResultsAutoComplete").find("a").mousedown(function (e) {
+                searchItemMouseDown = true;
+            });
+        },
+        close: function (e) {
+            $searchAuto.removeClass("open");
+        },
+        appendTo: '#searchResultsAutoComplete',
+        autoFocus: false,
+        highlight: function (match, keywords) {
+            keywords = keywords.split(' ').join('|');
+            return match.replace(new RegExp("(" + keywords + ")", "gi"), '<b>$1</b>');
+        },
+        source: function (request, response) {
+            var query = request.term;
+            var labelText = $('<div/>').text(request.term).html();
+
+            if (!/\s$/.test(query)) {
+                query += "*";
+            }
+
+            $.ajax({
+                url: '/community/search.json',
+                dataType: 'json',
+                minLength: 0,
+                delay: 30,
+                data: { q: query, page: 1, pageSize: 7, type: "object", compact: 'true' },
+                success: function (data) {
+                    var $results = $.map(data.searchResults.results, function (item, index) {
+                        if (item != null) {
+                            if (item.username){
+                                var name = item.username;
+                                if(item.realname){
+                                    name += " | " + item.realname;
+                                }
+                                return {
+
+                                    label: name.replace(
+                                            new RegExp(
+                                                            "(?![^&;]+;)(?!<[^<>]*)(" +
+                                                            $.ui.autocomplete.escapeRegex(request.term) +
+                                                            ")(?![^<>]*>)(?![^&;]+;)", "gi"
+                                            ), "<strong>$1</strong>"),
+                                    url: "/community/users/%7Bid%7D/%7Bplug%7D.html", //item.id
+                                    value: name,
+                                    id: item.id,
+                                    plug: item.plug,
+                                    type: "User",
+                                    emailHash: item.emailHash
+                                };
+                            }
+                            switch (item.type) {
+                                case 'topic':
+                                    return {
+                                        label: item.name.replace(
+                                                new RegExp(
+                                                        "(?![^&;]+;)(?!<[^<>]*)(" +
+                                                                $.ui.autocomplete.escapeRegex(request.term) +
+                                                                ")(?![^<>]*>)(?![^&;]+;)", "gi"
+                                                ), "<strong>$1</strong>"),
+                                        url: "/community/topics/%7Bid%7D.html", //item.id
+                                        value: item.name,
+                                        id: item.name,
+                                        plug: item.plug,
+                                        type: "Topic"
+                                    };
+                                case 'user':
+                                    var name = item.username;
+                                    if(item.realname){
+                                        name += " | " + item.realname;
+                                    }
+                                    return {
+
+                                        label: name.replace(
+                                                new RegExp(
+                                                        "(?![^&;]+;)(?!<[^<>]*)(" +
+                                                                $.ui.autocomplete.escapeRegex(request.term) +
+                                                                ")(?![^<>]*>)(?![^&;]+;)", "gi"
+                                                ), "<strong>$1</strong>"),
+                                        url: "/community/users/%7Bid%7D/%7Bplug%7D.html", //item.id
+                                        value: name,
+                                        id: item.id,
+                                        plug: item.plug,
+                                        type: "User",
+                                        emailHash: item.emailHash
+                                    };
+                                case 'question':
+                                    return {
+                                        label: item.title.replace(
+                                                new RegExp(
+                                                        "(?![^&;]+;)(?!<[^<>]*)(" +
+                                                                $.ui.autocomplete.escapeRegex(request.term) +
+                                                                ")(?![^<>]*>)(?![^&;]+;)", "gi"
+                                                ), "<strong>$1</strong>"),
+                                        url: "/community/questions/%7Bid%7D/%7Bplug%7D.html", //item.id
+                                        value: item.title,
+                                        id: item.id,
+                                        plug: item.plug,
+                                        type: item.type
+                                    };
+                                default:
+                                    return {
+                                        label: item.title.replace(
+                                                new RegExp(
+                                                        "(?![^&;]+;)(?!<[^<>]*)(" +
+                                                                $.ui.autocomplete.escapeRegex(request.term) +
+                                                                ")(?![^<>]*>)(?![^&;]+;)", "gi"
+                                                ), "<strong>$1</strong>"),
+                                        url: "/community/content/%7Btype%7D/%7Bid%7D/%7Bplug%7D.html", //item.id
+                                        value: item.title,
+                                        id: item.id,
+                                        plug: item.plug,
+                                        type: item.type
+                                    };
+                            }
+                        }
+                    });
+                    $results.push({
+                        label: "Search: " + "\"" + $.trim(labelText) + "\"",
+                        url: "/community/search.html?q={query}",
+                        query: request.term,
+                        value: request.term
+                    });
+                    $results.push({
+                        label: "Add Question: <strong>\"$q\"<\/strong>".replace("$q", $.trim(labelText)),
+                        url: "/community/questions/ask.html?a=true&q={query}&space=8",
+                        query: request.term,
+                        value: request.term
+                    });
+
+                    response($results);
+                }
+            });
+        },
+        select: function (event, ui) {
+            var url = ui.item.url.replace("%7Bid%7D", ui.item.id);
+            url = url.replace("%7Bplug%7D", ui.item.plug);
+            url = url.replace("{query}", ui.item.query);
+            url = url.replace("%7Btype%7D", ui.item.type);
+            window.location = url;
+            return false;
+        }
+    }).keydown(function () {
+                $(this).css('color', '#000');
+            });
+
+    if ($searchAuto.length) {
+        $searchAuto.data("uiAutocomplete")._renderItem = function (ul, item) {
+            var type_str = "";
+            if (item.type == "Topic")
+                    type_str = "<span class='autocomplete-type'>" + "Topic" + "</span>";
+            return $("<li></li>")
+                    .data("item.autocomplete", item)
+                    .append("<a>" + (item.type == 'User' ? '<img class="gravatar" align="left" width="16" height="16" style="margin-right: 5px;" src="http://www.gravatar.com/avatar/'
+                            + item.emailHash + '?s=16&amp;d=identicon&amp;r=PG"/>' : '') + " " + item.label + " " + type_str + "</a>")
+                    .appendTo(ul);
+        };
+    }
+</script><script type="text/javascript">
+
+    $(document).ready(function () {
+        $bottom = $("#bottom");
+        $notFooter = $("#not-footer");
+        $push = $(".push");
+        $push.css("height", $bottom.outerHeight() + "px");
+        $notFooter.css("margin-bottom", "-" + $bottom.outerHeight() + "px");
+
+        $(".dummy-navbar-link").sidr();
+
+        $(".search-button").click(function(){
+            $(".navbar-search").submit();
+        });
+
+        $(".off-canvas-nav-btn").on("click", function(){
+            $.sidr(
+                "open",
+                "sidr",
+                function(){
+                    $(document.body).prepend("<div class='cover'></div>");
+                    $(".cover").fadeIn().on("click", function(){
+                        $.sidr('close', 'sidr');
+                        $(this).remove();
+                    });
+                }
+            );
+        });
+    });
+
+
+    $(".answer-body pre").addClass("prettyprint").addClass("linenums");
+    $(".node-body pre").addClass("prettyprint").addClass("linenums");
+    $(".question-body pre").addClass("prettyprint").addClass("linenums");
+    prettyPrint();
+
+</script>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-227148-22']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+</body></html>

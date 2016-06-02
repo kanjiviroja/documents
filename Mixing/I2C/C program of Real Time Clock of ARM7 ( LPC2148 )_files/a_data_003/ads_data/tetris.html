@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class="wf-roboto-n4-active wf-active" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  <title>Tetris Layout</title>
+  <meta data-template-name="CustomLightbox_Layout">
+  <link rel="stylesheet" href="tetris_data/tetris.css">
+  <link rel="stylesheet" href="tetris_data/tetris_layout.css">
+  <script src="tetris_data/tetris_gdn_adapter.js"></script>
+  <script src="tetris_data/addata_util.js"></script>
+  <script src="tetris_data/Enabler_01_91.js"></script>
+  <script src="tetris_data/CustomElements.js"></script>
+  <script src="tetris_data/tetris.js"></script>
+  <script src="tetris_data/tetris_layout.js"></script>
+  <script>
+    // TODO(rneale): b/24775203
+    Enabler.exit = Enabler.exitOverride;
+
+    function GdnLayout() {}
+    GdnLayout.getConfig =
+        studioinnovation.layouts.lightbox.tetris.gdnAdapter.
+        translateFromEnablerParams;
+
+    function GdnPreview() {}
+    GdnPreview.getConfig =
+        studioinnovation.layouts.lightbox.tetris.gdnAdapter.
+        translateFromDataObject;
+
+    // TODO(cbehar): Switch to use Enabler.loadModules() with Enabler >= v.01_73.
+    var moduleIds = [
+      studio.module.ModuleId.CONFIGURABLE,
+      studio.module.ModuleId.GDN
+    ];
+
+    var modulesToLoad = moduleIds.length;
+    var moduleLoadedHandler = function() {
+      if (--modulesToLoad == 0) {
+        new studioinnovation.layouts.lightbox.tetris.Tetris();
+      }
+    };
+
+    for (var i = 0; i < moduleIds.length; ++i) {
+      Enabler.loadModule(moduleIds[i], moduleLoadedHandler);
+    }
+  </script>
+<script src="tetris_data/prod_studio_01_91_configurablemodule.js" charset="UTF-8" type="text/javascript"></script><script src="tetris_data/prod_studio_01_91_gdnmodule.js" charset="UTF-8" type="text/javascript"></script><link href="tetris_data/css.css" rel="stylesheet"><script src="tetris_data/webfont.js" charset="UTF-8" type="text/javascript"></script><style class="themer-font">.font-themed {
+  font-family: 'Roboto', 'HelveticaNeue-Light', 'HelveticaNeue', 'Roboto', 'Open Sans', 'Arial', sans-serif !important;
+}</style></head>
+<body class="dark desktop firefox linux web"><div id="invitation" class="view-container"><div id="cta" class="view-container"><div class="invitation-presenter square custom"><div style="background-image: linear-gradient(to bottom, rgb(123, 123, 123) 30%, rgb(98, 98, 98) 100%);" class="generated-background"></div><div class="caption-background"></div><div style="background-image: url(&quot;https://tpc.googlesyndication.com/simgad/12242535172237215127&quot;);" class="logo"></div><div class="overlay"></div><div style="background: rgb(85, 85, 85) none repeat scroll 0% 0%;" class="accent"></div><div style="background-color: rgb(85, 85, 85);" class="expand-icon"></div><div class="custom-invite contain"><div style="background-image: url(&quot;https://tpc.googlesyndication.com/simgad/5817869413114108950&quot;);" class="foreground"></div><div class="custom-background"><canvas height="90" width="728" class="image-blurrer"></canvas></div></div><div style="line-height: 19px;" class="caption font-themed active primary"><div style="font-size: 20px;">Dhoni drops LAVA phone</div></div></div></div><div id="undefined" class="view-container"></div></div><div id="expanded" class="view-container" style="width: 100%; height: 100%; left: -9999px;"><div style="background-color: rgb(98, 98, 98);" class="filmstrip-presenter landscape hide-header"><header class="custom-header"></header><header style="background-image: linear-gradient(to bottom, rgb(123, 123, 123) 30%, rgb(98, 98, 98) 100%);" class="generated-header"><div><div class="social-container"><div class="social-overlay-container"><div class="social-overlay"><div class="social-header"><div>&#8206;&#8207;&#8206;&#8206;&#8206;&#8206;&#8206;&#8207;&#8206;&#8207;&#8207;&#8207;&#8206;&#8206;&#8206;&#8207;&#8206;&#8206;&#8207;&#8207;&#8206;&#8207;&#8206;&#8206;&#8207;&#8206;&#8207;&#8207;&#8207;&#8207;&#8207;&#8207;&#8207;&#8207;&#8207;&#8207;&#8206;&#8207;&#8206;&#8207;&#8206;&#8206;&#8207;&#8206;&#8207;&#8207;&#8206;&#8206;&#8207;&#8206;&#8207;&#8207;&#8206;&#8207;&#8206;&#8206;&#8207;&#8207;&#8207;&#8207;&#8207;&#8206;&#8206;&#8207;&#8206;&#8207;&#8207;&#8207;&#8206;&#8207;&#8207;&#8206;&#8207;&#8206;&#8206;&#8207;&#8206;&#8206;&#8207;&#8206;&#8206;&#8206;&#8207;&#8206;&#8206;&#8206;&#8207;&#8207;&#8206;&#8206;&#8206;&#8207;&#8207;&#8207;&#8207;&#8206;Connect With Us&#8206;&#8207;&#8206;&#8206;&#8207;&#8206;</div></div></div></div><div class="social-button"></div></div></div><div><div class="rotator narrow"><div class="logo shown"><img src="tetris_data/12242535172237215127.jpeg"></div><div class="text-cta-container"><div class="text-cta-rotator"><div style="right: 20px; line-height: 0px;" class="message text"><div style="font-size: 64px;" class="font-themed">Dhoni drops LAVA phone</div></div><div style="width: 0px;" class="message cta"><button class="font-themed">#&#8206;NeverLetsYouDown</button></div></div></div></div></div></header><div class="content"><div style="right: 0px;" class="card-container one-card"><tetris-video-card class="card primary"></tetris-video-card></div><div style="background-image: linear-gradient(to top, rgb(123, 123, 123) 30%, rgb(98, 98, 98) 100%); width: 50px;" class="thumb-scroller portrait"><div class="top-arrow hidden"><div></div></div><div class="left-arrow hidden"><div></div></div><div class="thumb-container"><tetris-video-thumb style="width: 40px; height: 26px;" class="thumb selected"><div class="icon"></div></tetris-video-thumb></div><div class="right-arrow hidden"><div></div></div><div class="bottom-arrow hidden"><div></div></div></div></div></div></div></body></html>

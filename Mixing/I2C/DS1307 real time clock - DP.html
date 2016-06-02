@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr" lang="en"><head>
+<title>DS1307 real time clock - DP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="MediaWiki 1.16.0">
+<link rel="shortcut icon" href="http://dangerousprototypes.com/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://dangerousprototypes.com/docs/opensearch_desc.php" title="DP (en)">
+<link title="Creative Commons" type="application/rdf+xml" href="http://dangerousprototypes.com/docs/index.php?title=DS1307_real_time_clock&amp;action=creativecommons" rel="meta">
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/atom+xml" title="DP Atom feed" href="http://dangerousprototypes.com/docs/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="DS1307%20real%20time%20clock%20-%20DP_files/shared.css" media="screen">
+<link rel="stylesheet" href="DS1307%20real%20time%20clock%20-%20DP_files/commonPrint.css" media="print">
+<link rel="stylesheet" href="DS1307%20real%20time%20clock%20-%20DP_files/reset.css" media="screen">
+<link rel="stylesheet" href="DS1307%20real%20time%20clock%20-%20DP_files/main.css" media="screen">
+<link rel="stylesheet" href="DS1307%20real%20time%20clock%20-%20DP_files/css.css">
+<link rel="stylesheet" href="DS1307%20real%20time%20clock%20-%20DP_files/css_002.css">
+<link rel="stylesheet" href="DS1307%20real%20time%20clock%20-%20DP_files/index.css">
+<link rel="stylesheet" href="DS1307%20real%20time%20clock%20-%20DP_files/index_003.css" media="print">
+<link rel="stylesheet" href="DS1307%20real%20time%20clock%20-%20DP_files/index_004.css">
+<link rel="stylesheet" href="DS1307%20real%20time%20clock%20-%20DP_files/index_002.css">
+<script>
+var skin="monobook",
+stylepath="/docs/skins",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/docs/$1",
+wgScriptPath="/docs",
+wgScriptExtension=".php",
+wgScript="/docs/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="http://dangerousprototypes.com",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="DS1307_real_time_clock",
+wgTitle="DS1307 real time clock",
+wgAction="view",
+wgArticleId=184,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="en",
+wgContentLanguage="en",
+wgBreakFrames=false,
+wgCurRevisionId=6613,
+wgVersion="1.16.0",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=["", ""],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Main Page",
+wgFormattedNamespaces={"-2": "Media", "-1": "Special", "0": "", "1": "Talk", "2": "User", "3": "User talk", "4": "DP", "5": "DP talk", "6": "File", "7": "File talk", "8": "MediaWiki", "9": "MediaWiki talk", "10": "Template", "11": "Template talk", "12": "Help", "13": "Help talk", "14": "Category", "15": "Category talk"},
+wgNamespaceIds={"media": -2, "special": -1, "": 0, "talk": 1, "user": 2, "user_talk": 3, "dp": 4, "dp_talk": 5, "file": 6, "file_talk": 7, "mediawiki": 8, "mediawiki_talk": 9, "template": 10, "template_talk": 11, "help": 12, "help_talk": 13, "category": 14, "category_talk": 15, "image": 6, "image_talk": 7},
+wgSiteName="DP",
+wgCategories=["Projects", "Bus Pirate", "Chip demos"],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script><script src="DS1307%20real%20time%20clock%20-%20DP_files/wikibits.js"></script>
+<script src="DS1307%20real%20time%20clock%20-%20DP_files/ajax.js"></script>
+<script src="DS1307%20real%20time%20clock%20-%20DP_files/index.php"></script><script type="text/javascript" src="DS1307%20real%20time%20clock%20-%20DP_files/index_002.php"></script><meta name="wikEdStartupFlag">
+
+<meta name="wikEdSetupFlag"></head>
+<body class="mediawiki ltr ns-0 ns-subject page-DS1307_real_time_clock skin-monobook">
+	<!-- Begin PageWrapper //-->
+	<!--// TODO: remove all stupid divs -->
+	<div id="globalWrapper" class="home blog two-sidebars">
+		<div id="page">
+			<div id="page-inner">
+				<a id="navigation-top"></a>
+				<div id="skip-to-nav"><a href="#navigation">Skip to Navigation</a></div>
+				<!-- Begin Header //-->
+				<div id="header">
+					<div class="clearfix" id="header-inner">
+						<div class="region region-header" id="header-blocks">
+							<!-- Begin Widget TODO: remove this Crap, make real Header //-->
+							<div class="widget-container widget_text logo" id="text-4">
+								<div class="textwidget">
+									<a href="http://dangerousprototypes.com/"><img alt="Dangerous Prototypes" src="DS1307%20real%20time%20clock%20-%20DP_files/logo.png"></a>
+								</div>
+							</div><!--//End Widget -->
+							<!-- Begin Widget //-->
+							<div class="widget-container widget_text banner" id="text-11">
+								<div id="announce" class="textwidget"><a href="http://dangerousprototypes.com/announce/announce.php?redirect=true&amp;&amp;id=10"><img src="DS1307%20real%20time%20clock%20-%20DP_files/10.html"></a></div>
+							</div><!--// End Widget -->
+						</div><!--// End Region -->
+					</div><!--// inner -->
+				</div><!--// End Header -->
+				<!-- Begin TopNavigation //-->
+				<!--// TODO: Add SideWide Global Navigation -->
+				<div id="navbar">
+					<div class="clear-block region region-navbar" id="navbar-inner">
+						<a id="navigation" name="navigation"></a>
+						<div class="menu-nav">
+							<ul class="menu" id="menu-header-4">
+								<li><a href="http://dangerousprototypes.com/">Blog</a></li>
+								<li><a href="http://dangerousprototypes.com/docs/Main_Page#Projects">Projects</a></li>
+								<li><a href="http://dangerousprototypes.com/forum">Forum</a></li>
+								<li><a href="http://dangerousprototypes.com/about">About</a></li>
+								<li><a href="http://dangerousprototypes.com/contact">Contact</a></li>
+								<li><a href="http://www.seeedstudio.com/depot/wherelabs-m-9.html">Shop</a></li>
+								<li><a href="http://dangerousprototypes.com/store/">Free PCBs</a></li>
+							</ul>
+						</div>
+						<div class="widget-container widget_text social" id="text-10">
+							<div class="textwidget">
+								<a id="facebook" title="Visit our Facebook page" href="http://www.facebook.com/pages/Dangerous-Prototypes/127701397281222">Facebook</a>
+								<a id="twitter" title="Follow us on twitter" href="http://twitter.com/#%21/dangerousproto">Twitter</a>
+								<a id="rss" title="Subscribe to rss feed" href="http://dangerousprototypes.com/feed">RSS</a>
+								<a id="comrss" href="http://dangerousprototypes.com/comments/feed/" title="Subcribe to comments">Comments</a>
+							</div>
+						</div>
+					</div>
+				</div><!--// End TopNavigation -->
+			
+				<!-- Begin Main //-->
+				<div id="main">
+					<div class="clearfix with-navbar" id="main-inner">
+						<div id="content">
+							<div id="content-inner">
+								<div id="content-area">
+									<a id="top"></a>
+									<!-- Begin Notices //-->
+																		<!--// End Notices -->
+									<h1 id="firstHeading" class="firstHeading">DS1307 real time clock</h1>
+									<div id="bodyContent">
+										<h3 id="siteSub">From DP</h3>
+										<div id="contentSub"></div>
+																				<div id="jump-to-nav">
+											Jump to:											<a href="#column-one">
+												navigation											</a>, <a href="#searchInput">search</a>
+										</div>
+																				<!-- start content -->
+										<p><a href="http://dangerousprototypes.com/docs/File:Cover-450.jpg" class="image" title="cover.450"><img alt="cover.450" src="DS1307%20real%20time%20clock%20-%20DP_files/Cover-450.jpg" width="450" height="225"></a>
+</p><p>The <a href="http://www.maxim-ic.com/quick_view2.cfm/qv_pk/2688" class="external text" rel="nofollow">DS1307</a> is a simple, inexpensive I2C <a href="http://en.wikipedia.org/wiki/Real-time_clock" class="external text" rel="nofollow">real-time clock</a>, it's somewhat similar to the <a href="http://hackaday.com/2009/06/26/parts-i2c-real-time-clock-calendar-pcf8563/" class="external text" rel="nofollow">PCF8563</a> that was previously demonstrated with the <a href="http://code.google.com/p/the-bus-pirate/" class="external text" rel="nofollow">Bus Pirate</a>.
+</p><p>This chip has some nice features. It has internal capacitors on 
+both oscillator pins, the only required external part is a 32.768kHz 
+time-keeping crystal. It also has a backup battery input so it can keep 
+time during power failures. The battery backup also applies to 56byte of
+ general purpose RAM.
+</p><p>Keep reading for a complete DS1307 demo using the Bus Pirate 
+universal serial interface. If you're not using a Bus Pirate, that's OK,
+ you can still follow along and get a better understanding of how to 
+implement this chip in your own application.
+</p><p><br>
+</p>
+<h2> <span class="mw-headline" id="Overview">Overview</span></h2>
+<ul><li> <b>Chip:</b> <a href="http://www.maxim-ic.com/quick_view2.cfm/qv_pk/2688" class="external text" rel="nofollow">DS1307</a>, I2C real-time clock.
+</li><li> <b>Bus:</b> <a href="http://en.wikipedia.org/wiki/I%C2%B2C" class="external text" rel="nofollow">I2C</a>, <a href="http://en.wikipedia.org/wiki/Pull-up_resistor" class="external text" rel="nofollow">pull-up resistors</a> required.
+</li><li> <b>Power requirements:</b> 5volts (4.25-5.525volts).
+</li><li> <b>References:</b> <a href="http://datasheets.maxim-ic.com/en/ds/DS1307.pdf" class="external text" rel="nofollow">datasheet</a> [PDF].
+</li><li> <a href="http://code.google.com/p/the-bus-pirate/source/browse/trunk/hardware/adapters/demos/DS1307.txt" class="external text" rel="nofollow">Complete Bus Pirate session log for this demonstration</a>.
+</li></ul>
+<p><br>
+</p>
+<h2> <span class="mw-headline" id="Setup">Setup</span></h2>
+<p><a href="http://dangerousprototypes.com/docs/File:Cct1.png" class="image" title="cct"><img alt="cct" src="DS1307%20real%20time%20clock%20-%20DP_files/Cct1.png" width="445" height="145"></a>
+</p><p>The schematic above shows the DS1307 pinout and minimum circuit. 
+The oscillator has internal capacitors, so an external 32.768kHz crystal
+ is the only required external component. The chip requires a 5volt 
+power supply.
+</p>
+<table border="0">
+<tbody><tr>
+<td> <b>Bus Pirate</b>
+</td><td> <b>DS1307 (pin)<br></b>
+</td></tr>
+<tr>
+<td> MOSI/SDA
+</td><td> SDA (5)
+</td></tr>
+<tr>
+<td> CLOCK/SCL
+</td><td> SCL (6)
+</td></tr>
+<tr>
+<td> +5volts, Vpullup
+</td><td> +5volts (8)
+</td></tr>
+<tr>
+<td> GND
+</td><td> GND (4)
+</td></tr></tbody></table>
+<p>Connect the Bus Pirate to the DS1307 as shown in the table. We 
+powered the DS1307 from the Bus Pirate's 5volt supply, and used the 
+on-board pull-up resistors to hold the I2C bus high.
+</p>
+<p style="padding-left: 30px;">I2C&gt;W<span style="text-decoration: underline;"><b>&lt;&lt; power supplies on</b></span><br>
+POWER SUPPLIES ON<br>
+I2C&gt;p<span style="text-decoration: underline;"><b>&lt;&lt; configure pull-up resistors</b></span><br>
+1. Pull-ups off<br>
+2. Pull-ups on<br>
+(1) &gt;2<br>
+Pull-up resistors ON<br>
+I2C&gt;(1)<span style="text-decoration: underline;"><b>&lt;&lt; address scan macro </b></span><br>
+Searching 7bit I2C address space.<br>
+Found devices at:<br>
+0xD0(0x68 W) 0xD1(0x68 R)<br>
+I2C&gt;</p>
+<p>In the Bus Pirate terminal select the mode menu (m) and choose I2C. 
+Choose software I2C, any speed 400kHz or less is fine. Turn on the Bus 
+Pirate power supplies (big W) and enable the pull-up resistors (p). We 
+used the I2C scan macro (1) to find the DS1307 address, you could also 
+refer to the datasheet.
+</p><p>If you're not using a Bus Pirate, that's OK, you can still follow
+ along and get a better understanding of how to implement this chip in 
+your own application.
+</p>
+<h2> <span class="mw-headline" id="Interfacing">Interfacing</span></h2>
+<p><a href="http://dangerousprototypes.com/docs/File:Table2-pg81.png" class="image" title="table2-pg8"><img alt="table2-pg8" src="DS1307%20real%20time%20clock%20-%20DP_files/Table2-pg81.png" width="450" height="187"></a>
+</p><p>Table 2 from page 9 of the datasheet shows the location of values
+ in the DS1307 memory. The first 8 bytes hold the time and configuration
+ settings (0x00-0x07), the upper bytes are blank and can be used as 
+extra RAM (0x08-0x3f).
+</p><p>Set the time by writing to the first eight memory locations of the DS1307.
+</p>
+<p style="padding-left: 30px;">I2C&gt;[0xd0 0 0 0b00110000 0b00001001 0b00000010 0b00000111 0b00001001 0b00001001 0]<br>
+I2C START BIT<br>
+WRITE: 0xD0 ACK<span style="text-decoration: underline;"><b>&lt;&lt; DS1307 write address</b></span><br>
+WRITE: 0x00 ACK<span style="text-decoration: underline;"><b>&lt;&lt; location to write</b></span><br>
+WRITE: 0x00 ACK<span style="text-decoration: underline;"><b>&lt;&lt; 0 seconds, reset CH bit to 0</b></span><br>
+WRITE: 0x30 ACK<span style="text-decoration: underline;"><b>&lt;&lt; 30 minutes</b></span><br>
+WRITE: 0x09 ACK<span style="text-decoration: underline;"><b>&lt;&lt; 9 hours, 24 hour clock mode</b></span><br>
+WRITE: 0x02 ACK<span style="text-decoration: underline;"><b>&lt;&lt; Monday (day 2)</b></span><br>
+WRITE: 0x07 ACK<span style="text-decoration: underline;"><b>&lt;&lt; 7th (date)</b></span><br>
+WRITE: 0x09 ACK<span style="text-decoration: underline;"><b>&lt;&lt; September (month)</b></span><br>
+WRITE: 0x09 ACK<span style="text-decoration: underline;"><b>&lt;&lt; '09 (year)</b></span><br>
+<span style="text-decoration: underline;">'<i><b></b></i></span><i><b>WRITE: 0x00 ACK<span style="text-decoration: underline;"></span></b>&lt;&lt; Set control register to 0'</i><br>
+I2C STOP BIT<br>
+I2C&gt;</p>
+<p>0xd0 is the write address, followed by the memory location to write (0). Next come the time settings: 9:30:00 Monday 09/07/09.
+</p><p>Note that the numbers are represented as digits on a clock, 
+rather than as decimal numbers. To represent 35minutes write 3 to bits 
+4-6, and write 5 to bits 0-3.
+</p><p>The CH bit of address 0x00 indicates a power failure, and is 
+reset by our update. Bit 6 of address 0x02 toggles between 12 and 24 
+hour time, we cleared it for 24 hour time. The control register 
+configures the square wave output pin (pin1), see page 9 of the 
+datasheet for an overview of its functions.
+</p><p>Now, read back the time.
+</p>
+<p style="padding-left: 30px;">I2C&gt;[0xd0 0 [0xd1 rrrrrrrr]<br>
+I2C START BIT<br>
+WRITE: 0xD0 ACK<span style="text-decoration: underline;"><b>&lt;&lt; DS1307 write address</b></span><br>
+WRITE: 0x00 ACK<span style="text-decoration: underline;"><b>&lt;&lt; set write pointer</b></span><br>
+I2C START BIT<br>
+WRITE: 0xD1 ACK<span style="text-decoration: underline;"><b>&lt;&lt; DS1307 read address</b></span><br>
+READ: 0x30 ACK<span style="text-decoration: underline;"><b>&lt;&lt; 30 seconds</b></span><br>
+READ: 0x30 ACK<span style="text-decoration: underline;"><b>&lt;&lt; 30 minutes</b></span><br>
+READ: 0x09 ACK<span style="text-decoration: underline;"><b>&lt;&lt; 9 hours, 24 hour clock mode</b></span><br>
+READ: 0x02 ACK<span style="text-decoration: underline;"><b>&lt;&lt; Monday (day 2)</b></span><br>
+READ: 0x07 ACK<span style="text-decoration: underline;"><b>&lt;&lt; 7th (date)</b></span><br>
+READ: 0x09 ACK<span style="text-decoration: underline;"><b>&lt;&lt; September (month)</b></span><br>
+READ: 0x09 ACK<span style="text-decoration: underline;"><b>&lt;&lt; '09 (year)</b></span><br>
+READ: 0x00 NACK<span style="text-decoration: underline;"><b>&lt;&lt; Control register</b></span><br>
+I2C STOP BIT<br>
+I2C&gt;</p>
+<p>Read the time by setting the address pointer to 0 with a partial 
+write operation ([0xd0 0), then reading 8 bytes from the read address 
+(0xd1). We could have used a repeated read command (r:8), but we wanted 
+to address each individual byte in the demonstration. We did this 
+immediately after setting the time, so only 30 seconds have elapsed: 
+9:30:30 Monday 09/07/09.
+</p><p>The DS1307 also has a bit of additional RAM that can be used for general purpose storage.
+</p>
+<p style="padding-left: 30px;">I2C&gt;[0xd0 8 3 2 1]<br>
+I2C START BIT<br>
+WRITE: 0xD0 ACK<span style="text-decoration: underline;"><b>&lt;&lt; DS1307 write address</b></span><br>
+WRITE: 0x08 ACK<span style="text-decoration: underline;"><b>&lt;&lt; set write pointer to 0x08</b></span><br>
+WRITE: 0x03 ACK<span style="text-decoration: underline;"><b>&lt;&lt; write these values</b></span><br>
+WRITE: 0x02 ACK<br>
+WRITE: 0x01 ACK<br>
+I2C STOP BIT<br>
+I2C&gt;</p>
+<p>The RAM starts at memory address 0x08, and continues to 0x3f. Write 
+to it just like the previous registers: send the I2C write address 
+(0xd1), the location to start writing (8), and the values to store (3 2 
+1).
+</p>
+<p style="padding-left: 30px;">I2C&gt;[0xd0 8 [ 0xd1 r:3]<br>
+I2C START BIT<br>
+WRITE: 0xD0 ACK<span style="text-decoration: underline;"><b>&lt;&lt; DS1307 write address</b></span><br>
+WRITE: 0x08 ACK<span style="text-decoration: underline;"><b>&lt;&lt; set write pointer to 0x08</b></span><br>
+I2C START BIT<br>
+WRITE: 0xD1 ACK<span style="text-decoration: underline;"><b>&lt;&lt; DS1307 read address</b></span><br>
+READ 0x03 BYTES:<span style="text-decoration: underline;"><b>&lt;&lt; read back three values</b></span><br>
+0x03 ACK 0x02 ACK 0x01 NACK<br>
+I2C STOP BIT<br>
+I2C&gt;</p>
+<p>Reading from the RAM is also straight forward. Set the starting 
+memory address with a partial write command ([0xd0 8), then read data 
+from the read address ([0xd1 r:3]). We got the same values we entered (3
+ 2 1).
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 131/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key dp_mediawiki-wiki_:pcache:idhash:184-0!1!0!!en!2!edit=0 and timestamp 20160530110810 -->
+<div class="printfooter">
+Retrieved from "<a href="http://dangerousprototypes.com/docs/DS1307_real_time_clock">http://dangerousprototypes.com/docs/DS1307_real_time_clock</a>"</div>
+										<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://dangerousprototypes.com/docs/Special:Categories" title="Special:Categories">Categories</a>: <span dir="ltr"><a href="http://dangerousprototypes.com/docs/Category:Projects" title="Category:Projects">Projects</a></span> | <span dir="ltr"><a href="http://dangerousprototypes.com/docs/Category:Bus_Pirate" title="Category:Bus Pirate">Bus Pirate</a></span> | <span dir="ltr"><a href="http://dangerousprototypes.com/docs/Category:Chip_demos" title="Category:Chip demos">Chip demos</a></span></div></div>										<!-- end content -->
+																				<div class="visualClear"></div>
+									</div><!--// End ContentBody -->
+								</div><!--// End ContenArea -->
+							</div><!--// inner -->
+						</div><!--// End Content -->
+						
+												<!--// TODO: Add Wiki Navigation to TopNav, remove Sidebars from Wiki -->
+						<!-- Begin Sidebar left //-->
+						<div id="sidebar-left">
+							<div class="region region-left" id="sidebar-left-inner">
+							<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+								<!-- Begin CustomBox //-->
+	<div class="generated-sidebar portlet" id="p-jump_to">
+		<h5>jump to</h5>
+		<div class="pBody">
+		<ul><li><a href="http://dangerousprototypes.com/docs/Main_Page" title="Main Page">Projects homepage</a>
+</li><li><a href="http://dangerousprototypes.com/docs/Bus_Pirate" title="Bus Pirate">Bus Pirate</a>
+</li><li><a href="http://dangerousprototypes.com/docs/USB_Infrared_Toy" title="USB Infrared Toy">USB Infrared toy</a>
+</li><li><a href="http://dangerousprototypes.com/docs/Web_Platform" title="Web Platform">Web platform</a>
+</li><li><a href="http://dangerousprototypes.com/docs/Bus_Blaster" title="Bus Blaster">Bus Blaster</a>
+</li><li><a href="http://dangerousprototypes.com/docs/Open_Bench_Logic_Sniffer" title="Open Bench Logic Sniffer">Logic Sniffer</a>
+</li><li><a href="http://dangerousprototypes.com/docs/CPLD:_Complex_programmable_logic_devices" title="CPLD: Complex programmable logic devices">CPLD dev boards</a>
+</li><li><a href="http://dangerousprototypes.com/docs/Logic_Shrimp_logic_analyzer" title="Logic Shrimp logic analyzer">Logic Shrimp</a>
+</li><li><a href="http://dangerousprototypes.com/docs/Dangerous_Prototypes_breakout_boards" title="Dangerous Prototypes breakout boards">Breakout boards</a>
+</li><li><a href="http://dangerousprototypes.com/docs/Dangerous_Proto_boards" title="Dangerous Proto boards" class="mw-redirect">Proto boards</a>
+</li><li><a href="http://dangerousprototypes.com/docs/Twatch_networked_LCD" title="Twatch networked LCD">#twatch network LCD</a>
+</li><li><a href="http://dangerousprototypes.com/docs/Flash_Destroyer" title="Flash Destroyer">Flash Destroyer</a>
+</li><li><a href="http://dangerousprototypes.com/docs/Dangerous_Prototypes_Projects_In_Development" title="Dangerous Prototypes Projects In Development">In development</a>
+</li><li><a href="http://dangerousprototypes.com/docs/Partlist" title="Partlist">Partlist and reference</a>
+</li><li><a href="http://dangerousprototypes.com/docs/Special:RecentChanges" title="Special:RecentChanges">Recent changes</a>
+</li></ul>
+		</div>
+	</div><!--// End CustomBox -->
+
+	<!-- Begin CustomBox //-->
+	<div class="generated-sidebar portlet" id="p-_projects">
+		<h5> projects</h5>
+		<div class="pBody">
+		<p><a href="http://dangerousprototypes.com/docs/Bus_Pirate_LCD_adapter_v2"><img src="DS1307%20real%20time%20clock%20-%20DP_files/bplcd-ad-125.jpg" width="125" height="125">
+</a></p><a href="http://dangerousprototypes.com/docs/Bus_Pirate_LCD_adapter_v2">		</a></div><a href="http://dangerousprototypes.com/docs/Bus_Pirate_LCD_adapter_v2">
+	</a></div><!--// End CustomBox --><a href="http://dangerousprototypes.com/docs/Bus_Pirate_LCD_adapter_v2">
+
+	<!-- Begin CustomBox //-->
+	</a><div class="generated-sidebar portlet" id="p-buy_stuff"><a href="http://dangerousprototypes.com/docs/Bus_Pirate_LCD_adapter_v2">
+		<h5>buy stuff</h5>
+		</a><div class="pBody"><a href="http://dangerousprototypes.com/docs/Bus_Pirate_LCD_adapter_v2">
+		</a><ul><a href="http://dangerousprototypes.com/docs/Bus_Pirate_LCD_adapter_v2"></a><li><a href="http://dangerousprototypes.com/docs/Bus_Pirate_LCD_adapter_v2"></a><a href="http://www.seeedstudio.com/depot/bus-pirate-v3-assembled-p-609.html?cPath=61_68" class="external text" rel="nofollow">Bus Pirate v3</a>
+</li><li><a href="http://www.seeedstudio.com/depot/usb-infraed-toy-p-607.html?cPath=61_68" class="external text" rel="nofollow">USB Infrared Toy</a>
+</li><li><a href="http://www.seeedstudio.com/depot/web-platform-kit-p-582.html?cPath=61_68" class="external text" rel="nofollow">web platform</a>
+</li><li><a href="http://www.seeedstudio.com/depot/bus-blaster-v2-jtag-debugger-p-807.html" class="external text" rel="nofollow">Bus Blaster v2</a>
+</li><li><a href="http://www.seeedstudio.com/depot/preorder-open-workbench-logic-sniffer-p-612.html?cPath=75" class="external text" rel="nofollow">Logic Sniffer</a>
+</li></ul>
+		</div>
+	</div><!--// End CustomBox -->
+
+	<!-- Begin Search //-->
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/docs/index.php" id="searchform">
+				<input name="title" value="Special:Search" type="hidden">
+				<input id="searchInput" title="Search DP" accesskey="f" name="search" type="search">				<input name="go" class="searchButton" id="searchGoButton" value="Go" title="Go to a page with this exact name if exists" type="submit">
+								&nbsp;
+				<input name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" type="submit">
+							</form>
+		</div>
+	</div><!--// End Search -->
+	<!-- Begin ToolBox //-->
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+							<li id="t-whatlinkshere">
+					<a href="http://dangerousprototypes.com/docs/Special:WhatLinksHere/DS1307_real_time_clock" title="List of all wiki pages that link here [j]" accesskey="j">
+						What links here					</a>
+				</li>
+							<li id="t-recentchangeslinked">
+					<a href="http://dangerousprototypes.com/docs/Special:RecentChangesLinked/DS1307_real_time_clock" title="Recent changes in pages linked from this page [k]" accesskey="k">
+						Related changes					</a>
+				</li>
+							
+						
+							
+																															<li id="t-specialpages">
+					<a href="http://dangerousprototypes.com/docs/Special:SpecialPages" title="List of all special pages [q]" accesskey="q">
+					Special pages				 	</a>
+				 </li>
+			 				 
+			 				 <li id="t-print">
+				 	<a href="http://dangerousprototypes.com/docs/index.php?title=DS1307_real_time_clock&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">
+				 	Printable version				 	</a>
+			 	</li>
+		 				 	
+		 				 	<li id="t-permalink">
+				 	<a href="http://dangerousprototypes.com/docs/index.php?title=DS1307_real_time_clock&amp;oldid=6613" title="Permanent link to this revision of the page">
+					Permanent link					</a>
+				</li>
+						</ul>
+		</div>
+	</div><!--// End Toolbox -->
+	
+							</div>
+						</div><!--// End Sidebar left -->
+			
+						<!-- Begin Sidebar right //-->
+						<div id="sidebar-right">
+							<div class="region region-right" id="sidebar-right-inner">
+								<div id="pcactions" class="portlet">
+									<h5>Views</h5>
+									<div class="pBody">
+										<ul>
+										<li id="ca-nstab-main" class="selected"><a href="http://dangerousprototypes.com/docs/DS1307_real_time_clock" title="View the content page [c]" accesskey="c">Page</a></li><li id="ca-talk" class="new"><a href="http://dangerousprototypes.com/docs/index.php?title=Talk:DS1307_real_time_clock&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li><li id="ca-viewsource"><a href="http://dangerousprototypes.com/docs/index.php?title=DS1307_real_time_clock&amp;action=edit" title="This page is protected.
+You can view its source [e]" accesskey="e">View source</a></li><li id="ca-history"><a href="http://dangerousprototypes.com/docs/index.php?title=DS1307_real_time_clock&amp;action=history" title="Past revisions of this page [h]" accesskey="h">History</a></li>										</ul>
+									</div>
+								</div>
+								<div class="portlet">
+									<h5>Personal tools</h5>
+									<div class="pBody">
+										<ul>
+																						<li id="pt-login"><a href="http://dangerousprototypes.com/docs/index.php?title=Special:UserLogin&amp;returnto=DS1307_real_time_clock" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a>
+											</li>
+																					</ul>
+									</div>
+								</div>
+							</div>
+						</div><!--// End Sidebar right -->
+											</div>
+				</div><!--// End Main -->				
+				<div id="push"></div>
+			</div><!--// page-inner -->
+		</div><!--// page -->
+	</div><!--// End Global Wrapper -->
+	
+	<!--// TODO: Add real Clearfix -->
+	<div class="visualClear"></div>
+	<!-- Begin Footer //-->
+	<!--// TODO: Add SideWide Global Footer -->
+	<div id="footer">
+		<div class="region region-footer" id="footer-inner">
+			<div class="widget-container widget_text contact" id="text-6">
+				<h3 class="widget-title">Site</h3>
+				<div class="textwidget">
+									<ul id="f-list">
+																<li id="lastmod">
+							 This page was last modified on 12 February 2011, at 05:55.						</li>
+									 	</ul>
+				 						<br>
+					Copyright 2011 Where Labs, LLC.<br>
+					CC BY-SA unless otherwise noted.
+				</div>
+			</div>
+			<div class="widget-container widget_text connect" id="text-7">
+				<h3 class="widget-title">Connect</h3>
+				<div class="textwidget">
+					<ul>
+						<li><a title="Follow us on twitter" href="http://twitter.com/#%21/dangerousproto">Follow us on Twitter</a></li>
+						<li><a href="http://dangerousprototypes.com/feed" title="Subscribe to rss feed">Subscribe to our feed</a></li>
+						<li><a href="http://dangerousprototypes.com/comments/feed" title="Subcribe to comments">Subscribe to our comments</a></li>
+						<li><a title="Visit our Facebook page" href="http://www.facebook.com/pages/Dangerous-Prototypes/127701397281222">Visit our Facebook page</a></li>
+						<li><a href="http://dangerousprototypes.com/contact-us">Send us an email</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="widget-container widget_text projects" id="text-8">
+				<h3 class="widget-title">Projects</h3>
+				<div class="textwidget">
+					<ul>
+						<li><a title="Bus Blaster v2" href="http://www.seeedstudio.com/depot/bus-blaster-v2-jtag-debugger-p-807.html">Get a Bus Blaster v2</a></li>
+						<li><a href="http://www.seeedstudio.com/depot/bus-pirate-v3-assembled-p-609.html?cPath=61_68">Get a Bus Pirate v3</a></li>
+						<li><a href="http://www.seeedstudio.com/depot/flash-destroyer-eeprom-tester-p-630.html?cPath=61_68">Get a Flash Destroyer kit</a></li>
+						<li><a href="http://www.seeedstudio.com/depot/preorder-open-workbench-logic-sniffer-p-612.html?cPath=75">Get a Logic Sniffer</a></li>
+						<li><a href="http://www.seeedstudio.com/depot/usb-infrared-toy-v2-p-831.html?cPath=174">Get a USB Infrared Toy</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="widget-container widget_text about-us" id="text-9">
+				<h3 class="widget-title">About Us</h3>
+				<div class="textwidget">Our goal is to release a new open source 
+hardware project every month.  Copies of our projects are available 
+through Seeed Studio and our distributors.</div>
+			</div>
+		</div>
+	</div><!--// End Footer -->
+	<!-- Begin JavaScripts //-->
+	
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Piwik -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://dangerousprototypes.com/piwik/" : "http://dangerousprototypes.com/piwik/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+/* ]]> */
+</script><script src="DS1307%20real%20time%20clock%20-%20DP_files/piwik.html" type="text/javascript"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+piwikTracker.setDocumentTitle("");
+piwikTracker.setIgnoreClasses("image");
+
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+/* ]]> */
+</script><noscript><p><img src="http://dangerousprototypes.com/piwik/piwik.php?idsite=1" style="border:0" alt=""/></p></noscript>
+<!-- /Piwik -->	<!--// End JavaScripts -->
+	<!-- Served in 0.063 secs. -->		
+
+
+</body></html>

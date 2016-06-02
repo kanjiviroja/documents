@@ -1,0 +1,33 @@
+root@colibri-vf:~# i2cget 0 0x20 4 b
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will read from device file /dev/i2c-0, chip address 0x20, data address
+0x04, using read byte data.
+Continue? [Y/n] Y
+Error: Read failed
+root@colibri-vf:~# i2cget 0 0x48 4 b                                                                                                                                                                                
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will read from device file /dev/i2c-0, chip address 0x48, data address
+0x04, using read byte data.
+Continue? [Y/n] Y
+Error: Read failed
+root@colibri-vf:~# i2cget 0 0x5f 4 b                                                                                                                                                                                
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will read from device file /dev/i2c-0, chip address 0x5f, data address
+0x04, using read byte data.
+Continue? [Y/n] Y
+0x00
+root@colibri-vf:~# 
+root@colibri-vf:~# 
+root@colibri-vf:~# i2cset 0 0x5f 4 0x18 b                                                                                                                                                                           
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will write to device file /dev/i2c-0, chip address 0x5f, data address
+0x04, data 0x18, mode byte.
+Continue? [Y/n] Y
+root@colibri-vf:~# i2cget 0 0x5f 4 b
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will read from device file /dev/i2c-0, chip address 0x5f, data address
+0x04, using read byte data.
+Continue? [Y/n] Y
+0x18
+root@colibri-vf:~# 
+
